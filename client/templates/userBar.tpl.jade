@@ -1,0 +1,9 @@
+if currentUser
+   ul.nav.navbar-nav.navbar-right
+      li.dropdown.profile.hidden-xs(style='width:180px')
+         a.dropdown-toggle(href='#', data-toggle='dropdown')
+            div.pull-right.meta(style='width:100px')
+               span.text {{ currentUser.profile.name }}
+               span.caret
+         | {{> profileMenu}}
+

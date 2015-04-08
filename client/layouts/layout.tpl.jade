@@ -1,0 +1,20 @@
+#dialogContainer
+.modal2
++bertAlert
+section#main-wrapper.theme-dark-blue-full
+   | {{> userHeader}}
+   // sidebar left start
+   | {{> leftMenu}}
+   // sidebar left end
+   // main content start
+   section.main-content-wrapper
+      .pageheader
+         | {{> yield "title"}}
+         .breadcrumb-wrapper.hidden-xs
+            span.label You are here:
+            ol.breadcrumb
+               | {{> yield "breadcrubms"}}
+      section#main-content.animated.fadeInUp
+         | {{>yield}}
+   // main content end
+   | {{> footer}}
