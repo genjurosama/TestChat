@@ -1,0 +1,21 @@
++contentFor "title"
+   h1 Users
++contentFor "breadcrubms"
+   li
+      a(href="{{pathFor 'admin'}}") Admin
+   li.active
+      a(href="{{pathFor 'admin.snipets'}}") Audit Snipets
+
++adminTabs
+
+   +autoForm(collection="colAdminSystem" id="itemSnipets" type="update" doc=systemData)
+      button.btn.btn-block.btn-success(type="submit")
+         | Save Changes
+      +afQuickField name='snipets'
+      button.btn.btn-block.btn-success(type="submit")
+         | Save Changes
+
+
+
+
+

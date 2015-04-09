@@ -1,4 +1,5 @@
-Router.route "index"
+Router.route "index",
+  path: "/"
 
 Router.route 'signup',
   template: 'signUp'

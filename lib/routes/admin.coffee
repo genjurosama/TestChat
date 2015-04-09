@@ -6,6 +6,12 @@ Router.route "admin.users"
 Router.route "admin.itemDD",
   waitOn: ()->
     return [subs.subscribe "colAdminSystem"]
-Router.route "admin.snipets"
-Router.route "admin.repSources"
-Router.route "admin.groupEmails"
+Router.route "admin.snipets",
+  waitOn: ()->
+    return [subs.subscribe "colAdminSystem"]
+Router.route "admin.repSources",
+  waitOn: ()->
+    return [subs.subscribe "colAdminSystem"]
+Router.route "admin.groupEmails",
+  waitOn: ()->
+    return [subs.subscribe "colAdminSystem"]

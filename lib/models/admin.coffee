@@ -38,6 +38,21 @@ if !@Schema
   "publicRecordStatus.$":
     type: String
 
+  snipets:
+    type: Array
+    optional: true
+  "snipets.$":
+    type: Object
+  "snipets.$.title":
+    type: String
+  "snipets.$.snipet":
+    type: String
+    autoform:
+      afFieldInput:
+        type: "textarea"
+
+
+
   instructions:
     type: Array
     optional: true

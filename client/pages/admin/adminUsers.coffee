@@ -1,8 +1,12 @@
 Template.adminUsers.rendered = ()->
   $(document).ready ->
+
     # Add event listener for opening and closing details
-    table = $('#DataTables_Table_0').DataTable()
-    $('#DataTables_Table_0').on 'click', 'td.details-control', ->
+    str = '#DataTables_Table_0'
+    if !$(str)[0]
+      str='#DataTables_Table_1'
+    table = $(str).DataTable()
+    $(str).on 'click', 'td.details-control', ->
       tr = $(this).closest('tr')
       row = table.row(tr)
       if row.child.isShown()
