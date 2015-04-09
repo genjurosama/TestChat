@@ -1,0 +1,93 @@
++contentFor "title"
+   h1 Users
++contentFor "breadcrubms"
+   li
+      a(href="{{pathFor 'admin'}}") Admin
+   li.active
+      a(href="{{pathFor 'admin.itemDD'}}") Item Drop Downs
+
++adminTabs
+
+   .panel.panel-primary
+      .panel-heading
+         h3.panel-title
+            a.collapsed(data-toggle='collapse', data-target='#collapse1', href='#collapse1')
+               | Instructions
+      .panel-body#collapse1.panel-collapse.collapse
+         +autoForm(collection="colAdminSystem" id="itemInstructions" type="update" doc=systemData)
+            +afQuickField name='instructions'
+            button.btn.btn-block.btn-success(type="submit")
+               | Save Changes
+
+
+   .panel.panel-primary
+      .panel-heading
+         h3.panel-title
+            a.collapsed(data-toggle='collapse', data-target='#collapse2', href='#collapse2')
+               | Account Types (Original Creditors)
+      .panel-body#collapse2.panel-collapse.collapse
+         +autoForm(collection="colAdminSystem" id="itemInstructions" type="update" doc=systemData)
+            +afQuickField name='accountTypes'
+            button.btn.btn-block.btn-success(type="submit")
+               | Save Changes
+
+   .panel.panel-primary
+      .panel-heading
+         h3.panel-title
+            a.collapsed(data-toggle='collapse', data-target='#collapse3', href='#collapse3')
+               | Account Responsibility
+      .panel-body#collapse3.panel-collapse.collapse
+         +autoForm(collection="colAdminSystem" id="itemInstructions" type="update" doc=systemData)
+            +afQuickField name='accountResponsibility'
+            button.btn.btn-block.btn-success(type="submit")
+               | Save Changes
+
+
+   .panel.panel-primary
+      .panel-heading
+         h3.panel-title
+            a.collapsed(data-toggle='collapse', data-target='#collapse4', href='#collapse4')
+               | Account Status
+      .panel-body#collapse4.panel-collapse.collapse
+         +autoForm(collection="colAdminSystem" id="itemInstructions" type="update" doc=systemData)
+            +afQuickField name='accountStatus'
+            button.btn.btn-block.btn-success(type="submit")
+               | Save Changes
+
+
+   .panel.panel-primary
+      .panel-heading
+         h3.panel-title
+            a.collapsed(data-toggle='collapse', data-target='#collapse5', href='#collapse5')
+               | Collection Status
+      .panel-body#collapse5.panel-collapse.collapse
+         +autoForm(collection="colAdminSystem" id="itemInstructions" type="update" doc=systemData)
+            +afQuickField name='collectionStatus'
+            button.btn.btn-block.btn-success(type="submit")
+               | Save Changes
+
+
+   .panel.panel-primary
+      .panel-heading
+         h3.panel-title
+            a.collapsed(data-toggle='collapse', data-target='#collapse6', href='#collapse6')
+               | Public Record Types
+      .panel-body#collapse6.panel-collapse.collapse
+         +autoForm(collection="colAdminSystem" id="itemInstructions" type="update" doc=systemData)
+            +afQuickField name='publicRecordTypes'
+            button.btn.btn-block.btn-success(type="submit")
+               | Save Changes
+
+
+   .panel.panel-primary
+      .panel-heading
+         h3.panel-title
+            a.collapsed(data-toggle='collapse', data-target='#collapse7', href='#collapse7')
+               | Public Records Status
+      .panel-body#collapse7.panel-collapse.collapse
+         +autoForm(collection="colAdminSystem" id="itemInstructions" type="update" doc=systemData)
+            +afQuickField name='publicRecordStatus'
+            button.btn.btn-block.btn-success(type="submit")
+               | Save Changes
+
+

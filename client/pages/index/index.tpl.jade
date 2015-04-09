@@ -32,44 +32,9 @@
                         i.icon-user
                         span.total.text-center 12,680
                         span.title.text-center Signups
-    .col-xs-12.col-sm-6.col-md-6.col-lg-3
-        .panel.panel-default.browser-chart
-            .panel-heading
-                h3.panel-title BROWSER STATS
-            .panel-body
-                .row
-                    .col-xs-6.col-sm-6.col-md-6.col-lg-6
-                        ul
-                            li
-                                i.fa.fa-circle.success-color
-                                | Chrome
-                            li
-                                i.fa.fa-circle.primary-color
-                                | IE
-                            li
-                                i.fa.fa-circle.warning-color
-                                | Safari
-                            li
-                                i.fa.fa-circle.info-color
-                                | Firefox
-                            li
-                                i.fa.fa-circle.default-color
-                                | Other
-                    .col-xs-6.col-sm-6.col-md-6.col-lg-6
-                        #doughnut-canvas-holder
-                            canvas#doughnut-chart-area(width='137', height='137')
-    .col-xs-12.col-sm-6.col-md-6.col-lg-3
-        .panel.panel-default
-            .panel-heading
-                h3.panel-title Monthly Goal
-            .panel-body.widget-gauge
-                canvas#gauge(width='160', height='100')
-                .goal-wrapper
-                    span.gauge-value.pull-left $
-                    span#gauge-text.gauge-value.pull-left 3,200
-                    span#goal-text.goal-value.pull-right $5,000
-.row
-    .col-md-12.col-lg-12
+
+
+    .col-md-12.col-lg-6
         .panel.panel-default
             .panel-heading
                 h3.panel-title SERVER STATS
@@ -79,7 +44,7 @@
                     b.caret
             .panel-body.server-chart
                 .row
-                    .col-md-12.col-lg-4
+                    .col-md-12.col-lg-12
                         ul
                             li
                                 span.text-left Network Usage
@@ -90,84 +55,5 @@
                                 .progress.progress-xs
                                     .progress-bar.progress-bar-info(role='progressbar', aria-valuenow='40', aria-valuemin='0', aria-valuemax='100', style='width: 40%')
                         p
-                            | Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula.
-                    .col-md-12.col-lg-8
-                        .row
-                            .col-md-12.col-lg-6
-                                .line-chart
-                                    canvas#canvas1(height='100')
-                            .col-md-12.col-lg-6
-                                .bar-chart
-                                    canvas#canvas2(height='100')
-.row
-    .col-xs-12.col-sm-12.col-md-12.col-lg-4
-        .panel.panel-default.chat-widget
-            .panel-heading
-                h3.panel-title chat
-                .actions.pull-right
-                    i.fa.fa-chevron-down
-                    i.fa.fa-times
-            .panel-body
-                .row.wrapper.animated.fadeInRight
-                    .col-xs-2.col-sm-2.col-md-2
-                        span.avatar
-                            img.img-circle(src='assets/img/avatar3.png', alt='')
-                            i.on.animated.bounceIn
-                    .col-xs-10.col-sm-10.col-md-10
-                        .post.default
-                            span.arrow.left
-                            p
-                                | Hey Mike...Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibut
-                .row.wrapper.animated.fadeInLeft
-                    .col-xs-10.col-sm-10.col-md-10
-                        .post.primary
-                            span.arrow.right
-                            p
-                                | Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et.
-                    .col-xs-2.col-sm-2.col-md-2
-                        span.avatar
-                            img.img-circle(src='assets/img/profile.jpg', alt='')
-                            i.on.animated.bounceIn
-            .panel-footer
-                form
-                    .input-group
-                        input.form-control(type='text', placeholder='Say something')
-                        span.input-group-btn
-                            button.btn.btn-primary(type='button') SEND
-    .col-xs-12.col-sm-12.col-md-6.col-lg-4
-        .panel
-            .panel-body
-                .calendar-block
-                    .cal1
-    .col-xs-12.col-sm-12.col-md-6.col-lg-4
-        .panel.panel.panel-default
-            .panel-heading
-                h3.panel-title Weather
-                .actions.pull-right
-                    i.fa.fa-chevron-down
-                    i.fa.fa-times
-            .panel-body.widget-weather
-                .row
-                    .col-xs-6.col-sm-6.col-md-6
-                        h3.text-center.title Today
-                        .text-center
-                            canvas#clear-day(width='75', height='75')
-                            .temp 62°C
-                    .col-xs-6.col-sm-6.col-md-6
-                        h3.text-center.title Tonight
-                        .text-center
-                            canvas#partly-cloudy-night(width='75', height='75')
-                            .temp 44°C
-            .panel-footer
-                .row
-                    .col-xs-6.col-sm-6.col-md-2
-                        h6.text-center.small-thin.uppercase Mon
-                        .text-center
-                            canvas#partly-cloudy-day(width='32', height='32')
-                            span 48°C
-                    .col-xs-6.col-sm-6.col-md-2
-                        h6.text-center.small-thin.uppercase Tue
-                        .text-center
-                            canvas#rain(width='32', height='32')
-                            span 39°C
-                 
+                            | Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+
