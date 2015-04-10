@@ -58,6 +58,7 @@ if !@Schema
       optional: false
       type: String
       regEx: SimpleSchema.RegEx.Email
+      label: "Email"
   createdAt:
     type: Date
     autoValue: ->

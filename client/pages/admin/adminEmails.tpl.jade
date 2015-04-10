@@ -1,17 +1,17 @@
 +contentFor "title"
-   h1 Audit Snipets
+   h1 Group Emails
 +contentFor "breadcrubms"
    li
       a(href="{{pathFor 'admin'}}") Admin
    li.active
-      a(href="{{pathFor 'admin.snipets'}}") Audit Snipets
+      a(href="{{pathFor 'admin.emails'}}") Group Emails
 
 +adminTabs
 
-   +autoForm(collection="colAdminSystem" id="itemSnipets" type="update" doc=systemData)
+   +autoForm(collection="colAdminSystem" id="itemEmails" type="update" doc=systemData)
       button.btn.btn-block.btn-success(type="submit")
          | Save Changes
-      +afQuickField name='snipets'
+      +afQuickField name='emails'
       button.btn.btn-block.btn-success(type="submit")
          | Save Changes
 

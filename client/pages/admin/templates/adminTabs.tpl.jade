@@ -1,16 +1,16 @@
 .row
   .col-md-12
     .tab-wrapper.tab-primary
-      ul.nav.nav-tabs
+      ul.nav.nav-tabs.responsive
         +topTab(path="admin.users")
-          | Users
+          | User Management
         +topTab(path="admin.itemDD")
           | Item Drop Downs
         +topTab(path="admin.snipets")
           | Audit Snipets
-        +topTab(path="admin.repSources")
+        +topTab(path="admin.sources")
           | Reporting Sources
-        +topTab(path="admin.groupEmails")
+        +topTab(path="admin.emails")
           | Group Emails
 
       .tab-content.main-tab-content

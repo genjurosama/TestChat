@@ -9,9 +9,9 @@ Router.route "admin.itemDD",
 Router.route "admin.snipets",
   waitOn: ()->
     return [subs.subscribe "colAdminSystem"]
-Router.route "admin.repSources",
+Router.route "admin.sources",
   waitOn: ()->
     return [subs.subscribe "colAdminSystem"]
-Router.route "admin.groupEmails",
+Router.route "admin.emails",
   waitOn: ()->
     return [subs.subscribe "colAdminSystem"]

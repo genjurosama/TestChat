@@ -51,6 +51,34 @@ if !@Schema
       afFieldInput:
         type: "textarea"
 
+  emails:
+    type: Object
+    optional: true
+  "emails.administrator":
+    type: String
+  "emails.processor":
+    type: String
+  "emails.sales":
+    type: String
+  "emails.customerService":
+    type: String
+  "emails.affiliate":
+    type: String
+
+
+  sources:
+    type: Array
+    optional: true
+  "sources.$":
+    type: Object
+  "sources.$.reportSource":
+    type: String
+  "sources.$.scoreModel":
+    type: String
+  "sources.$.loginURL":
+    type: String
+
+
 
 
   instructions:

@@ -12,6 +12,9 @@ tr.shown td{
     padding: 3px;
 }
 
+.bigModal{
+    min-width: 80%;
+}
 
 
 /* table mobile */
