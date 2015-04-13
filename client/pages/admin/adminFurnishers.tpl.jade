@@ -1,0 +1,13 @@
++contentFor "title"
+    h1 Furnishers
++contentFor "breadcrubms"
+    li
+        a(href="{{pathFor 'admin'}}") Admin
+    li.active
+        a(href="{{pathFor 'admin.furnishers'}}") Furnishers
++adminTabs
+    .container-fluid
+        .row
+            button.create-furnisher.btn.btn-primary.pull-left(data-toggle='modal', data-target='#myModal') Create new
+        .row
+            +tabular table=TabularTables.Furnishers class="table table-striped table-bordered table-condensed table-responsive"

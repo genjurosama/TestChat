@@ -3,6 +3,13 @@ Router.route "admin",
     Router.go("admin.users")
 
 Router.route "admin.users"
+Router.route "admin.furnishers"
+Router.route "admin.auditTree",
+  waitOn: ()->
+    return [
+      subs.subscribe "colAdminSystem",
+      subs.subscribe "colAuditItems"
+    ]
 Router.route "admin.itemDD",
   waitOn: ()->
     return [subs.subscribe "colAdminSystem"]

@@ -1,7 +1,28 @@
 if !@Schema
   @Schema = {}
-@Schema.adminSystem = new SimpleSchema(
 
+@Schema.furnishers = new SimpleSchema(
+  "name":
+    type: String
+  "address":
+    type: String
+  "city":
+    type: String
+  "state":
+    type: String
+  "zip":
+    type: String
+
+)
+
+@Schema.adminSystem = new SimpleSchema(
+  data:
+    type: Array
+    optional: true
+    blackbox: true
+  "data.$":
+    type: Object
+    blackbox: true
   accountTypes:
     type: Array
     optional: true
@@ -120,4 +141,5 @@ if !@Schema
 
 
 colAdminSystem.attachSchema(@Schema.adminSystem)
+colFurhishers.attachSchema(@Schema.furnishers)
 

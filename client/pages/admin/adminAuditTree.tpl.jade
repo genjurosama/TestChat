@@ -1,0 +1,11 @@
++contentFor "title"
+   h1 Audit Tree
++contentFor "breadcrubms"
+   li
+      a(href="{{pathFor 'admin'}}") Admin
+   li.active
+      a(href="{{pathFor 'admin.auditTree'}}") Audit Tree
++adminTabs
+   #nested
+      +nestedList
+

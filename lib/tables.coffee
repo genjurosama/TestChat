@@ -56,3 +56,39 @@ TabularTables.Users = new Tabular.Table
     }
   ]
   extraFields: ['profile', 'roles']
+
+TabularTables.Furnishers = new Tabular.Table
+  name: 'Furnishers'
+  collection: colFurhishers
+  columns: [
+    {
+      data: 'name'
+      title: 'Name'
+      width: '35%'
+    }
+    {
+      data: 'address'
+      title: 'Address'
+      width: '25%'
+    }
+    {
+      data: 'city'
+      title: 'City'
+      width: '15%'
+    }
+    {
+      data: 'state'
+      title: 'State'
+      width: '15%'
+    }
+    {
+      data: 'zip'
+      title: 'Zip'
+      width: '10%'
+    }
+    {
+      title: 'Actions'
+      width: '10%'
+      tmpl:_t 'cellFurnishersActions'
+    }
+  ]
