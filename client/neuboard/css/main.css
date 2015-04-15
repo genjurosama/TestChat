@@ -2117,7 +2117,7 @@ fieldset[disabled] .btn-warning.active {
   cursor: move;
   display: block;
   height: 30px;
-  margin: 5px 0;
+  margin: 8px 0 0 0;
   padding: 5px 10px;
   color: #333;
   text-decoration: none;

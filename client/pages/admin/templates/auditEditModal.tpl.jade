@@ -1,0 +1,17 @@
+#myModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+   .modal-dialog
+      .modal-content
+         .panel.panel-default
+            .panel-heading
+               h3.panel-title Audit Tree Item
+               .actions.pull-right
+                  i.fa.fa-times(data-dismiss='modal')
+
+            .panel-body
+               +autoForm(collection="colAuditItems" id="auditEdit" doc=this type=getType})
+                  +afQuickField name='title'
+                  if haveNoChildren
+                     +afQuickField name='description'
+
+                  button.btn.btn-block.btn-primary(type="submit")
+                     | Save

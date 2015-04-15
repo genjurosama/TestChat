@@ -15,7 +15,14 @@ tr.shown td{
 .bigModal{
     min-width: 80%;
 }
-
+.lnk {
+    margin-top: -15px;
+    color: green;
+    font-size: 11px;
+    padding-right: 10px;
+    cursor: pointer;
+    cursor: hand;
+}
 
 /* table mobile */
 @media only screen and (max-width: 800px) {

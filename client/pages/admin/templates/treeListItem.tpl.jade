@@ -1,7 +1,10 @@
 li.dd-item(data_id='item_{{id}}')
    .dd-handle {{getName id}}
-   a(href='audit_tree_modal.php?action=edit&tree_id=1', data-toggle='modal', data-target='#myModal-1', style='padding-right:10px;') Edit
-   a(href='audit_tree_modal.php?action=add&tree_id=1', data-toggle='modal', data-target='#myModal-1', style='padding-right:10px;') Add
+   a.lnk.edit-tree(data-toggle='modal', data-target='#myModal') Edit
+   if haveChildren
+      a.lnk.add-tree(data-toggle='modal', data-target='#myModal') Add
+   else
+      a.lnk.delete-tree Delete
    if haveChildren
       ol.dd-list
          each children

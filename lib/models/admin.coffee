@@ -1,6 +1,22 @@
 if !@Schema
   @Schema = {}
 
+@Schema.auditTree = new SimpleSchema(
+  "item_id":
+    type: String
+    autoValue: ()->
+      if this.isInsert
+        return moment().format("x")
+  "title":
+    type: String
+  "description":
+    type: String
+    optional: true
+    autoform:
+      afFieldInput:
+        type: "textarea"
+)
+
 @Schema.furnishers = new SimpleSchema(
   "name":
     type: String
@@ -142,4 +158,4 @@ if !@Schema
 
 colAdminSystem.attachSchema(@Schema.adminSystem)
 colFurhishers.attachSchema(@Schema.furnishers)
-
+colAuditItems.attachSchema(@Schema.auditTree)
