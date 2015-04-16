@@ -1,0 +1,48 @@
+#myModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+   .modal-dialog.bigModal
+      .modal-content
+         .panel.panel-default
+            .panel-heading
+               h3.panel-title Edit client
+
+               .actions.pull-right
+                  i.fa.fa-times(data-dismiss='modal')
+
+            .panel-body
+               +autoForm(collection="Meteor.users" id="clientEdit" doc=this)
+                  .col-sm-3
+                     +afQuickField name='profile.firstname'
+                     +afQuickField name='profile.lastname'
+                     +afQuickField name='profile.monitoringSite'
+                     +afQuickField name='profile.monitoringUsername'
+                     +afQuickField name='profile.monitoringPassword'
+                     +afQuickField name='profile.securityWord'
+                     +afQuickField name='profile.paymentArrangement'
+                  .col-sm-3
+                     +afQuickField name='profile.jointCustomer'
+                     +afQuickField name='profile.assignedTo'
+                     +afQuickField name='profile.salesRep'
+                     +afQuickField name='profile.affiliate'
+                     +afQuickField name='profile.parentAffiliate'
+                     +afQuickField name='profile.source'
+                  .col-sm-3
+                     +afQuickField name='profile.SSN'
+                     +afQuickField name='profile.billingStatus'
+                     +afQuickField name='profile.status'
+                     +afQuickField name='emails.0.address'
+                     +afQuickField name='profile.emailOptOut'
+                     +afQuickField name='profile.birthday'
+                     +afQuickField name='profile.enrollDate'
+                     +afQuickField name='profile.cancelDate'
+                  .col-sm-3
+                     +afQuickField name='profile.phone'
+                     +afQuickField name='profile.phone2'
+                     +afQuickField name='profile.birthday'
+                     +afQuickField name='profile.address'
+                     +afQuickField name='profile.address2'
+                     +afQuickField name='profile.city'
+                     +afQuickField name='profile.state'
+                     +afQuickField name='profile.zip'
+                  .col-sm-12
+                     button.btn.btn-block.btn-primary(type="submit")
+                        | Save

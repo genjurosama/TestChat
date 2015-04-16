@@ -1,0 +1,13 @@
+each roles
+  .btn.btn-primary.btn-xs
+    | {{this}}
+    a.fa.fa-times.remove-from-list
+.btn-group
+  button.btn.btn-success.btn-xs.dropdown-toggle(data-toggle="dropdown").fa.fa-plus
+  ul.dropdown-menu.pull-right(style="padding:5px;z-index:1000")
+    if ROLES.count
+      each ROLES
+        li
+          a.add-to-list {{name}}
+
+

@@ -25,5 +25,6 @@ meteorhacks:subs-manager
 alanning:roles
 aldeed:collection2
 aldeed:tabular
-aldeed:autoform-bs-datepicker
 jackyqiu:meteor-jquery-nicescroll
+gildaspk:autoform-moment-datepicker
+mrt:moment

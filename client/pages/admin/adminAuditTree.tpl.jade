@@ -6,6 +6,12 @@
    li.active
       a(href="{{pathFor 'admin.auditTree'}}") Audit Tree
 +adminTabs
+   .container-fluid
+      .pull-right
+         button.btn.btn-danger.collapse-all
+            | Collapse All
+         button.btn.btn-success.expand-all
+            | Expand All
    #nested
       +nestedList
 

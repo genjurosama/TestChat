@@ -1,5 +1,8 @@
 li.dd-item(data_id='item_{{id}}')
-   .dd-handle {{getName id}}
+   .dd-handle
+      if haveChildren
+         i.text-success.fa.fa-minus.tree-handler
+      | {{getName id}}
    a.lnk.edit-tree(data-toggle='modal', data-target='#myModal') Edit
    if haveChildren
       a.lnk.add-tree(data-toggle='modal', data-target='#myModal') Add

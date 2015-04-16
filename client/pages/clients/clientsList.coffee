@@ -1,4 +1,4 @@
-Template.adminUsers.rendered = ()->
+Template.clientsList.rendered = ()->
   $(document).ready ->
 
     # Add event listener for opening and closing details
@@ -17,45 +17,33 @@ Template.adminUsers.rendered = ()->
         $(this).find("i").addClass 'fa-plus'
       else
         # Open this row
-        #row.child(showExtra(row.data().profile,2, {'name'})).show()
-        row.child(Blaze.toHTMLWithData(Template.usersExtras, row.data().profile)).show()
+        row.child(Blaze.toHTMLWithData(Template.clientsExtras, row.data().profile)).show()
         tr.addClass 'shown'
         $(this).find("i").removeClass 'fa-plus'
         $(this).find("i").addClass 'fa-minus'
       return
     return
 
-Template.adminUsers.events
+Template.clientsList.events
   'click .create-client': (e, tpl) ->
     $('#dialogContainer').html("")
-    Blaze.renderWithData Template.userEditModal, {}, $('#dialogContainer')[0]
+    Blaze.renderWithData Template.clientEditModal, {}, $('#dialogContainer')[0]
 
-Template.cellUsersActions.events
+Template.cellClientsActions.events
   'click .btn-edit-user': (e, tpl) ->
     $('#dialogContainer').html("")
-    Blaze.renderWithData Template.userEditModal, this, $('#dialogContainer')[0]
+    Blaze.renderWithData Template.clientEditModal, this, $('#dialogContainer')[0]
   'click .btn-delete-user': (e, tpl) ->
     if confirm "Are you sure?"
       Meteor.call 'userDelete', this._id
 
 
-Template.cellRoles.helpers
-  'ROLES': ->
-    Meteor.roles.find({})
 
 
-Template.cellRoles.events
-  'click .remove-from-list': (e, tpl) ->
-    e.preventDefault()
-    cid = tpl.data._id
-    Meteor.call 'removeUserRole', cid, this+''
-  'click .add-to-list': (e, tpl) ->
-    e.preventDefault()
-    cid = tpl.data._id
-    Meteor.call 'addUserRole', cid, this.name
 
-
-profileHook =
+clientHook =
+  onError: (a, b)->
+    Bert.alert("Email is required", 'danger');
   onSubmit: (insertDoc, updateDoc, currentDoc) ->
     if currentDoc.profile
       Meteor.call 'userUpdate', updateDoc, currentDoc._id, (err, resp)->
@@ -72,8 +60,8 @@ profileHook =
           Bert.alert(err.reason, 'danger');
         else
           $('#myModal').modal('hide')
-
+          Meteor.call 'addUserRole', resp, 'client'
     return false
 
 
-AutoForm.addHooks(['profileEdit', 'profileCreate'], profileHook)
+AutoForm.addHooks(['clientEdit'], clientHook)

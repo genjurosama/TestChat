@@ -11,6 +11,21 @@ Template.treeListItem.events
   'click .add-tree': (e)->
     $('#dialogContainer').html("")
     Blaze.renderWithData Template.auditEditModal, this, $('#dialogContainer')[0]
+  'click .delete-tree': (e, tpl) ->
+    Meteor.call 'auditDelete', this.id
+    $(e.currentTarget).parent().remove()
+    updateTree()
+  'click .tree-handler': (e)->
+    e.stopPropagation()
+    item = $(e.currentTarget).parent().parent()
+    if $(e.currentTarget).hasClass("fa-minus")
+      item.children("ol").hide()
+      $(e.currentTarget).removeClass("fa-minus")
+      $(e.currentTarget).addClass("fa-plus")
+    else
+      item.children("ol").show()
+      $(e.currentTarget).removeClass("fa-plus")
+      $(e.currentTarget).addClass("fa-minus")
 
 Template.auditEditModal.helpers
   getType: ()->
@@ -32,26 +47,34 @@ Template.auditEditModal.helpers
       attribute: 'data_id'
       toleranceElement: '> div'
       protectRoot: true
+      isTree: true
       update: ( event, ui )->
         updateTree()
+
+Template.adminAuditTree.events
+  'click .collapse-all': (e)->
+    $(".tree-handler.fa-minus").trigger("click")
+  'click .expand-all': (e)->
+    $(".tree-handler.fa-plus").trigger("click")
+
 Template.adminAuditTree.rendered = ()->
 
-    $('.sortable').nestedSortable
-      handle: 'div'
-      items: 'li'
-      attribute: 'data_id'
-      toleranceElement: '> div'
-      protectRoot: true
-      update: ( event, ui )->
-        updateTree()
+  $('.sortable').nestedSortable
+    handle: 'div'
+    items: 'li'
+    attribute: 'data_id'
+    toleranceElement: '> div'
+    protectRoot: true
+    update: ( event, ui )->
+      updateTree()
 
 
-    if colAuditItems.find().count()<1
-      $('.sortable ol').each((i,el)->
-        $(el).children('li').each (i2,el2)->
-          console.log $(el2).attr("data-id"), $(el2).children(".dd-handle").text()
-          colAuditItems.insert({item_id: $(el2).attr("data_id").replace("item_",""), title: $(el2).children(".dd-handle").text()})
-      )
+  if colAuditItems.find().count()<1
+    $('.sortable ol').each((i,el)->
+      $(el).children('li').each (i2,el2)->
+        console.log $(el2).attr("data-id"), $(el2).children(".dd-handle").text()
+        colAuditItems.insert({item_id: $(el2).attr("data_id").replace("item_",""), title: $(el2).children(".dd-handle").text()})
+    )
 
 
 
