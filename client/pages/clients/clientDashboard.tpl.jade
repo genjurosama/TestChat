@@ -1,0 +1,46 @@
++contentFor "title"
+   with clientData
+      h1 Dashboard {{profile.lastname}} {{profile.firstname}}
++contentFor "breadcrubms"
+    li
+        a(href="{{pathFor 'clients'}}") Clients
+    li.active
+        a(href="{{pathFor 'clientDashboard'}}") Dashboard
++clientTabs
+   with clientData
+      .panel.panel-primary
+         .panel-heading
+            h3.panel-title {{profile.lastname}} {{profile.firstname}}
+               .actions.pull-right
+                  i.fa.fa-chevron-up
+         .panel-body
+               +clientInfo
+   .panel.panel-primary
+      .panel-heading
+         h3.panel-title Notes
+            .actions.pull-right
+               i.fa.fa-chevron-up
+      .panel-body
+         button.add-note.btn.btn-primary.pull-left(data-toggle='modal', data-target='#myModal') Add Note
+         table.table.table-hover
+            thead
+               tr
+                  th #
+                  th First Name
+                  th Last Name
+                  th Username
+            tbody
+               tr
+                  td 1
+                  td Mark
+                  td Otto
+                  td @mdo
+               tr
+                  td 2
+                  td Jacob
+                  td Thornton
+                  td @fat
+               tr
+                  td 3
+                  td(colspan='2') Larry the Bird
+                  td @twitter

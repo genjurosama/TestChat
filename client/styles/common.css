@@ -33,6 +33,17 @@ tr.shown td{
     font-size: 85%;
 }
 
+.btn-group-justified .btn-group {
+    border-right: solid 1px white
+}
+.btn-group-justified .btn-group:last-child {
+    border-right: none
+}
+
+.checkbox label{
+    padding:0
+}
+
 /* table mobile */
 @media only screen and (max-width: 800px) {
 

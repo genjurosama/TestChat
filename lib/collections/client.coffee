@@ -1,0 +1,1 @@
+@colClientNotes = new Mongo.Collection 'clientNotes'

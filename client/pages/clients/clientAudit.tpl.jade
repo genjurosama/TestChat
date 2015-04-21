@@ -1,0 +1,9 @@
++contentFor "title"
+   h1 Audit
++contentFor "breadcrubms"
+   li
+      a(href="{{pathFor 'clients'}}") Clients
+   li.active
+      a(href="{{pathFor 'clientAudit'}}") Audit
++clientTabs
+   | Audit {{_id}}

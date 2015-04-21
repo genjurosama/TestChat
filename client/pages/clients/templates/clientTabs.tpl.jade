@@ -1,0 +1,12 @@
+.row
+  .col-md-12
+    .tab-wrapper.tab-primary
+      ul.nav.nav-tabs.responsive
+        with ..
+          +topTab(path="clientDashboard" _id=_id)
+            | Dashboard
+          +topTab(path="clientAudit" _id=_id)
+            | Audit
+      .tab-content.main-tab-content
+        +UI.contentBlock
+

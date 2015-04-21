@@ -26,5 +26,7 @@ alanning:roles
 aldeed:collection2
 aldeed:tabular
 jackyqiu:meteor-jquery-nicescroll
-gildaspk:autoform-moment-datepicker
 mrt:moment
+tsega:bootstrap3-datetimepicker
+aldeed:autoform-bs-datepicker
+rajit:bootstrap3-datepicker

@@ -26,8 +26,14 @@ if !@Schema
     regEx: /^[a-zA-Z0-9 \-\(\)]{3,25}$/
     optional: true
   birthday:
-    type: String
+    type: Date
     optional: true
+    autoform:
+      afFieldInput:
+        type: "bootstrap-datepicker"
+        datePickerOptions:
+          autoclose: true
+          viewMode: 'years'
   createdAt:
     type: Date
     optional: true
@@ -156,9 +162,19 @@ if !@Schema
   enrollDate:
     type: Date
     optional: true
+    autoform:
+      afFieldInput:
+        type: "bootstrap-datepicker"
+        datePickerOptions:
+          autoclose: true
   cancelDate:
     type: Date
     optional: true
+    autoform:
+      afFieldInput:
+        type: "bootstrap-datepicker"
+        datePickerOptions:
+          autoclose: true
 )
 @Schema.User = new SimpleSchema(
   emails:

@@ -1,3 +1,7 @@
+Template.clientButtons.events
+  'click .btn-dashboard': (e, tpl)->
+    Router.go("clientDashboard",{_id:this._id})
+
 Template.clientsList.rendered = ()->
   $(document).ready ->
 
@@ -17,7 +21,10 @@ Template.clientsList.rendered = ()->
         $(this).find("i").addClass 'fa-plus'
       else
         # Open this row
-        row.child(Blaze.toHTMLWithData(Template.clientsExtras, row.data().profile)).show()
+        #row.child(Blaze.toHTMLWithData(Template.clientsExtras, row.data().profile)).show()
+        row.child("").show()
+        el = tr.next()
+        Blaze.renderWithData Template.clientsExtras, row.data(), el.find("td")[0]
         tr.addClass 'shown'
         $(this).find("i").removeClass 'fa-plus'
         $(this).find("i").addClass 'fa-minus'
@@ -65,3 +72,4 @@ clientHook =
 
 
 AutoForm.addHooks(['clientEdit'], clientHook)
+

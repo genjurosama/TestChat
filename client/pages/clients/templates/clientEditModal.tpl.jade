@@ -31,13 +31,14 @@
                      +afQuickField name='profile.status'
                      +afQuickField name='emails.0.address'
                      +afQuickField name='profile.emailOptOut'
-                     +afQuickField name='profile.birthday'
-                     +afQuickField name='profile.enrollDate'
-                     +afQuickField name='profile.cancelDate'
+                     +afQuickField name='profile.birthday' buttonClasses="glyphicon glyphicon-calendar"
+                     div#enroll(style='position: relative')
+                        +afQuickField name='profile.enrollDate' buttonClasses="glyphicon glyphicon-calendar"
+                     div#cancel(style='position: relative')
+                        +afQuickField name='profile.cancelDate' buttonClasses="glyphicon glyphicon-calendar"
                   .col-sm-3
                      +afQuickField name='profile.phone'
                      +afQuickField name='profile.phone2'
-                     +afQuickField name='profile.birthday'
                      +afQuickField name='profile.address'
                      +afQuickField name='profile.address2'
                      +afQuickField name='profile.city'

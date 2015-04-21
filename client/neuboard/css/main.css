@@ -1442,9 +1442,9 @@ fieldset[disabled] .btn-warning.active {
 .panel > .panel-footer {
   border-color: #ecedf0; }
 
-.panel .actions {
+.modal-content .panel .actions {
   position: absolute;
-  right: 30px;
+  right: 10px;
   top: 8px; }
 
 .panel .actions i {
