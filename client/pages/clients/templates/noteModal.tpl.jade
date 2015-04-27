@@ -8,7 +8,7 @@
                   i.fa.fa-times(data-dismiss='modal')
 
             .panel-body
-               +autoForm(collection="colClientNotes" id="noteCreate" type=insert)
+               +autoForm(collection="colClientNotes" id="noteCreate" doc=this type=insert validation="none")
                   +afQuickField name='note'
                   +afQuickField name='flag'
                   +afQuickField name='clientView'

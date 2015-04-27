@@ -30,3 +30,7 @@ mrt:moment
 tsega:bootstrap3-datetimepicker
 aldeed:autoform-bs-datepicker
 rajit:bootstrap3-datepicker
+cfs:gridfs
+yogiben:autoform-file
+cfs:ui
+cfs:autoform

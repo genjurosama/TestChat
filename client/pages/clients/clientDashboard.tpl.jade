@@ -7,40 +7,53 @@
     li.active
         a(href="{{pathFor 'clientDashboard'}}") Dashboard
 +clientTabs
-   with clientData
-      .panel.panel-primary
-         .panel-heading
-            h3.panel-title {{profile.lastname}} {{profile.firstname}}
-               .actions.pull-right
-                  i.fa.fa-chevron-up
-         .panel-body
-               +clientInfo
-   .panel.panel-primary
-      .panel-heading
-         h3.panel-title Notes
-            .actions.pull-right
-               i.fa.fa-chevron-up
-      .panel-body
-         button.add-note.btn.btn-primary.pull-left(data-toggle='modal', data-target='#myModal') Add Note
-         table.table.table-hover
-            thead
-               tr
-                  th #
-                  th First Name
-                  th Last Name
-                  th Username
-            tbody
-               tr
-                  td 1
-                  td Mark
-                  td Otto
-                  td @mdo
-               tr
-                  td 2
-                  td Jacob
-                  td Thornton
-                  td @fat
-               tr
-                  td 3
-                  td(colspan='2') Larry the Bird
-                  td @twitter
+with clientData
+    .panel.panel-primary
+        .panel-heading
+            h3.panel-title {{profile.lastname}} {{profile.firstname}} - Client Info
+                .actions.pull-right
+                    i.fa.fa-chevron-up.clientData
+        .panel-body(style="padding:0;padding-top:15px;padding-bottom:15px")
+            +clientInfo
+    .col-sm-8(style="padding:0")
+        .panel.panel-primary
+            .panel-heading
+                h3.panel-title Notes
+                    .actions.pull-right
+                        i.fa.fa-chevron-up
+            .panel-body.small
+                .row
+                    button.add-note.btn.btn-success.pull-left(data-toggle='modal', data-target='#myModal') Add Note
+                .row
+                    +tabular table=TabularTables.clientNotes class="table table-striped table-bordered table-condensed table-responsive"
+
+
+    .col-sm-4(style="padding-right:0")
+        .panel.panel-primary
+            .panel-heading
+                h3.panel-title Files
+                    .actions.pull-right
+                        i.fa.fa-chevron-up
+            .panel-body
+                .row
+                    +autoForm(collection="colClientFiles" id="fileUpload" resetOnSuccess=true doc=this validation="none" template="bootstrap3-inline")
+
+                        +afQuickField(type="fileUpload" name="file" collection='files')
+                        button.btn.btn-block.btn-primary(type="submit")
+                            | Upload
+                .row
+                    hr
+                    .list-group
+                        each clientFiles
+                            with FS.GetFile "files" file
+                                a.list-group-item(href='{{url}}' target="_blanc")
+                                    .pull-right
+                                        +FS.DeleteButton class="btn btn-danger btn-xs"
+                                    |   {{original.name}}
+                                    .h6.small.text-primary
+                                        | {{formatDateTime uploadedAt "LLL"}}
+                                        .pull-right
+                                            |   {{userName ../../_id}}
+                                    unless this.isUploaded
+                                        +FS.UploadProgressBar(bootstrap=true class="progress-bar-success progress-bar-striped active" showPercent=true)
+

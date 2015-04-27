@@ -1,6 +1,23 @@
 if !@Schema
   @Schema = {}
 
+@Schema.clientFile = new SimpleSchema(
+  "clientID":
+    type: String
+  "authorID":
+    type: String
+  "file":
+    type: String
+  "itemID":
+    type: String
+    optional: true
+  "createdAt":
+    type: Date
+    autoValue: ()->
+      if this.isInsert
+        return moment().toDate()
+)
+
 @Schema.clientNote = new SimpleSchema(
   "clientID":
     type: String
@@ -30,3 +47,4 @@ if !@Schema
 
 
 colClientNotes.attachSchema(@Schema.clientNote)
+colClientFiles.attachSchema(@Schema.clientFile)

@@ -3,10 +3,10 @@ Template.clientButtons.events
     Router.go("clientDashboard",{_id:this._id})
 
 Template.clientsList.rendered = ()->
-  $(document).ready ->
+
 
     # Add event listener for opening and closing details
-    str = '#DataTables_Table_0'
+    str = 'table[id^=DataTables_Table_]'
     if !$(str)[0]
       str='#DataTables_Table_1'
     table = $(str).DataTable()

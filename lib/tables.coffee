@@ -152,3 +152,40 @@ TabularTables.Furnishers = new Tabular.Table
       tmpl:_t 'cellFurnishersActions'
     }
   ]
+
+TabularTables.clientNotes = new Tabular.Table
+  name: 'clientNotes'
+  collection: colClientNotes
+  order: [[3, 'desc']]
+  columns: [
+    {
+      data: 'note'
+      title: 'Note Description'
+      width: '60%'
+      render: (val, type, doc) ->
+        return if doc.flag then "<h4 class='text-danger'>"+val+"</h4>" else val
+    }
+    {
+      data: 'clientView'
+      title: 'Viewable by Client'
+      width: '10%'
+      render: (val, type, doc) ->
+        return if val then 'Yes' else 'No'
+    }
+    {
+      data: 'authorID'
+      title: 'Author'
+      width: '15%'
+      render: (val, type, doc) ->
+        usr = Meteor.users.findOne _id:val
+        return usr.profile.lastname+" "+usr.profile.firstname
+    }
+    {
+      data: 'createdAt'
+      title: 'Date/Time Added'
+      width: '15%'
+      render: (val, type, doc) ->
+        return moment(val).format("LLLL")
+    }
+  ]
+  extraFields: ['flag']

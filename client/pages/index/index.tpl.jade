@@ -1,37 +1,31 @@
 +contentFor "title"
   h1 Dashboard
-  | Wellcome {{userName}}
+  | Welcome {{userName}}
 +contentFor "breadcrubms"
   li.active
     a(href="{{pathFor 'index'}}") Dashboard
 
 .row
     .col-md-12.col-lg-6
-        .row
-            .col-md-6
-                .panel.panel-solid-success.widget-mini
-                    .panel-body
-                        i.icon-bar-chart
-                        span.total.text-center $3,200
-                        span.title.text-center Earnings
-            .col-md-6
-                .panel.widget-mini
-                    .panel-body
-                        i.icon-support
-                        span.total.text-center 1,230
-                        span.title.text-center Support
-            .col-md-6
-                .panel.widget-mini
-                    .panel-body
-                        i.icon-envelope-open
-                        span.total.text-center 1,680
-                        span.title.text-center Messages
-            .col-md-6
-                .panel.panel-solid-info.widget-mini
-                    .panel-body
-                        i.icon-user
-                        span.total.text-center 12,680
-                        span.title.text-center Signups
+        section.panel.timeline-post
+            #timeline.panel-body
+                ul.tl
+                    each getEvents
+                        li.animated.fadeInDownBig
+                            .date
+                                span {{date.getDate}}
+                                span.small {{formatDateTime date 'MMM'}}
+                            h4
+                                i.fa.fa-pencil
+                                | {{action}}:
+                                i
+                                    | {{title}}
+                            p
+                                | Performed by
+                                i.fa.fa-user
+                                i
+                                    |  {{userName}}
+                                |   @ {{formatDateTime date 'LT'}}
 
 
     .col-md-12.col-lg-6
