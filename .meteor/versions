@@ -36,10 +36,12 @@ check@1.0.5
 coffeescript@1.0.6
 ddp@1.1.0
 deps@1.0.7
+donchess:autoform-froala@0.0.2
 ejson@1.0.6
 email@1.0.6
 fastclick@1.0.3
 fortawesome:fontawesome@4.3.0
+froala:editor@1.2.6
 geojson-utils@1.0.3
 html-tools@1.0.4
 htmljs@1.0.4
@@ -73,6 +75,7 @@ mobile-status-bar@1.0.3
 momentjs:moment@2.9.0
 mongo@1.1.0
 mongo-livedata@1.0.8
+mpowaga:autoform-summernote@0.3.2
 mquandalle:jade@0.4.1
 mrt:moment@2.8.1
 nahue:simple-line-icons@1.0.0
@@ -94,6 +97,7 @@ sha@1.0.3
 spacebars@1.0.6
 spacebars-compiler@1.0.6
 srp@1.0.3
+summernote:standalone@0.6.6
 templating@1.1.1
 themeteorchef:bert@1.0.2
 themeteorchef:jquery-validation@1.13.1

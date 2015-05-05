@@ -34,3 +34,5 @@ cfs:gridfs
 yogiben:autoform-file
 cfs:ui
 cfs:autoform
+donchess:autoform-froala
+mpowaga:autoform-summernote

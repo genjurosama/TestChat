@@ -45,6 +45,5 @@ if !@Schema
 )
 
 
-
 colClientNotes.attachSchema(@Schema.clientNote)
 colClientFiles.attachSchema(@Schema.clientFile)
