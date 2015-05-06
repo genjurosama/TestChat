@@ -1,8 +1,17 @@
 @Schema.emailTemplate = new SimpleSchema(
-  "emailID":
+  "name":
     type: String
   "category":
     type: String
+    allowedValues: ['Bureau', 'Collection Agency', 'Original Creditor','Government Office']
+    autoform: {
+      options: [
+        {label: "Bureau", value: "Bureau"},
+        {label: "Collection Agency", value: "Collection Agency"},
+        {label: "Original Creditor", value: "Original Creditor"},
+        {label: "Government Office", value: "Government Office"}
+      ]
+    }
   "description":
     type: String
     autoform:

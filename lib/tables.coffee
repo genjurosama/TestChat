@@ -192,45 +192,43 @@ TabularTables.clientNotes = new Tabular.Table
 
 
 TabularTables.emailTemplates = new Tabular.Table
-  name: 'clientNotes'
-  collection: colClientNotes
+  name: 'emailTemplates'
+  collection: colEmailTemplates
   order: [[3, 'desc']]
   columns: [
     {
       data: 'name'
       title: 'Template name'
-      width: '60%'
-      render: (val, type, doc) ->
-        return if doc.flag then "<h4 class='text-danger'>"+val+"</h4>" else val
+      width: '25%'
+
     }
     {
       data: 'description'
       title: 'Template Description'
       width: '10%'
-      render: (val, type, doc) ->
-        return if val then 'Yes' else 'No'
+
     }
     {
       data: 'date'
       title: 'Date Created'
       width: '15%'
-      render: (val, type, doc) ->
-        usr = Meteor.users.findOne _id:val
-        return usr.profile.lastname+" "+usr.profile.firstname
+
     }
     {
       data: 'category'
       title: 'Category'
       width: '15%'
-      render: (val, type, doc) ->
-        return moment(val).format("LLLL")
+
     }
     {
-      data: 'options'
-      title: 'options'
-      width: '15%'
-      render: (val, type, doc) ->
-        return moment(val).format("LLLL")
+      title: 'Actions'
+      width: '10%'
+      tmpl:_t 'cellEmailTemplatesActions'
+    }
+    {
+      title : "content"
+      data:"content"
+      visible: false
     }
   ]
   extraFields: ['flag']
