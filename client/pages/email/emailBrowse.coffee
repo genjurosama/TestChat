@@ -7,6 +7,10 @@ Template.cellEmailTemplatesActions.events
   'click .btn-edit-furnisher': (e, tpl) ->
     $('#dialogContainer').html("")
     Blaze.renderWithData Template.emailEditModal, this, $('#dialogContainer')[0]
+  'click .btn-view-furnisher': (e, tpl) ->
+    console.log("view")
+    $('#dialogContainer').html("")
+    Blaze.renderWithData Template.emailTemplateView, this, $('#dialogContainer')[0]
   'click .btn-delete-furnisher': (e, tpl) ->
     id = this._id
     sweetAlert {
