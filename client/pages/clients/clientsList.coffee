@@ -1,6 +1,8 @@
 Template.clientButtons.events
   'click .btn-dashboard': (e, tpl)->
     Router.go("clientDashboard",{_id:this._id})
+  'click .btn-items': (e, tpl)->
+    Router.go("clientItems",{_id:this._id})
 
 Template.clientsList.rendered = ()->
 

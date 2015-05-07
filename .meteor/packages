@@ -34,3 +34,10 @@ cfs:gridfs
 yogiben:autoform-file
 cfs:ui
 cfs:autoform
+aldeed:autoform-select2
+zimme:select2-bootstrap3-css
+natestrauser:select2
+miguelalarcos:afwrap-xautocomplete
+mizzao:autocomplete
+chhib:selectize-bootstrap-3
+comerc:autoform-selectize

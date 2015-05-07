@@ -1,0 +1,8 @@
+form.form-horizontal
+   .row(style='padding: 40px 10px 40px 10px')
+      each creditBureaus
+         .col-sm-4.animated.fadeInRightBig
+            .col-sm-2
+               input.form-control(type='checkbox' value='{{key}}' name='bureaus[]')
+            .col-sm-10
+               img(src='{{image}}')

@@ -22,6 +22,8 @@ Router.route "client.audit/:_id",
 
 Router.route "client.items/:_id",
 	name: 'clientItems'
+	waitOn: ()->
+		return [subs.subscribe "colFurhishers", subs.subscribe "colAdminSystem"]
 	data: ()->
 		return {_id: this.params._id} 
 Router.route "client.letters/:_id",

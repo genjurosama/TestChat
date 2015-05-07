@@ -50,6 +50,11 @@ tr.shown td{
 .clientInfo .col-sm-6{
     padding-right:0
 }
+
+.wizard-bottom {
+    margin-top: -14px;
+}
+
 /* table mobile */
 @media only screen and (max-width: 800px) {
 

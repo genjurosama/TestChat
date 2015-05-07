@@ -1,0 +1,23 @@
+form.form-horizontal
+   +autoForm(schema="Schema.clientItem" id="itemStep1")
+      //+autoForm(collection="colClientItems" id="itemStep1" doc=this type=insert})
+          +afQuickField name='itemName'
+          +afQuickField name='furnisher' formid="itemStep1" type='xautocomplete' call='getFurnishers' fieldref='_id'
+      .form-group
+         label.col-sm-2.control-label Item Type
+         .col-sm-10
+            +afFieldInput id="itemType" name="itemType"
+      .form-group
+         label.col-sm-2.control-label Item Name
+         .col-sm-10
+            +afFieldInput id="itemName" name="itemName"
+      .form-group
+         label.col-sm-2.control-label Furnisher
+         .col-sm-10
+            +inputAutocomplete id="furnisher" name="furnisher" settings=settings class="form-control" placeholder="Start typing..."
+      .form-group
+         label.col-sm-2.control-label Dispute Instructions
+         .col-sm-10
+            +afFieldInput name="instructions" type="selectize" selectizeOptions=selectizeOptions
+      //button.btn.btn-block.btn-primary(type="submit")
+              | Save

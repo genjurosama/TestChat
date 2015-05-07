@@ -5,3 +5,4 @@ Meteor.methods
   addClientFile: (doc)->
     check(doc, Object)
     colClientFiles.insert doc
+
