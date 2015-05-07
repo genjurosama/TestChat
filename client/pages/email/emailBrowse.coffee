@@ -1,3 +1,5 @@
+
+
 Template.emailBrowse.events
   'click .create-email': (e, tpl) ->
     $('#dialogContainer').html("")
@@ -27,6 +29,18 @@ Template.cellEmailTemplatesActions.events
           sweetAlert 'Deleted!', 'Your imaginary file has been deleted.', 'success'
         return
 
+
+Template.emailEditForm.helpers
+  customerVariables: ()->
+    customerVariables = ["Signature","First Name","Last Name","SSN","DOB","Address Line 1","Address Line 2","City","State","Zip","Phone 1","Phone 2","Fax"
+    ]
+
+    return customerVariables
+  recipientVariables: ()->
+    recipientVariables = ["Name","Address Line 1","Address Line 2","City", "State","Zip","Phone","Fax","Phone 2","Fax"
+    ]
+
+    return recipientVariables
 
 
 Template.emailEditModal.helpers

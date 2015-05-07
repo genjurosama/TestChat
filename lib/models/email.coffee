@@ -1,8 +1,6 @@
 @Schema.emailTemplate = new SimpleSchema(
   "name":
     type: String
-  "subject":
-    type :String
   "category":
     type: String
     allowedValues: ['Bureau', 'Collection Agency', 'Original Creditor','Government Office']
@@ -19,8 +17,12 @@
     autoform:
       afFieldInput:
         type: "textarea"
+  "subject":
+    type :String
+    label:"Email Subject"
   "content":
     type:String
+    label:"Email Content"
     autoform:
       afFieldInput:
         type: "summernote"
