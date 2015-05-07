@@ -1,6 +1,8 @@
 @Schema.emailTemplate = new SimpleSchema(
   "name":
     type: String
+  "subject":
+    type :String
   "category":
     type: String
     allowedValues: ['Bureau', 'Collection Agency', 'Original Creditor','Government Office']

@@ -209,12 +209,6 @@ TabularTables.emailTemplates = new Tabular.Table
 
     }
     {
-      data: 'date'
-      title: 'Date Created'
-      width: '15%'
-
-    }
-    {
       data: 'category'
       title: 'Category'
       width: '15%'

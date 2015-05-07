@@ -28,6 +28,7 @@ Template.cellEmailTemplatesActions.events
         return
 
 
+
 Template.emailEditModal.helpers
   getType: ()->
     type = "insert"
