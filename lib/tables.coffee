@@ -226,3 +226,39 @@ TabularTables.emailTemplates = new Tabular.Table
     }
   ]
   extraFields: ['flag']
+
+
+TabularTables.leads = new Tabular.Table
+  name: 'leads'
+  collection: colEmailTemplates
+  order: [[3, 'desc']]
+  columns: [
+    {
+      data: 'firstname'
+      title: 'First Name'
+      width: '25%'
+
+    }
+    {
+      data: 'lastname'
+      title: 'Last Name '
+      width: '10%'
+
+    }
+    {
+      data: 'phone'
+      title: 'Phone'
+      width: '15%'
+
+    }
+    {
+      title: 'email'
+      width: '10%'
+      data: 'email'
+    }
+    {
+      title : "zip"
+      data:"zip"
+    }
+  ]
+  extraFields: ['flag']

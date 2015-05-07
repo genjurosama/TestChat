@@ -44,6 +44,14 @@ Meteor.methods
     console.log "# adding email", JSON.stringify email
     check email, Object
     colEmailTemplates.insert(email)
+  leadDelete: (id)->
+    colLeads.remove({_id: id})
+  leadUpdate: (email, id)->
+    colLeads.update({_id: id}, email)
+  addNewLead: (lead)->
+    console.log "# adding lead", JSON.stringify lead
+    check lead, Object
+    colEmailTemplates.insert(lead)
 
 maybeAddAdminPermitions = (uid, email) ->
   admins_list = _ [

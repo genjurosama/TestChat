@@ -1,0 +1,14 @@
+.row
+   .col-md-12
+      .tab-wrapper.tab-primary
+         ul.nav.nav-tabs.responsive
+            +topTab(path="admin.users")
+               | All Leads
+            +topTab(path="admin.itemDD")
+               | Hot  Leads
+            +topTab(path="admin.snipets")
+               | Warm leads
+            +topTab(path="admin.snipets")
+               | Cold leads
+         .tab-content.main-tab-content
+            +UI.contentBlock
