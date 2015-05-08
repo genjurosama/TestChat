@@ -51,7 +51,7 @@ Meteor.methods
   addNewLead: (lead)->
     console.log "# adding lead", JSON.stringify lead
     check lead, Object
-    colEmailTemplates.insert(lead)
+    colLeads.insert(lead)
 
 maybeAddAdminPermitions = (uid, email) ->
   admins_list = _ [

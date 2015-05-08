@@ -5,6 +5,13 @@ if !@Schema
     type: String
     label: 'Name'
     optional: true
+  note:
+    type:String
+    optional:true
+    autoform:
+      afFieldInput:
+        type: "summernote"
+        class: 'editor'
   firstname:
     type: String
     regEx: /^[a-zA-Z-]{2,25}$/
@@ -213,4 +220,4 @@ if !@Schema
 
 
 Meteor.users.attachSchema(@Schema.User)
-
+colLeads.attachSchema(@Schema.User)

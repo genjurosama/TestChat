@@ -230,23 +230,23 @@ TabularTables.emailTemplates = new Tabular.Table
 
 TabularTables.leads = new Tabular.Table
   name: 'leads'
-  collection: colEmailTemplates
+  collection: colLeads
   order: [[3, 'desc']]
   columns: [
     {
-      data: 'firstname'
+      data: 'profile.firstname'
       title: 'First Name'
       width: '25%'
 
     }
     {
-      data: 'lastname'
+      data: 'profile.lastname'
       title: 'Last Name '
       width: '10%'
 
     }
     {
-      data: 'phone'
+      data: 'profile.phone'
       title: 'Phone'
       width: '15%'
 
@@ -254,11 +254,11 @@ TabularTables.leads = new Tabular.Table
     {
       title: 'email'
       width: '10%'
-      data: 'email'
+      data: 'emails.0.address'
     }
     {
       title : "zip"
-      data:"zip"
+      data:"profile.zip"
     }
   ]
   extraFields: ['flag']
