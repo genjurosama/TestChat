@@ -52,7 +52,8 @@ Template.cellClientsActions.events
 
 clientHook =
   onError: (a, b)->
-    Bert.alert("error :"+a+ ":"+b, 'danger');
+    console.log b.message
+    Bert.alert(b.message, 'danger');
   onSubmit: (insertDoc, updateDoc, currentDoc) ->
     if currentDoc.profile
       Meteor.call 'userUpdate', updateDoc, currentDoc._id, (err, resp)->
