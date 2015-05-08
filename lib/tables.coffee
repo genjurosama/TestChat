@@ -189,3 +189,76 @@ TabularTables.clientNotes = new Tabular.Table
     }
   ]
   extraFields: ['flag']
+
+
+TabularTables.emailTemplates = new Tabular.Table
+  name: 'emailTemplates'
+  collection: colEmailTemplates
+  order: [[3, 'desc']]
+  columns: [
+    {
+      data: 'name'
+      title: 'Template name'
+      width: '25%'
+
+    }
+    {
+      data: 'description'
+      title: 'Template Description'
+      width: '10%'
+
+    }
+    {
+      data: 'category'
+      title: 'Category'
+      width: '15%'
+
+    }
+    {
+      title: 'Actions'
+      width: '10%'
+      tmpl:_t 'cellEmailTemplatesActions'
+    }
+    {
+      title : "content"
+      data:"content"
+      visible: false
+    }
+  ]
+  extraFields: ['flag']
+
+
+TabularTables.leads = new Tabular.Table
+  name: 'leads'
+  collection: colEmailTemplates
+  order: [[3, 'desc']]
+  columns: [
+    {
+      data: 'firstname'
+      title: 'First Name'
+      width: '25%'
+
+    }
+    {
+      data: 'lastname'
+      title: 'Last Name '
+      width: '10%'
+
+    }
+    {
+      data: 'phone'
+      title: 'Phone'
+      width: '15%'
+
+    }
+    {
+      title: 'email'
+      width: '10%'
+      data: 'email'
+    }
+    {
+      title : "zip"
+      data:"zip"
+    }
+  ]
+  extraFields: ['flag']

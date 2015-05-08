@@ -35,26 +35,7 @@
         #step2.step-pane
             +itemStep2
         #step3.step-pane
-            form.form-horizontal
-                .form-group
-                    .col-sm-3
-                        h2.title Payment Info
-                .form-group
-                    label.col-sm-3.control-label Card No
-                    .col-sm-6
-                        input.form-control(type='text')
-                .form-group
-                    label.col-sm-3.control-label Expiration
-                    .col-sm-3
-                        select.form-control
-                            option(value='') Month
-                    .col-sm-3
-                        select.form-control
-                            option(value='') Year
-                .form-group
-                    label.col-sm-3.control-label CSV
-                    .col-sm-1
-                        input.form-control(type='text')
+            +autoForm(collection="colClientItems" id="clientItemCreate")
     #MyWizardBottom.wizard.wizard-bottom
         .actions.col-sm-12.col-md-3
             .pull-right

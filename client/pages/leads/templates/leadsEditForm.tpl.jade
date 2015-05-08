@@ -1,0 +1,31 @@
++autoForm(collection="colLeads" id="leadsEdit" doc=this)
+        .col-sm-3
+            +afQuickField name='firstname'
+            +afQuickField name='lastname'
+            +afQuickField name='monitoringSite'
+            +afQuickField name='monitoringUsername'
+            +afQuickField name='monitoringPassword'
+            +afQuickField name='securityWord'
+            +afQuickField name='paymentArrangement'
+        .col-sm-3
+            +afQuickField name='jointCustomer'
+            +afQuickField name='assignedTo'
+            +afQuickField name='salesRep'
+            +afQuickField name='affiliate'
+            +afQuickField name='parentAffiliate'
+            +afQuickField name='source'
+        .col-sm-3
+            +afQuickField name='SSN'
+            +afQuickField name='email'
+            +afQuickField name='birthday' buttonClasses="glyphicon glyphicon-calendar"
+        .col-sm-3
+            +afQuickField name='phone'
+            +afQuickField name='phone2'
+            +afQuickField name='address'
+            +afQuickField name='address2'
+            +afQuickField name='city'
+            +afQuickField name='state'
+            +afQuickField name='zip'
+        .col-sm-12
+            button.btn.btn-block.btn-primary(type="submit")
+                | Save

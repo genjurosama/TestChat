@@ -1,0 +1,29 @@
++autoForm(collection="colEmailTemplates" id="emailTemplateEdit" doc=this type=getType)
+    +afQuickField name='name'
+    +afQuickField name='category'
+    +afQuickField name='description'
+    +afQuickField name='subject'
+    div.row
+        div.col-md-2.templateVariables
+            span
+                | Customer Variables
+            br
+            each customerVariables
+
+                a
+                    | {{this}}
+                br
+            span
+                | Recipient Variables
+            br
+            each recipientVariables
+
+                a
+                    | {{this}}
+                br
+
+        div.col-md-10
+            +afQuickField name='content'
+
+    button.btn.btn-block.btn-primary(type="submit")
+        | Save
