@@ -6,6 +6,7 @@ Template.emailBrowse.events
     Blaze.renderWithData Template.emailEditModal, {}, $('#dialogContainer')[0]
 
 Template.cellEmailTemplatesActions.events
+
   'click .btn-edit-furnisher': (e, tpl) ->
     $('#dialogContainer').html("")
     Blaze.renderWithData Template.emailEditModal, this, $('#dialogContainer')[0]
@@ -42,6 +43,10 @@ Template.emailEditForm.helpers
 
     return recipientVariables
 
+Template.emailEditModal.events
+  'click a' : (e,tpl) ->
+    $(".note-editable").html($(".note-editable").html()+"["+$(e.target).text()+"]")
+    console.log($(e.target).text())
 
 Template.emailEditModal.helpers
   getType: ()->
