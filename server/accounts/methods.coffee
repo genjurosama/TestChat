@@ -44,6 +44,16 @@ Meteor.methods
     console.log "# adding email", JSON.stringify email
     check email, Object
     colEmailTemplates.insert(email)
+  myEmailTemplateDelete: (id)->
+    colMyEmailTemplates.remove({_id: id})
+  myEmailTemplateUpdate: (email, id)->
+    colMyEmailTemplates.update({_id: id}, email)
+  addNewMyEmailTemplate: (email)->
+    console.log "# adding email", JSON.stringify email
+    email.uid = Meteor.UserId
+    console.log "display id",Meteor.UserId
+    check email, Object
+    colMyEmailTemplates.insert(email)
   leadDelete: (id)->
     colLeads.remove({_id: id})
   leadUpdate: (email, id)->

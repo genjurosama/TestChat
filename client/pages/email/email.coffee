@@ -1,9 +1,18 @@
-
-
-Template.emailBrowse.events
+TEMPLATE_TYPE_STOCK = "stock";
+TEMPLATE_TYPE_MINE = "stock";
+type =""
+Template.templatesstock.events
   'click .create-email': (e, tpl) ->
     $('#dialogContainer').html("")
+    type =tpl.data;
     Blaze.renderWithData Template.emailEditModal, {}, $('#dialogContainer')[0]
+
+Template.templatesmine.events
+  'click .create-email': (e, tpl) ->
+    $('#dialogContainer').html("")
+    type =tpl.data;
+    Blaze.renderWithData Template.emailEditModal, {}, $('#dialogContainer')[0]
+
 
 Template.cellEmailTemplatesActions.events
 
@@ -59,7 +68,7 @@ emailTemplateHook =
   onError: (formType, error)->
     Bert.alert("error"+formType+" "+error, 'danger');
   onSubmit: (insertDoc, updateDoc, currentDoc) ->
-    console.log "inserting"
+    console.log("submition")
     if currentDoc._id
       Meteor.call 'emailTemplateUpdate', updateDoc,currentDoc._id, (err, resp)->
       if err
@@ -67,12 +76,19 @@ emailTemplateHook =
       else
         $('#myModal').modal('hide')
     else
-      Meteor.call 'addNewEmailTemplate', insertDoc, (err, resp)->
-        if err
-          Bert.alert(err.reason, 'danger');
-        else
-          $('#myModal').modal('hide')
+      console.log(type);
+      if type isnt ""
+        insertDoc.type=type
+        insertDoc.uid =Meteor.userId();
+        console.log(Meteor.userId())
+        Meteor.call 'addNewEmailTemplate', insertDoc, (err, resp)->
+          if err
+            Bert.alert(err.reason, 'danger');
+          else
+            $('#myModal').modal('hide')
 
     return false
+
+
 
 AutoForm.addHooks(['emailTemplateEdit'], emailTemplateHook)

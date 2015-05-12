@@ -1,4 +1,7 @@
 @Schema.emailTemplate = new SimpleSchema(
+  "uid":
+    type:String
+    optional:true
   "name":
     type: String
   "category":
@@ -20,6 +23,9 @@
   "subject":
     type :String
     label:"Email Subject"
+  "type":
+    type:String
+    optional:true
   "content":
     type:String
     label:"Email Content"
@@ -34,3 +40,4 @@
         return moment().toDate()
 )
 colEmailTemplates.attachSchema(@Schema.emailTemplate)
+colMyEmailTemplates.attachSchema(@Schema.emailTemplate)

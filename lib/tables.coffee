@@ -195,11 +195,21 @@ TabularTables.emailTemplates = new Tabular.Table
   name: 'emailTemplates'
   collection: colEmailTemplates
   order: [[3, 'desc']]
+  selector: (uid) ->
+    if Meteor.isServer
+      type:"stock"
+    else
+      {}
   columns: [
     {
       data: 'name'
       title: 'Template name'
       width: '25%'
+
+    }
+    {
+      data: 'type'
+      visible:false
 
     }
     {
@@ -227,6 +237,54 @@ TabularTables.emailTemplates = new Tabular.Table
   ]
   extraFields: ['flag']
 
+
+TabularTables.myEmailTemplates = new Tabular.Table
+  name: 'myEmailTemplates'
+  collection: colEmailTemplates
+  order: [[3, 'desc']]
+  selector: (uid) ->
+    if Meteor.isServer
+      type:"mine"
+      uid:uid
+    else
+      {}
+
+  columns: [
+    {
+      data: 'name'
+      title: 'Template name'
+      width: '25%'
+
+    }
+    {
+      data: 'uid'
+      title:"id"
+
+    }
+    {
+      data: 'description'
+      title: 'Template Description'
+      width: '10%'
+
+    }
+    {
+      data: 'category'
+      title: 'Category'
+      width: '15%'
+
+    }
+    {
+      title: 'Actions'
+      width: '10%'
+      tmpl:_t 'cellEmailTemplatesActions'
+    }
+    {
+      title : "content"
+      data:"content"
+      visible: false
+    }
+  ]
+  extraFields: ['flag']
 
 TabularTables.leads = new Tabular.Table
   name: 'leads'
