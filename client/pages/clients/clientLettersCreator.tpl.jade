@@ -1,0 +1,57 @@
++contentFor "title"
+    h1 Manage Items
++contentFor "breadcrubms"
+    li
+        a(href="{{pathFor 'clients'}}") Clients
+    li.active
+        a(href="{{pathFor 'clientItems'}}") Manage Items
++clientTabs
+.col-sm-12
+    .panel.panel-default
+        .panel-heading
+            div(style="float:right; margin-top:-4px; margin-right:50px;")
+                a#send_message.btn.btn-info.btn-sm(href="messaging.php?profile_id=149", role="button") Send Message
+                a#edit_profile.btn.btn-success.btn-sm(href="#", role="button") Edit Profile
+                a#delete_client.btn.btn-danger.btn-sm(href="#", role="button") Delete Client
+                a#cancel_edit.btn.btn-primary.btn-sm(href="#", role="button", style="display:none;") Cancel Edit
+                a#save_edit.btn.btn-primary.btn-sm(href="#", role="button", style="display:none;") Save Changes
+                input#edit_user_id(type="hidden", value="149")
+
+            h3.panel-title {{profile.lastname}} {{profile.firstname}} - Client Info
+                .actions.pull-right
+                    i.fa.fa-chevron-up.clientData
+        .panel-body(style="padding:0;padding-top:15px;padding-bottom:15px")
+            +clientInfo
+.col-sm-12
+    .panel.panel-default
+        .panel-heading
+            +clientButtons
+            h3.panel-title {{profile.lastname}} {{profile.firstname}} - Client Info
+                .actions.pull-right
+                    i.fa.fa-chevron-up.clientData
+        .panel-body(style="padding:0;padding-top:15px;padding-bottom:15px")
+            .col-md-3
+                button.bt.btn-success
+                    i.icon-bar-chart
+                    span.total.text-center Recipient
+                    br
+                    span.title.text-center Where are your letters going?
+            .col-md-3
+               button.bt.btn-success
+                   i.icon-bar-chart
+                   span.total.text-center Items
+                   br
+                   span.title.text-center Which items are you disputing?
+
+            .col-md-3
+                button.bt.btn-success
+                        i.icon-bar-chart
+                        span.total.text-center Template
+                        br
+                        span.title.text-center What should your letters say?
+            .col-md-3
+                button.bt.btn-success
+                        i.icon-bar-chart
+                        span.total.text-center Finish
+                        br
+                        span.title.text-center Confirm and complete

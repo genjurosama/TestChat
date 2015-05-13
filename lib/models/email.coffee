@@ -15,6 +15,18 @@
         {label: "Government Office", value: "Government Office"}
       ]
     }
+  "Templatetype":
+    type: String
+    label: "type"
+    allowedValues: ['Fax', 'Letter', 'Email','Text Message']
+    autoform: {
+      options: [
+        {label: "Fax", value: "Fax"},
+        {label: "Letter", value: "Letter"},
+        {label: "Email", value: "Email"},
+        {label: "Text Message", value: "Text Message"}
+      ]
+    }
   "description":
     type: String
     autoform:

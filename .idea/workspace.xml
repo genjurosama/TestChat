@@ -2,18 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="81c5058b-689c-47d3-9ddf-bda0891e69cd" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/pages/email/templatesmine.tpl.jade" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/pages/email/templatesstock.tpl.jade" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/pages/email/emailmine.tpl.jade" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/pages/email/emailBrowse.coffee" afterPath="$PROJECT_DIR$/client/pages/email/email.coffee" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/pages/email/templates/cellEmailTemplatesActions.tpl.jade" afterPath="$PROJECT_DIR$/client/pages/email/templates/cellEmailTemplatesActions.tpl.jade" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/collections/email.coffee" afterPath="$PROJECT_DIR$/lib/collections/email.coffee" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/pages/clients/clientLettersCreator.tpl.jade" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/pages/email/templates/actions.css" afterPath="$PROJECT_DIR$/client/pages/email/templates/actions.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/pages/clients/templates/clientButtons.tpl.jade" afterPath="$PROJECT_DIR$/client/pages/clients/templates/clientButtons.tpl.jade" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/pages/clients/templates/clientTabs.tpl.jade" afterPath="$PROJECT_DIR$/client/pages/clients/templates/clientTabs.tpl.jade" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/routes/clients.coffee" afterPath="$PROJECT_DIR$/lib/routes/clients.coffee" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/pages/clients/clientsList.coffee" afterPath="$PROJECT_DIR$/client/pages/clients/clientsList.coffee" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/models/email.coffee" afterPath="$PROJECT_DIR$/lib/models/email.coffee" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/pages/email/templates/emailTabs.tpl.jade" afterPath="$PROJECT_DIR$/client/pages/email/templates/emailTabs.tpl.jade" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/routes/emailTemplates.coffee" afterPath="$PROJECT_DIR$/lib/routes/emailTemplates.coffee" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/accounts/methods.coffee" afterPath="$PROJECT_DIR$/server/accounts/methods.coffee" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/templates/navigation.tpl.jade" afterPath="$PROJECT_DIR$/client/templates/navigation.tpl.jade" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/tables.coffee" afterPath="$PROJECT_DIR$/lib/tables.coffee" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/pages/email/templates/emailEditForm.tpl.jade" afterPath="$PROJECT_DIR$/client/pages/email/templates/emailEditForm.tpl.jade" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="CRM.iws" />
@@ -35,75 +31,52 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="email.coffee" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/pages/email/email.coffee">
+      <file leaf-file-name="clientLettersCreator.tpl.jade" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/pages/clients/clientLettersCreator.tpl.jade">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.04">
-              <caret line="82" column="35" selection-start-line="82" selection-start-column="35" selection-end-line="82" selection-end-column="35" />
+            <state vertical-scroll-proportion="-2.72">
+              <caret line="9" column="24" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="email.coffee" pinned="false" current-in-tab="false">
+      <file leaf-file-name="email.coffee" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/models/email.coffee">
           <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.4266467">
+              <caret line="19" column="17" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="emailEditForm.tpl.jade" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/pages/email/templates/emailEditForm.tpl.jade">
+          <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-1.8">
-              <caret line="3" column="17" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
+              <caret line="3" column="36" selection-start-line="3" selection-start-column="36" selection-end-line="3" selection-end-column="36" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="templatesstock.tpl.jade" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/pages/email/templatesstock.tpl.jade">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.4">
-              <caret line="4" column="52" selection-start-line="4" selection-start-column="52" selection-end-line="4" selection-end-column="52" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="templatesmine.tpl.jade" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/pages/email/templatesmine.tpl.jade">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.4">
-              <caret line="4" column="34" selection-start-line="4" selection-start-column="34" selection-end-line="4" selection-end-column="34" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="tables.coffee" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/lib/tables.coffee">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.30394432">
-              <caret line="245" column="10" selection-start-line="245" selection-start-column="10" selection-end-line="245" selection-end-column="10" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="item.coffee" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/models/item.coffee">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="cellClientsActions.tpl.jade" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/pages/clients/templates/cellClientsActions.tpl.jade">
+      <file leaf-file-name="modalstyle.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/pages/email/templates/modalstyle.css">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="1" column="5" selection-start-line="1" selection-start-column="5" selection-end-line="1" selection-end-column="15" />
-              <folding>
-                <marker date="1430816490000" expanded="true" signature="6:104" placeholder="..." />
-                <marker date="1430816490000" expanded="true" signature="111:167" placeholder="..." />
-              </folding>
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="3" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="actions.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/pages/email/templates/actions.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -118,25 +91,43 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="cellEmailTemplatesActions.tpl.jade" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/pages/email/templates/cellEmailTemplatesActions.tpl.jade">
+      <file leaf-file-name="furnisherEditModal.tpl.jade" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/pages/admin/templates/furnisherEditModal.tpl.jade">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.6">
-              <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+            <state vertical-scroll-proportion="-0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="nestedList.tpl.jade" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/pages/admin/templates/nestedList.tpl.jade">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="userEditModal.tpl.jade" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/pages/admin/templates/userEditModal.tpl.jade">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding>
-                <marker date="1431419977000" expanded="true" signature="6:116" placeholder="..." />
-                <marker date="1431419977000" expanded="true" signature="123:196" placeholder="..." />
-                <marker date="1431419977000" expanded="true" signature="203:316" placeholder="..." />
+                <marker date="1431083475000" expanded="true" signature="386:472" placeholder="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="emailTabs.tpl.jade" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/pages/email/templates/emailTabs.tpl.jade">
+      <file leaf-file-name="adminAuditTree.tpl.jade" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/pages/admin/adminAuditTree.tpl.jade">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.6">
-              <caret line="6" column="35" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
+            <state vertical-scroll-proportion="-6.6">
+              <caret line="11" column="26" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -147,10 +138,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Jade File" />
         <option value="JavaScript File" />
         <option value="CSS File" />
         <option value="CoffeeScript File" />
+        <option value="Jade File" />
       </list>
     </option>
   </component>
@@ -171,7 +162,6 @@
         <option value="$PROJECT_DIR$/client/pages/email/emailBrowse.tpl.jade" />
         <option value="$PROJECT_DIR$/client/compatibility/slimScroll.js" />
         <option value="$PROJECT_DIR$/client/pages/email/templates/emailTemplateView.tpl.jade" />
-        <option value="$PROJECT_DIR$/client/pages/email/templates/emailEditForm.tpl.jade" />
         <option value="$PROJECT_DIR$/lib/collections/leads.coffee" />
         <option value="$PROJECT_DIR$/lib/routes/leads.coffee" />
         <option value="$PROJECT_DIR$/client/pages/leads/emailBrowse.tpl.jade" />
@@ -181,12 +171,10 @@
         <option value="$PROJECT_DIR$/client/pages/leads/templates/leadsEditModal.tpl.jade" />
         <option value="$PROJECT_DIR$/client/pages/leads/templates/leadsEditForm.tpl.jade" />
         <option value="$PROJECT_DIR$/lib/models/leads.coffee" />
-        <option value="$PROJECT_DIR$/client/pages/clients/clientsList.coffee" />
         <option value="$PROJECT_DIR$/lib/models/profile.coffee" />
         <option value="$PROJECT_DIR$/client/pages/leads/LeadsBrowse.coffee" />
         <option value="$PROJECT_DIR$/client/layouts/layout.coffee" />
         <option value="$PROJECT_DIR$/client/common/other/icheck.css" />
-        <option value="$PROJECT_DIR$/client/pages/email/templates/actions.css" />
         <option value="$PROJECT_DIR$/client/pages/email/templates/modalstyle.css" />
         <option value="$PROJECT_DIR$/client/common/other/wizard.js" />
         <option value="$PROJECT_DIR$/.meteor/packages" />
@@ -203,8 +191,16 @@
         <option value="$PROJECT_DIR$/client/pages/email/templatesstock.tpl.jade" />
         <option value="$PROJECT_DIR$/client/pages/email/templatesmine.tpl.jade" />
         <option value="$PROJECT_DIR$/client/pages/email/email.coffee" />
-        <option value="$PROJECT_DIR$/lib/models/email.coffee" />
         <option value="$PROJECT_DIR$/lib/tables.coffee" />
+        <option value="$PROJECT_DIR$/client/pages/clients/templates/clientButtons.tpl.jade" />
+        <option value="$PROJECT_DIR$/client/pages/clients/clientLetter.tpl.jade" />
+        <option value="$PROJECT_DIR$/lib/routes/clients.coffee" />
+        <option value="$PROJECT_DIR$/client/pages/clients/clientsList.coffee" />
+        <option value="$PROJECT_DIR$/client/pages/clients/templates/clientTabs.tpl.jade" />
+        <option value="$PROJECT_DIR$/client/pages/clients/clientLettersCreator.tpl.jade" />
+        <option value="$PROJECT_DIR$/client/pages/email/templates/actions.css" />
+        <option value="$PROJECT_DIR$/client/pages/email/templates/emailEditForm.tpl.jade" />
+        <option value="$PROJECT_DIR$/lib/models/email.coffee" />
       </list>
     </option>
   </component>
@@ -244,6 +240,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -559,7 +556,6 @@
         </subPane>
       </pane>
       <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -639,7 +635,6 @@
     <layout>
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32871014" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -651,9 +646,10 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32871014" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -664,105 +660,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/lib/routes/emailTemplates.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="8" column="45" selection-start-line="8" selection-start-column="45" selection-end-line="8" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/pages/admin/adminUsers.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="52" column="6" selection-start-line="52" selection-start-column="6" selection-end-line="52" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/pages/admin/templates/cellFurnishersActions.tpl.jade">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/pages/clients/clientItems.tpl.jade">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="8" column="3" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/routes/public.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/pages/email/templates/emailTemplateView.tpl.jade">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="50" selection-start-line="5" selection-start-column="50" selection-end-line="5" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/templates/navigationItem.tpl.jade">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/pages/leads/templates/cellLeadsActions.tpl.jade">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/publications/client.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/publications/email.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.6">
-          <caret line="1" column="2" selection-start-line="1" selection-start-column="2" selection-end-line="1" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/pages/leads/leadsBrowse.tpl.jade">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="43" selection-start-line="11" selection-start-column="43" selection-end-line="11" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/models/client.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="47" column="14" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/pages/clients/templates/clientEditModal.tpl.jade">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-24.12">
-          <caret line="48" column="30" selection-start-line="11" selection-start-column="14" selection-end-line="48" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/pages/leads/templates/leadsEditModal.tpl.jade">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.0">
-          <caret line="5" column="34" selection-start-line="5" selection-start-column="34" selection-end-line="5" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/pages/profile/profile.tpl.jade">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -774,13 +671,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="28" selection-start-line="0" selection-start-column="28" selection-end-line="0" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/pages/clients/clientsList.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="65" column="7" selection-start-line="65" selection-start-column="7" selection-end-line="65" selection-end-column="7" />
         </state>
       </provider>
     </entry>
@@ -861,20 +751,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/pages/email/templates/actions.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="18" selection-start-line="0" selection-start-column="0" selection-end-line="8" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/pages/email/templates/modalstyle.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="3" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/common/other/wizard.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -896,13 +772,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/pages/admin/adminAuditTree.tpl.jade">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/pages/admin/adminEmails.coffee">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -910,18 +779,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/pages/email/templates/emailEditForm.tpl.jade">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="28" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/accounts/methods.coffee">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-17.52">
           <caret line="53" column="42" selection-start-line="53" selection-start-column="42" selection-end-line="53" selection-end-column="42" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -936,7 +797,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="2" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -944,7 +804,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="1" column="61" selection-start-line="1" selection-start-column="45" selection-end-line="1" selection-end-column="61" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -952,14 +811,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="10" column="37" selection-start-line="10" selection-start-column="37" selection-end-line="10" selection-end-column="37" />
-          <folding>
-            <marker date="1431372633000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1431372633000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1431372633000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1431372633000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1431372633000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1431372633000" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -967,29 +818,253 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="1" column="5" selection-start-line="1" selection-start-column="5" selection-end-line="1" selection-end-column="15" />
-          <folding>
-            <marker date="1430816490000" expanded="true" signature="6:104" placeholder="..." />
-            <marker date="1430816490000" expanded="true" signature="111:167" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/pages/email/templates/cellEmailTemplatesActions.tpl.jade">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.6">
+        <state vertical-scroll-proportion="0.0">
           <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding>
-            <marker date="1431419977000" expanded="true" signature="6:116" placeholder="..." />
-            <marker date="1431419977000" expanded="true" signature="123:196" placeholder="..." />
-            <marker date="1431419977000" expanded="true" signature="203:316" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/pages/email/templatesstock.tpl.jade">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.4">
+        <state vertical-scroll-proportion="0.0">
           <caret line="4" column="52" selection-start-line="4" selection-start-column="52" selection-end-line="4" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/pages/email/templates/emailTabs.tpl.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="35" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/pages/email/templatesmine.tpl.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="4" column="34" selection-start-line="4" selection-start-column="34" selection-end-line="4" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/pages/email/email.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="82" column="35" selection-start-line="82" selection-start-column="35" selection-end-line="82" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/models/item.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/tables.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.5769231">
+          <caret line="8" column="21" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/pages/clients/clientAudit.tpl.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/pages/clients/clientItems.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/pages/clients/clientDashboard.tpl.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="3" column="25" selection-start-line="0" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+          <folding>
+            <marker date="1430816490000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1430816490000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1430816490000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1430816490000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1430816490000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1430816490000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1430816490000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1430816490000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1430816490000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1430816490000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1430816490000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1430816490000" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/pages/clients/clientsList.tpl.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1430816490000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1430816490000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1430816490000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1430816490000" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/routes/clients.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="33" column="36" selection-start-line="33" selection-start-column="36" selection-end-line="33" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/pages/clients/clientItems.tpl.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="46" selection-end-column="41" />
+          <folding>
+            <marker date="1431083475000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1431083475000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1431083475000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1431083475000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1431083475000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1431083475000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1431083475000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1431083475000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1431083475000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1431083475000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1431083475000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1431083475000" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/pages/clients/clientsList.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="36" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/pages/clients/templates/clientTabs.tpl.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="13" column="39" selection-start-line="13" selection-start-column="39" selection-end-line="13" selection-end-column="39" />
+          <folding>
+            <marker date="1431511697000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1431511697000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1431511697000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1431511697000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1431511697000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1431511697000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1431511697000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1431511697000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1431511697000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1431511697000" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/pages/clients/templates/clientButtons.tpl.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="10" column="48" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/pages/admin/templates/cellFurnishersActions.tpl.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1430816490000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1430816490000" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/pages/admin/templates/furnisherEditModal.tpl.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/pages/admin/templates/nestedList.tpl.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/pages/admin/templates/userEditModal.tpl.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1431083475000" expanded="true" signature="386:472" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/pages/admin/adminAuditTree.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/pages/admin/adminAuditTree.tpl.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.6">
+          <caret line="11" column="26" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/pages/clients/clientLettersCreator.tpl.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.72">
+          <caret line="9" column="24" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/pages/email/templates/modalstyle.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="3" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/pages/email/templates/actions.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/pages/email/templates/emailEditForm.tpl.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.8">
+          <caret line="3" column="36" selection-start-line="3" selection-start-column="36" selection-end-line="3" selection-end-column="36" />
           <folding />
         </state>
       </provider>
@@ -1002,50 +1077,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/pages/email/templates/emailTabs.tpl.jade">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.6">
-          <caret line="6" column="35" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/pages/email/templatesmine.tpl.jade">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.4">
-          <caret line="4" column="34" selection-start-line="4" selection-start-column="34" selection-end-line="4" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/pages/email/email.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.04">
-          <caret line="82" column="35" selection-start-line="82" selection-start-column="35" selection-end-line="82" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/models/item.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/models/email.coffee">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.8">
-          <caret line="3" column="17" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/tables.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.30394432">
-          <caret line="245" column="10" selection-start-line="245" selection-start-column="10" selection-end-line="245" selection-end-column="10" />
+        <state vertical-scroll-proportion="0.4266467">
+          <caret line="19" column="17" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
           <folding />
         </state>
       </provider>
