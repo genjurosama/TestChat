@@ -35,7 +35,13 @@ Router.route "client.itemCreate/:_id",
 Router.route "client.letters/:_id",
 	name: 'clientLetters'
 	data: ()->
-		return {_id: this.params._id} 
+		return {_id: this.params._id}
+
+Router.route "client.letters.Creator/:_id",
+	name: 'clientLettersCreator'
+	data: ()->
+		return {_id: this.params._id}
+
 Router.route "client.notes/:_id",
 	name: 'clientNotes'
 	data: ()->
