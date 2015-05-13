@@ -1,0 +1,48 @@
++contentFor "title"
+   h1 Add New Item
++contentFor "breadcrubms"
+   li
+      a(href="{{pathFor 'clients'}}") Clients
+   li.active
+      a(href="{{pathFor 'clientItems'}}") Add New Item
++clientTabs
+.col-sm-12
+   input#clientID(type="hidden" value=_id)
+   #MyWizard.wizard
+      ul.steps
+         li.active(data-target='#step1')
+            span.badge.badge-info 1
+            span.hidden-xs Select Item
+            span.chevron
+         li(data-target='#step2')
+            span.badge 2
+            span.hidden-xs Select Credit Bureaus
+            span.chevron
+         li(data-target='#step3')
+            span.badge 3
+            span.hidden-xs Enter Item Details
+            span.chevron
+      .actions.col-sm-12.col-md-3
+         .pull-right
+            button.btn.btn-default.btn-mini.btn-prev(type='button')
+               i.fa.fa-chevron-left
+               |  Prev
+            button.btn.btn-primary.btn-mini.btn-next(type='button')
+               | Next
+               i.fa.fa-chevron-right
+   .step-content
+      #step1.step-pane.active
+         +itemStep1
+      #step2.step-pane
+         +itemStep2
+      #step3.step-pane
+         +itemStep3
+   #MyWizardBottom.wizard.wizard-bottom
+      .actions.col-sm-12.col-md-3
+         .pull-right
+            button.btn.btn-default.btn-mini.btn-prev2(type='button')
+               i.fa.fa-chevron-left
+               | Prev
+            button.btn.btn-primary.btn-mini.btn-next2(type='button')
+               | Next
+               i.fa.fa-chevron-right

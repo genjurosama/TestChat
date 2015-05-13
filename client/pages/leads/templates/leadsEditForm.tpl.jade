@@ -1,4 +1,4 @@
-+autoForm(collection="colLeads" id="leadsEdit" doc=this)
++autoForm(collection="Meteor.users" id="leadsEdit" doc=this)
     .col-sm-3
         +afQuickField name='profile.firstname'
         +afQuickField name='profile.lastname'
@@ -22,8 +22,6 @@
         +afQuickField name='profile.city'
         +afQuickField name='profile.state'
         +afQuickField name='profile.zip'
-    .col-sm-12
-        +afQuickField name='profile.note'
     .col-sm-12
         button.btn.btn-block.btn-primary(type="submit")
             | Save

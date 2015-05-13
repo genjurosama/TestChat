@@ -25,6 +25,29 @@ tr.shown td{
     cursor: hand;
 }
 
+.item-form {
+    height:100%
+}
+.item-form .form-group{
+    width: 50%;
+    float: left;
+
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+
+}
+@media (max-width: 500px) {
+    .item-form .form-group{
+        width: 100%;
+        float: left;
+
+        min-height: 1px;
+        padding-right: 15px;
+        padding-left: 15px;
+
+    }
+}
 
 .form-group{
     margin-bottom: 1px;
@@ -53,6 +76,7 @@ tr.shown td{
 
 .wizard-bottom {
     margin-top: -14px;
+    width:100%
 }
 
 /* table mobile */

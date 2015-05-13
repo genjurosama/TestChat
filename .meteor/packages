@@ -20,7 +20,6 @@ nahue:simple-line-icons
 themeteorchef:jquery-validation
 themeteorchef:bert
 check
-aldeed:autoform
 meteorhacks:subs-manager
 alanning:roles
 aldeed:collection2
@@ -40,8 +39,9 @@ natestrauser:select2
 miguelalarcos:afwrap-xautocomplete
 mizzao:autocomplete
 chhib:selectize-bootstrap-3
-comerc:autoform-selectize
 mpowaga:autoform-summernote
 
 kevohagan:sweetalert
 pagebakers:ionicons
+jeremy:autoform-selectize
+aldeed:autoform@5.1.2

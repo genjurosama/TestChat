@@ -195,21 +195,11 @@ TabularTables.emailTemplates = new Tabular.Table
   name: 'emailTemplates'
   collection: colEmailTemplates
   order: [[3, 'desc']]
-  selector: (uid) ->
-    if Meteor.isServer
-      type:"stock"
-    else
-      {}
   columns: [
     {
       data: 'name'
       title: 'Template name'
       width: '25%'
-
-    }
-    {
-      data: 'type'
-      visible:false
 
     }
     {
@@ -237,58 +227,14 @@ TabularTables.emailTemplates = new Tabular.Table
   ]
   extraFields: ['flag']
 
-
-TabularTables.myEmailTemplates = new Tabular.Table
-  name: 'myEmailTemplates'
-  collection: colEmailTemplates
-  order: [[3, 'desc']]
-  selector: (uid) ->
-    if Meteor.isServer
-      type:"mine"
-      uid:uid
-    else
-      {}
-
-  columns: [
-    {
-      data: 'name'
-      title: 'Template name'
-      width: '25%'
-
-    }
-    {
-      data: 'uid'
-      title:"id"
-
-    }
-    {
-      data: 'description'
-      title: 'Template Description'
-      width: '10%'
-
-    }
-    {
-      data: 'category'
-      title: 'Category'
-      width: '15%'
-
-    }
-    {
-      title: 'Actions'
-      width: '10%'
-      tmpl:_t 'cellEmailTemplatesActions'
-    }
-    {
-      title : "content"
-      data:"content"
-      visible: false
-    }
-  ]
-  extraFields: ['flag']
 
 TabularTables.leads = new Tabular.Table
   name: 'leads'
-  collection: colLeads
+  collection: Meteor.users
+  pub: "users"
+  selector: (uid) ->
+    roles: {"$in":['lead']}
+  order: [[3, 'asc']]
   order: [[3, 'desc']]
   columns: [
     {
@@ -320,3 +266,42 @@ TabularTables.leads = new Tabular.Table
     }
   ]
   extraFields: ['flag']
+
+TabularTables.clientItems = new Tabular.Table
+  name: 'clientItems'
+  collection: colClientItems
+  order: [[3, 'desc']]
+  columns: [
+    {
+      data: 'itemName'
+      title: 'Title'
+      width: '30%'
+    }
+    {
+      data: 'itemType'
+      title: 'Item Type'
+      width: '15%'
+    }
+    {
+      data: 'authorID'
+      title: 'Author'
+      width: '25%'
+      render: (val, type, doc) ->
+        usr = Meteor.users.findOne _id:val
+        return usr.profile.lastname+" "+usr.profile.firstname
+    }
+    {
+      data: 'furnisher'
+      title: 'Furnisher'
+      width: '20%'
+    }
+    {
+      data: 'createdAt'
+      title: 'Date/Time Added'
+      width: '15%'
+      render: (val, type, doc) ->
+        return moment(val).format("LLLL")
+    }
+  ]
+  extraFields: ['flag']
+

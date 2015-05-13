@@ -5,4 +5,8 @@ Meteor.methods
   addClientFile: (doc)->
     check(doc, Object)
     colClientFiles.insert doc
-
+  addClientItem: (doc, itemData)->
+    check(doc, Object)
+    check(itemData, Object)
+    doc.itemData=itemData
+    colClientItems.insert(doc)

@@ -1,1 +1,1 @@
-@colLeads = new Mongo.Collection 'colLeads'
+@colLeads = new Mongo.Collection 'leads'

@@ -2482,7 +2482,7 @@ label.valid {
   display: block; }
 
 .step-content .active .btn-group .active {
-  display: inline-block; }
+  display: block; }
 
 .wizard .steps .badge.badge-info {
   background-color: #556B8D; }

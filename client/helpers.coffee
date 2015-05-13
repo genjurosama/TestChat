@@ -11,3 +11,11 @@ Template.registerHelper "userName", (id)->
   usr = Meteor.users.findOne _id: id
   if usr
     return usr.profile.lastname+" "+usr.profile.firstname
+
+Template.registerHelper "creditBureaus", ()->
+  return $.map creditBureaus, (value, index) ->
+    value.key =  index
+    [ value ]
+
+Template.registerHelper 'concat', ()->
+  return Array.prototype.slice.call(arguments, 0, -1).join('');
