@@ -23,16 +23,16 @@ fieldset#default-step-0.step(title="Items", style="display: block;")
                 .panel-body(style="padding:0;padding-top:15px;padding-bottom:15px")
                     table.table
                         tr
-                            td Item Name
-                            td Account
-                            td Furnisher
-                            td Equifax
-                            td Experian
-                            td Transunion
+                            th Item AccountNumber
+                            th Equifax
+                            th Experian
+                            th Transunion
+                            th Source
                         each accounts
                             tr
-                                td {{itemName}}
-                                td
+                                td {{itemData.account.equifax.accountNumber}}
+                                td {{itemData.account.equifax.accountNumber}}
+
                                 td
                                     input(type="checkbox")
                                 td
@@ -67,12 +67,12 @@ fieldset#default-step-0.step(title="Items", style="display: block;")
             .panel-body(style="padding:0;padding-top:15px;padding-bottom:15px")
                 table.table
                     tr
-                        td Item Name
-                        td Account
-                        td Furnisher
-                        td Equifax
-                        td Experian
-                        td Transunion
+                        th Item Name
+                        th Account
+                        th Furnisher
+                        th Equifax
+                        th Experian
+                        th Transunion
                     each collections
                         tr
                             td {{itemName}}
@@ -161,6 +161,12 @@ fieldset#default-step-0.step(title="Items", style="display: block;")
                         tr
                             td {{itemName}}
                             td
+                                if itemData.account.equifax.accountNumber
+                                    itemData.account.equifax.accountNumber
+                                else if itemData.account.experian.accountNumber
+                                    itemData.account.experian.accountNumber
+                                else
+                                    itemData.account.transunion.accountNumber
                             td
                                 input(type="checkbox")
                             td
