@@ -230,7 +230,7 @@ TabularTables.emailTemplates = new Tabular.Table
 
 TabularTables.leads = new Tabular.Table
   name: 'leads'
-  collection: Meteor.users
+  collection: colLeads
   pub: "users"
   selector: (uid) ->
     roles: {"$in":['lead']}
