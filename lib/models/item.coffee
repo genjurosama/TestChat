@@ -331,7 +331,7 @@
 )
 
 
-colClientItems.attachSchema(@Schema.clientItem)
+#colClientItems.attachSchema(@Schema.clientItem)
 
 
 
