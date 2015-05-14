@@ -1,0 +1,17 @@
+each creditBureaus
+   .col-sm-4
+      .col-sm-12
+         img(src='{{image}}')
+      with getStatusInfo .. key
+         if notReported
+            .col-sm-12.label.label-primary Not Reported
+          else
+             .btn-group
+                button.btn.btn-danger.dropdown-toggle(type='button', data-toggle='dropdown', style='width:125px;')
+                   i.fa.fa-thumbs-down
+                   span  Negative
+                   span.caret
+                ul.dropdown-menu(role='menu')
+                  each itemStatuses
+                     li
+                        a.change_status(value=key href='#') {{title}}

@@ -10,6 +10,8 @@ Template.registerHelper "userName", (id)->
     id = Meteor.userId()
   usr = Meteor.users.findOne _id: id
   if usr
+    if !usr.profile.lastname
+      usr.profile.lastname=''
     return usr.profile.lastname+" "+usr.profile.firstname
 
 Template.registerHelper "creditBureaus", ()->
@@ -17,5 +19,26 @@ Template.registerHelper "creditBureaus", ()->
     value.key =  index
     [ value ]
 
+Template.registerHelper "itemStatuses", ()->
+  return $.map itemStatuses, (value, index) ->
+    value.key =  index
+    [ value ]
+
 Template.registerHelper 'concat', ()->
   return Array.prototype.slice.call(arguments, 0, -1).join('');
+
+Template.registerHelper 'field2label', (fieldName)->
+  return field2label(fieldName)
+
+@field2label = (fieldName)->
+  label = fieldName
+  lastPeriod = label.lastIndexOf(".")
+  if lastPeriod != -1
+    label = label.substring(lastPeriod + 1)
+    if label == "$"
+      pcs = fieldName.split(".")
+      label = pcs[pcs.length - 2]
+  if label == "_id"
+    return "ID"
+  return S(label).humanize().s
+

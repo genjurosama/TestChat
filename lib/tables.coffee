@@ -270,38 +270,31 @@ TabularTables.leads = new Tabular.Table
 TabularTables.clientItems = new Tabular.Table
   name: 'clientItems'
   collection: colClientItems
-  order: [[3, 'desc']]
   columns: [
+    {
+      className:      'details-control',
+      orderable:      false,
+      data:           null,
+      defaultContent: "<span class='label label-success cursor-pointer'><i class='fa fa-plus'></span>"
+    }
     {
       data: 'itemName'
       title: 'Title'
-      width: '30%'
+      width: '35%'
+      tmpl:_t 'itemTitle'
     }
     {
-      data: 'itemType'
-      title: 'Item Type'
+      data: 'itemName'
+      title: 'Status'
+      width: '50%'
+      tmpl:_t 'itemStatus'
+    }
+    {
+      data: 'itemName'
+      title: 'Actions'
       width: '15%'
-    }
-    {
-      data: 'authorID'
-      title: 'Author'
-      width: '25%'
-      render: (val, type, doc) ->
-        usr = Meteor.users.findOne _id:val
-        return usr.profile.lastname+" "+usr.profile.firstname
-    }
-    {
-      data: 'furnisher'
-      title: 'Furnisher'
-      width: '20%'
-    }
-    {
-      data: 'createdAt'
-      title: 'Date/Time Added'
-      width: '15%'
-      render: (val, type, doc) ->
-        return moment(val).format("LLLL")
+      tmpl:_t 'itemActions'
     }
   ]
-  extraFields: ['flag']
+  extraFields: ['itemName','itemType','authorID','furnisher', 'itemData']
 

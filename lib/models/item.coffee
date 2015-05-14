@@ -3,6 +3,9 @@
     type: String
   "authorID":
     type: String
+  "itemStatus":
+    optional: true
+    type: String
   "itemType":
     type: String
     autoform:
