@@ -20,3 +20,10 @@
   incorrectDOB: "Incorrect DOB"
   incorrectAddress: "Incorrect Address"
 }
+
+@itemStatuses = {
+  negative: {title: "Negative", color: "danger"}
+  positive: {title: "Positive", color: "success"}
+  repaired: {title: "Repaired", color: "success"}
+  deleted: {title: "Deleted", color: "success"}
+}
