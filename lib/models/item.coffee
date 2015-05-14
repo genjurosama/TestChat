@@ -330,6 +330,68 @@
   }
 )
 
+@Schema.itemOriginalCreditor= new SimpleSchema(
+  "accountNumber": {
+    "type": String
+  },
+  "type": {
+    "type": String
+    autoform:
+      type: "select"
+      options: ()->
+        data = colAdminSystem.findOne({name: "dropDowns"}).collectionStatus
+        data.map (c)->
+          return {label: c, value: c}
+  }
+  "status": {
+    "type": String
+    autoform:
+      type: "select"
+      options: ()->
+        data = colAdminSystem.findOne({name: "dropDowns"}).collectionStatus
+        data.map (c)->
+          return {label: c, value: c}
+  },
+  "originalCreditor": {
+    "type": String
+  },
+  "balanceAmount": {
+    "type": String
+  },
+  "dateOpened": {
+    "type": Date
+    autoform:
+      afFieldInput:
+        type: "bootstrap-datepicker"
+        datePickerOptions:
+          autoclose: true
+  },
+  "dateReported": {
+    "type": Date
+    autoform:
+      afFieldInput:
+        type: "bootstrap-datepicker"
+        datePickerOptions:
+          autoclose: true
+  },
+  "dateOfLastActivity": {
+    "type": Date
+    autoform:
+      afFieldInput:
+        type: "bootstrap-datepicker"
+        datePickerOptions:
+          autoclose: true
+  },
+  "internalNotes": {
+    "type": String
+    optional: true
+    autoform:
+      afFieldInput:
+        type: "textarea"
+  }
+)
+
+
 
 #colClientItems.attachSchema(@Schema.clientItem)
 

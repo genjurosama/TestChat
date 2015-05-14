@@ -1,0 +1,171 @@
+fieldset#default-step-0.step(title="Items", style="display: block;")
+    legend Which Items  are your disputing?
+    .col-sm-12
+        .panel.panel-default
+                .panel-heading
+                    div(style="float:right; margin-top:-4px; margin-right:50px;")
+
+
+
+
+                        Label(for="all_furnishers") All Furnishers
+                        input(type="checkbox")#all_furnishers
+                        Label(for="all_equifax") All Equifax
+                        input(type="checkbox")#all_equifax
+                        Label(for="all_experian") All Experian
+                        input(type="checkbox")#all_experian
+                        Label(for="all_Transunion") All Transunion
+                        input(type="checkbox")#all_transunion
+
+                    h3.panel-title Original Creditors
+                        .actions.pull-right
+                            i.fa.fa-chevron-up.clientData
+                .panel-body(style="padding:0;padding-top:15px;padding-bottom:15px")
+                    table.table
+                        tr
+                            td Item Name
+                            td Account
+                            td Furnisher
+                            td Equifax
+                            td Experian
+                            td Transunion
+                        each accounts
+                            tr
+                                td {{itemName}}
+                                td
+                                td
+                                    input(type="checkbox")
+                                td
+                                    input(type="checkbox")
+                                td
+                                    input(type="checkbox")
+                                td
+                                    input(type="checkbox")
+
+
+
+    .col-sm-12
+        .panel.panel-default
+            .panel-heading
+                div(style="float:right; margin-top:-4px; margin-right:50px;")
+
+
+
+
+                    Label(for="all_furnishers") All Furnishers
+                    input(type="checkbox")#all_furnishers
+                    Label(for="all_equifax") All Equifax
+                    input(type="checkbox")#all_equifax
+                    Label(for="all_experian") All Experian
+                    input(type="checkbox")#all_experian
+                    Label(for="all_Transunion") All Transunion
+                    input(type="checkbox")#all_transunion
+
+                h3.panel-title Collections
+                    .actions.pull-right
+                        i.fa.fa-chevron-up.clientData
+            .panel-body(style="padding:0;padding-top:15px;padding-bottom:15px")
+                table.table
+                    tr
+                        td Item Name
+                        td Account
+                        td Furnisher
+                        td Equifax
+                        td Experian
+                        td Transunion
+                    each collections
+                        tr
+                            td {{itemName}}
+                            td
+                            td
+                                input(type="checkbox")
+                            td
+                                input(type="checkbox")
+                            td
+                                input(type="checkbox")
+                            td
+                                input(type="checkbox")
+
+    .col-sm-12
+        .panel.panel-default
+            .panel-heading
+                div(style="float:right; margin-top:-4px; margin-right:50px;")
+
+
+
+
+                    Label(for="all_furnishers") All Furnishers
+                    input(type="checkbox")#all_furnishers
+                    Label(for="all_equifax") All Equifax
+                    input(type="checkbox")#all_equifax
+                    Label(for="all_experian") All Experian
+                    input(type="checkbox")#all_experian
+                    Label(for="all_Transunion") All Transunion
+                    input(type="checkbox")#all_transunion
+
+                h3.panel-title Public records
+                    .actions.pull-right
+                        i.fa.fa-chevron-up.clientData
+            .panel-body(style="padding:0;padding-top:15px;padding-bottom:15px")
+                table.table
+                    tr
+                        td Item Name
+                        td Account
+                        td Furnisher
+                        td Equifax
+                        td Experian
+                        td Transunion
+                    each publicRecords
+                        tr
+                            td {{itemName}}
+                            td
+                            td
+                                input(type="checkbox")
+                            td
+                                input(type="checkbox")
+                            td
+                                input(type="checkbox")
+                            td
+                                input(type="checkbox")
+
+    .col-sm-12
+        .panel.panel-default
+            .panel-heading
+                div(style="float:right; margin-top:-4px; margin-right:50px;")
+
+
+
+
+                    Label(for="all_furnishers") All Furnishers
+                    input(type="checkbox")#all_furnishers
+                    Label(for="all_equifax") All Equifax
+                    input(type="checkbox")#all_equifax
+                    Label(for="all_experian") All Experian
+                    input(type="checkbox")#all_experian
+                    Label(for="all_Transunion") All Transunion
+                    input(type="checkbox")#all_transunion
+
+                h3.panel-title Inquiries
+                    .actions.pull-right
+                        i.fa.fa-chevron-up.clientData
+            .panel-body(style="padding:0;padding-top:15px;padding-bottom:15px")
+                table.table
+                    tr
+                        td Item Name
+                        td Account
+                        td Furnisher
+                        td Equifax
+                        td Experian
+                        td Transunion
+                    each inquiries
+                        tr
+                            td {{itemName}}
+                            td
+                            td
+                                input(type="checkbox")
+                            td
+                                input(type="checkbox")
+                            td
+                                input(type="checkbox")
+                            td
+                                input(type="checkbox")

@@ -23,35 +23,47 @@
         .panel-body(style="padding:0;padding-top:15px;padding-bottom:15px")
             +clientInfo
 .col-sm-12
-    .panel.panel-default
-        .panel-heading
-            +clientButtons
-            h3.panel-title {{profile.lastname}} {{profile.firstname}} - Client Info
-                .actions.pull-right
-                    i.fa.fa-chevron-up.clientData
-        .panel-body(style="padding:0;padding-top:15px;padding-bottom:15px")
-            .col-md-3
-                button.bt.btn-success
-                    i.icon-bar-chart
-                    span.total.text-center Recipient
-                    br
-                    span.title.text-center Where are your letters going?
-            .col-md-3
-               button.bt.btn-success
-                   i.icon-bar-chart
-                   span.total.text-center Items
-                   br
-                   span.title.text-center Which items are you disputing?
-
-            .col-md-3
-                button.bt.btn-success
-                        i.icon-bar-chart
-                        span.total.text-center Template
-                        br
-                        span.title.text-center What should your letters say?
-            .col-md-3
-                button.bt.btn-success
-                        i.icon-bar-chart
-                        span.total.text-center Finish
-                        br
-                        span.title.text-center Confirm and complete
+    #MyWizard.wizard
+        ul.steps
+            li.active(data-target='#step1')
+                span.badge.badge-info 1
+                span.hidden-xs Recipient
+                span.chevron
+            li(data-target='#step2')
+                span.badge 2
+                span.hidden-xs Items
+                span.chevron
+            li(data-target='#step3')
+                span.badge 3
+                span.hidden-xs Template
+                span.chevron
+            li(data-target='#step4')
+                span.badge 4
+                span.hidden-xs Finish : Confirm and complete
+                span.chevron
+        .actions.col-sm-12.col-md-3
+            .pull-right
+                button.btn.btn-default.btn-mini.btn-prev(type='button')
+                    i.fa.fa-chevron-left
+                    |  Prev
+                button.btn.btn-primary.btn-mini.btn-next(type='button')
+                    | Next
+                    i.fa.fa-chevron-right
+    .step-content
+        #step1.step-pane.active
+            +letterCreatorItemStep1
+        #step2.step-pane
+            +letterCreatorItemStep2
+        #step3.step-pane
+            +letterCreatorItemStep3
+        #step4.step-pane
+            +letterCreatorItemStep3
+    #MyWizardBottom.wizard.wizard-bottom
+        .actions.col-sm-12.col-md-3
+            .pull-right
+                button.btn.btn-default.btn-mini.btn-prev2(type='button')
+                    i.fa.fa-chevron-left
+                    |  Prev
+                button.btn.btn-primary.btn-mini.btn-next2(type='button', data-last='Finish')
+                    | Next
+                    i.fa.fa-chevron-right
