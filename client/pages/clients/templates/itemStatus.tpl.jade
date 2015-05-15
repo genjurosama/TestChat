@@ -7,11 +7,8 @@ each creditBureaus
             .col-sm-12.label.label-primary Not Reported
           else
              .btn-group
-                button.btn.btn-danger.dropdown-toggle(type='button', data-toggle='dropdown', style='width:125px;')
-                   i.fa.fa-thumbs-down
-                   span  Negative
-                   span.caret
+                +statusButton
                 ul.dropdown-menu(role='menu')
                   each itemStatuses
                      li
-                        a.change_status(value=key href='#') {{title}}
+                        a.change-status(href='#' data="{{../../key}}") {{title}}

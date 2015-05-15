@@ -140,3 +140,15 @@ tr.shown td{
 .panel-heading a.collapsed:after {
     content:"\e080";
 }
+
+table.item-extras tbody td {padding:3px; font-size: 1em}
+
+table.item-extras tbody td:nth-child(2){
+    background-color: #FFC6C6;
+}
+table.item-extras tbody td:nth-child(3){
+    background-color: #CCDCFF;
+}
+table.item-extras tbody td:nth-child(4){
+    background-color: #C6E1C6;
+}

@@ -1,0 +1,10 @@
+if statusIsPositive itemStatus
+   button.btn.btn-success.dropdown-toggle(type='button', data-toggle='dropdown', style='width:125px;')
+      i.fa.fa-thumbs-up
+      span  {{getStatusTitle itemStatus}}
+      span.caret
+else
+   button.btn.btn-danger.dropdown-toggle(type='button', data-toggle='dropdown', style='width:125px;')
+      i.fa.fa-thumbs-down
+      span  {{getStatusTitle itemStatus}}
+      span.caret

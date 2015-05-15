@@ -24,6 +24,17 @@ Template.registerHelper "itemStatuses", ()->
     value.key =  index
     [ value ]
 
+Template.registerHelper "getStatusTitle", (status)->
+  if !status
+    return "Negative"
+  return itemStatuses[status].title
+
+Template.registerHelper "statusIsPositive", (status)->
+  if !status || status=="negative"
+    return false
+  else return true
+
+
 Template.registerHelper 'concat', ()->
   return Array.prototype.slice.call(arguments, 0, -1).join('');
 
