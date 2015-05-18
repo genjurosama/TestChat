@@ -78,6 +78,9 @@ tr.shown td{
     margin-top: -14px;
     width:100%
 }
+#auditWizard li {
+    font-size: 0.8em;
+}
 
 /* table mobile */
 @media only screen and (max-width: 800px) {

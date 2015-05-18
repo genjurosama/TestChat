@@ -1,0 +1,54 @@
++contentFor "title"
+   h1 Run Audit
++contentFor "breadcrubms"
+   li
+      a(href="{{pathFor 'clients'}}") Clients
+   li.active
+      a(href="{{pathFor 'clientAudit'}}") Run Audit
++clientTabs
+.col-sm-12
+   input#clientID(type="hidden" value=_id)
+   #auditWizard.wizard
+      ul.steps
+         li.active(data-target='#step1')
+            span.badge.badge-info 1
+            span.hidden-xs Report Info
+            span.chevron
+         li(data-target='#step2')
+            span.badge 2
+            span.hidden-xs Personal Info
+            span.chevron
+         li(data-target='#step3')
+            span.badge 3
+            span.hidden-xs Grade for this Report
+            span.chevron
+         li(data-target='#step4')
+            span.badge 4
+            span.hidden-xs Description & Conclusion
+            span.chevron
+      .actions.col-sm-12.col-md-3
+         .pull-right
+            button.btn.btn-default.btn-mini.btn-prev(type='button')
+               i.fa.fa-chevron-left
+               |  Prev
+            button.btn.btn-primary.btn-mini.btn-next(type='button')
+               | Next
+               i.fa.fa-chevron-right
+   .step-content
+      #step1.step-pane.active
+
+      #step2.step-pane
+
+      #step3.step-pane
+
+      #step4.step-pane
+
+   #auditWizardBottom.wizard.wizard-bottom
+      .actions.col-sm-12.col-md-3
+         .pull-right
+            button.btn.btn-default.btn-mini.btn-prev2(type='button')
+               i.fa.fa-chevron-left
+               | Prev
+            button.btn.btn-primary.btn-mini.btn-next2(type='button')
+               | Next
+               i.fa.fa-chevron-right

@@ -19,6 +19,12 @@ Router.route "client.audit/:_id",
     return {_id: this.params._id}
   waitOn: ()->
     return [subs.subscribe "colAdminSystem"]
+Router.route "client.auditCreate/:_id",
+	name: 'clientAuditCreate'
+	waitOn: ()->
+		return [subs.subscribe "colAdminSystem", subs.subscribe "colClientItems"]
+	data: ()->
+		return {_id: this.params._id}
 
 Router.route "client.items/:_id",
 	name: 'clientItems'
@@ -39,6 +45,7 @@ Router.route "client.itemEdit/:_id/:edit_id",
 		return [subs.subscribe "colFurhishers", subs.subscribe "colAdminSystem", subs.subscribe "colClientItems"]
 	data: ()->
 		return {_id:this.params._id, doc:colClientItems.findOne({_id:this.params.edit_id})}
+
 Router.route "client.letters/:_id",
 	name: 'clientLetters'
 	data: ()->

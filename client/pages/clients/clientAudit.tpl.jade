@@ -6,4 +6,8 @@
    li.active
       a(href="{{pathFor 'clientAudit'}}") Audit
 +clientTabs
-   | Audit {{_id}}
+.container-fluid
+   .row
+      button.create-audit.btn.btn-primary.pull-left Run Audit
+   .row
+      +tabular table=TabularTables.clientAudit class="table table-striped table-bordered table-condensed table-responsive"

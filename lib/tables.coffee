@@ -286,13 +286,41 @@ TabularTables.clientItems = new Tabular.Table
     {
       data: 'itemName'
       title: 'Status'
-      width: '50%'
+      width: '55%'
       tmpl:_t 'itemStatus'
     }
     {
       data: 'itemName'
       title: 'Actions'
-      width: '15%'
+      width: '10%'
+      tmpl:_t 'itemActions'
+    }
+  ]
+  extraFields: ['_id', 'clientID', 'itemName','itemType','authorID','furnisher', 'itemData']
+
+TabularTables.clientAudit = new Tabular.Table
+  name: 'clientAudit'
+  collection: colClientAudit
+  columns: [
+    {
+      data: 'createdAt'
+      title: 'Audit Date'
+      width: '35%'
+      render: (val, type, doc) ->
+        return moment(val).format("LLLL")
+    }
+    {
+      data: 'authorID'
+      title: 'Auditor'
+      width: '35%'
+      render: (val, type, doc) ->
+        usr = Meteor.users.findOne _id:val
+        return usr.profile.lastname+" "+usr.profile.firstname
+    }
+    {
+      data: 'itemName'
+      title: 'Actions'
+      width: '10%'
       tmpl:_t 'itemActions'
     }
   ]
