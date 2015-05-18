@@ -76,6 +76,13 @@ Template.adminAuditTree.rendered = ()->
         colAuditItems.insert({item_id: $(el2).attr("data_id").replace("item_",""), title: $(el2).children(".dd-handle").text()})
     )
 
+  $(".auditDesc").blur(()->
+    id = $(this).attr("id")
+    data = $(this).val()
+    colAuditItems.update({_id:id},{$set:{description: data}})
+    Bert.alert("Saved", 'success');
+  )
+
 
 
 Template.nestedList.helpers
@@ -94,6 +101,10 @@ Template.treeListItem.helpers
     row = colAuditItems.findOne({item_id: id})
     if row
       return row._id
+  iData: (id)->
+    row = colAuditItems.findOne({item_id: id})
+    if row
+      return row
 
 auditHook =
   onSuccess: (formType, result)->

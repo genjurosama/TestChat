@@ -4,7 +4,9 @@ each creditBureaus
          img(src='{{image}}')
       with getStatusInfo .. key
          if notReported
-            .col-sm-12.label.label-primary Not Reported
+            .btn-group
+               button.btn.btn-primary(type='button', style='width:125px;')
+                  | Not Reported
           else
              .btn-group
                 +statusButton

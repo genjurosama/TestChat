@@ -1,5 +1,5 @@
 form.form-horizontal
-   +autoForm(schema="Schema.clientItem" id="itemStep1")
+   +autoForm(schema="Schema.clientItem" id="itemStep1" doc=doc)
       //+autoForm(collection="colClientItems" id="itemStep1" doc=this type=insert})
           +afQuickField name='itemName'
           +afQuickField name='furnisher' formid="itemStep1" type='xautocomplete' call='getFurnishers' fieldref='_id'

@@ -10,6 +10,12 @@ Meteor.methods
     check(itemData, Object)
     doc.itemData=itemData
     colClientItems.insert(doc)
+  updateClientItem: (doc, itemData, id)->
+    check(doc, Object)
+    check(itemData, Object)
+    check(id, String)
+    doc.itemData=itemData
+    colClientItems.update({_id: id}, {$set: doc})
   changeItemStatus: (id, itemType, status, bureau)->
     check(id, String)
     check(itemType, String)
@@ -18,3 +24,6 @@ Meteor.methods
     doc = {}
     doc["itemData."+itemType+"."+bureau+".itemStatus"] = status
     colClientItems.update({_id: id}, {$set: doc})
+  itemDelete: (id)->
+    check(id, String)
+    colClientItems.remove({_id: id})

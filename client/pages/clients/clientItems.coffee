@@ -24,6 +24,13 @@ Template.itemExtras.helpers
 Template.clientItems.events
   'click .create-item': ()->
     Router.go("clientItemCreate",{_id:this._id})
+Template.itemActions.events
+  'click .btn-edit-item': (e, tpl) ->
+    Router.go("clientItemEdit",{_id:this.clientID, edit_id:this._id})
+  'click .btn-delete-item': (e, tpl) ->
+    if confirm "Are you sure?"
+      Meteor.call 'itemDelete', this._id
+
 
 Template.itemStatus.events
   'click .change-status': (e, tpl) ->
@@ -39,6 +46,7 @@ Template.itemStatus.helpers
       return {notReported: true}
 
 Template.clientItems.rendered = ()->
+  tplData=this
   # Add event listener for opening and closing details
   str = 'table[id^=DataTables_Table_]'
   if !$(str)[0]
@@ -57,6 +65,14 @@ Template.clientItems.rendered = ()->
       # Open this row
       row.child("").show()
       el = tr.next()
+      html = Blaze.toHTMLWithData(Template.itemExtras, row.data())
+
+      Meteor.call "getPdf", html, (err,result)->
+        #console.log(result)
+        #item = PdfCollection.findOne({_id : result});
+        #blob = new Blob([item.pdf], {type: 'application/pdf'});
+        #saveAs(blob, 'test.pdf');
+        #PdfCollection.remove({_id : result});
 
       Blaze.renderWithData Template.itemExtras, row.data(), el.find("td")[0]
       #tr.addClass 'shown'

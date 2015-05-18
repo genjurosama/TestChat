@@ -37,6 +37,9 @@ Template.itemStep2.helpers
       value.key =  index
       [ value ]
 
+Template.itemStep2.rendered = ()->
+  $.each this.data.doc.itemData[this.data.doc.itemType], (k,v)->
+    $("#chk-"+k).iCheck('check');
 Template.itemStep3.helpers
   getImgID: ()->
     return "img-"+this.key;
@@ -44,8 +47,15 @@ Template.itemStep3.helpers
     if !Session.get("schema")
       Session.set("schema", "Collection")
     return "Schema.item"+Session.get("schema")
+  getDocName: ()->
+    #console.log this.key,Template.parentData(1).doc.itemData[decapitalizeFirstLetter(Session.get("schema"))]
+    if Session.get("schema") && Template.parentData(1).doc.itemData[decapitalizeFirstLetter(Session.get("schema"))] && [this.key]
+      return Template.parentData(1).doc.itemData[decapitalizeFirstLetter(Session.get("schema"))][this.key]
 
 Template.clientItemCreate.rendered = ()->
+  theData = this.data
+  if theData.doc
+    Session.set("schema", capitalizeFirstLetter(theData.doc.itemType))
   $(()->
 
     $("#itemType").change(()->
@@ -79,6 +89,7 @@ Template.clientItemCreate.rendered = ()->
         ).get()
         if bureaus.length<1
           error = "Please select at least 1 bureau"
+
         if $("#quickMode").prop("checked")
           $.each creditBureaus, (k,v)->
             $("#"+k).hide()
@@ -121,12 +132,20 @@ proceedItem = (itemData)->
   data.itemData[data.itemType]=itemData
   data.clientID = $("#clientID").val()
   data.authorID = Meteor.userId()
-  console.log data
-  Meteor.call 'addClientItem', data, data.itemData, (err, resp)->
-    if err
-      Bert.alert(err.reason, 'danger');
-    else
-      Bert.alert("Success", 'success');
+  if Template.parentData(6).doc
+    Meteor.call 'updateClientItem', data, data.itemData, Template.parentData(6).doc._id, (err, resp)->
+      if err
+        Bert.alert(err.reason, 'danger');
+      else
+        Bert.alert("Success", 'success');
+        Router.go("clientItems", {_id:$("#clientID").val()})
+  else
+    Meteor.call 'addClientItem', data, data.itemData, (err, resp)->
+      if err
+        Bert.alert(err.reason, 'danger');
+      else
+        Bert.alert("Success", 'success');
+        Router.go("clientItems", {_id:$("#clientID").val()})
 
 checkData = ()->
   res = true

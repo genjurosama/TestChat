@@ -27,12 +27,15 @@ leadsHook =
       else
         $('#myModal').modal('hide')
     else
-      Meteor.call 'addNewLead', insertDoc, (err, resp)->
+      doc = {
+        email: insertDoc.emails[0].address
+      }
+      Meteor.call 'registerUser', doc, insertDoc.profile, (err, resp)->
         if err
           Bert.alert(err.reason, 'danger');
         else
           $('#myModal').modal('hide')
-
+          Meteor.call 'addUserRole', resp, 'lead'
     return false
 
 AutoForm.addHooks(['leadsEdit'], leadsHook)

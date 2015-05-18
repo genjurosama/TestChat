@@ -230,7 +230,7 @@ TabularTables.emailTemplates = new Tabular.Table
 
 TabularTables.leads = new Tabular.Table
   name: 'leads'
-  collection: colLeads
+  collection: Meteor.users
   pub: "users"
   selector: (uid) ->
     roles: {"$in":['lead']}
@@ -296,5 +296,5 @@ TabularTables.clientItems = new Tabular.Table
       tmpl:_t 'itemActions'
     }
   ]
-  extraFields: ['itemName','itemType','authorID','furnisher', 'itemData']
+  extraFields: ['_id', 'clientID', 'itemName','itemType','authorID','furnisher', 'itemData']
 

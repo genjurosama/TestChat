@@ -8,6 +8,10 @@ li.dd-item(data_id='item_{{id}}')
       a.lnk.add-tree(data-toggle='modal', data-target='#myModal') Add
    else
       a.lnk.delete-tree Delete
+      br
+      with iData id
+         textarea.auditDesc.form-control(id=_id)
+            | {{description}}
    if haveChildren
       ol.dd-list
          each children
