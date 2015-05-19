@@ -130,6 +130,12 @@
   "accountNumber": {
     "type": String
   },
+  "auditDescription": {
+    "type": String
+    optional: true
+    autoform:
+      type: "auditTree"
+  },
   "balanceAmount": {
     "type": String
   },
@@ -220,6 +226,12 @@
         data.map (c)->
           return {label: c, value: c}
   },
+  "auditDescription": {
+    "type": String
+    optional: true
+    autoform:
+      type: "auditTree"
+  },
   "originalCreditor": {
     "type": String
   },
@@ -268,6 +280,12 @@
         data = colAdminSystem.findOne({name: "dropDowns"}).publicRecordStatus
         data.map (c)->
           return {label: c, value: c}
+  },
+  "auditDescription": {
+    "type": String
+    optional: true
+    autoform:
+      type: "auditTree"
   },
   "type": {
     "type": String

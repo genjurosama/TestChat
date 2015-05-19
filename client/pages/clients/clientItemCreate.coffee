@@ -1,3 +1,26 @@
+AutoForm.addInputType 'auditTree',
+  template: 'afAuditTree'
+  valueOut: ->
+    @val()
+
+
+Template.afAuditTree.helpers
+  getTree: ()->
+    colAdminSystem.findOne({name: "auditTree"}).data
+
+
+Template.auditTreeControl.helpers
+  haveChildren: ()->
+    return this.children && this.children.length>0
+  getName: (id)->
+    row = colAuditItems.findOne({item_id: id})
+    if row
+      return row.title
+  getID: (id)->
+    row = colAuditItems.findOne({item_id: id})
+    if row
+      return row._id
+
 Template.itemStep3.events
   'click .btn-save-item': ()->
     if $("#quickMode").prop("checked")
@@ -63,6 +86,7 @@ Template.clientItemCreate.rendered = ()->
         Session.set("schema", capitalizeFirstLetter($("#itemType").val()))
     )
     $('#MyWizard').wizard();
+    $('ul.sf-menu').superfish();
     $('.btn-next2').click(()->
       $('#MyWizard').wizard("next");
     )
@@ -82,6 +106,28 @@ Template.clientItemCreate.rendered = ()->
         if !$("#itemName").val()
           error = "Please enter title of the item"
       if step==3
+
+        $("input[name=auditDescription]").focus(()->
+          $(".treeContainer").show()
+        )
+        $("input[name=auditDescription]").blur(()->
+          $(".treeContainer").hide()
+        )
+
+        $('.item_selector').click ->
+          parent_items = $(this).parents('li')
+          audit_id = $(this).attr('data_id')
+          result = ''
+          $(parent_items.get().reverse()).each ->
+            if result
+              result += ' >  '
+            result += $(this).children('a').text()
+            return
+          if !$(this).attr("isNotLast")
+            $("input[name=auditDescription]").val(result)
+            $("#description_auditDescription").val(colAuditItems.findOne({item_id: audit_id}).description)
+          false
+
         bureaus = $('input[name="bureaus[]"]:checked').map(->
           if $(this).val()
             return $(this).val()

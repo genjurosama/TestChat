@@ -8,8 +8,20 @@ if !@Schema
     type: String
   "reportSource":
     type: String
+    autoform:
+      type: "select"
+      options: ()->
+        data = colAdminSystem.findOne({name: "dropDowns"}).sources
+        data.map (c)->
+          return {label: c.reportSource, value: c.reportSource}
   "reportDate":
     type: Date
+    optional: true
+    autoform:
+      afFieldInput:
+        type: "bootstrap-datepicker"
+        datePickerOptions:
+          autoclose: true
   "creditScores":
     optional: true
     type: Object

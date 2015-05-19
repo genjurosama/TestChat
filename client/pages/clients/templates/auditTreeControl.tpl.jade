@@ -1,0 +1,7 @@
+li
+   a.item_selector(data_id='{{id}}' isNotLast='{{haveChildren}}')
+      | {{getName id}}
+   if haveChildren
+      ul
+         each children
+            +auditTreeControl

@@ -35,14 +35,14 @@ Router.route "client.items/:_id",
 Router.route "client.itemCreate/:_id",
 	name: 'clientItemCreate'
 	waitOn: ()->
-		return [subs.subscribe "colFurhishers", subs.subscribe "colAdminSystem", subs.subscribe "colClientItems"]
+		return [subs.subscribe "colFurhishers", subs.subscribe "colAdminSystem", subs.subscribe "colClientItems", subs.subscribe "colAuditItems"]
 	data: ()->
 		return {_id: this.params._id}
 Router.route "client.itemEdit/:_id/:edit_id",
 	name: 'clientItemEdit'
 	template: 'clientItemCreate'
 	waitOn: ()->
-		return [subs.subscribe "colFurhishers", subs.subscribe "colAdminSystem", subs.subscribe "colClientItems"]
+		return [subs.subscribe "colFurhishers", subs.subscribe "colAdminSystem", subs.subscribe "colClientItems", subs.subscribe "colAuditItems"]
 	data: ()->
 		return {_id:this.params._id, doc:colClientItems.findOne({_id:this.params.edit_id})}
 

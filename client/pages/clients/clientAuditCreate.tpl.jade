@@ -10,19 +10,19 @@
    input#clientID(type="hidden" value=_id)
    #auditWizard.wizard
       ul.steps
-         li.active(data-target='#step1')
+         li.active(data-target='#step01')
             span.badge.badge-info 1
             span.hidden-xs Report Info
             span.chevron
-         li(data-target='#step2')
+         li(data-target='#step02')
             span.badge 2
             span.hidden-xs Personal Info
             span.chevron
-         li(data-target='#step3')
+         li(data-target='#step03')
             span.badge 3
             span.hidden-xs Grade for this Report
             span.chevron
-         li(data-target='#step4')
+         li(data-target='#step04')
             span.badge 4
             span.hidden-xs Description & Conclusion
             span.chevron
@@ -35,13 +35,13 @@
                | Next
                i.fa.fa-chevron-right
    .step-content
-      #step1.step-pane.active
+      #step01.step-pane.active
+         +auditStep1
+      #step02.step-pane
+         +auditStep2
+      #step03.step-pane
 
-      #step2.step-pane
-
-      #step3.step-pane
-
-      #step4.step-pane
+      #step04.step-pane
 
    #auditWizardBottom.wizard.wizard-bottom
       .actions.col-sm-12.col-md-3
