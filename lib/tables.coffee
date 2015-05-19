@@ -238,6 +238,12 @@ TabularTables.leads = new Tabular.Table
   order: [[3, 'desc']]
   columns: [
     {
+      className:      'details-control',
+      orderable:      false,
+      data:           null,
+      defaultContent: "<span class='label label-success cursor-pointer'><i class='fa fa-plus'></span>"
+    }
+    {
       data: 'profile.leadQuality'
       title: 'Lead'
       width: '5%'

@@ -67,10 +67,10 @@ tr.shown td{
     padding:0
 }
 
-.clientInfo .col-sm-4{
+.clientInfo .col-sm-4, .leadInfo .col-sm-4{
     padding:0
 }
-.clientInfo .col-sm-6{
+.clientInfo .col-sm-6, .leadInfo .col-sm-6{
     padding-right:0
 }
 
