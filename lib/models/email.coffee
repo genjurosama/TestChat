@@ -38,13 +38,6 @@
   "type":
     type:String
     optional:true
-  "content":
-    type:String
-    label:"Email Content"
-    autoform:
-      afFieldInput:
-        type: "summernote"
-        class: 'editor'
   "createdAt":
     type: Date
     autoValue: ()->
