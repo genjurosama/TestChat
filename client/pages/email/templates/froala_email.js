@@ -3,12 +3,11 @@ Template.froalaEmail.onRendered(function(t){
 	this.$('#froala-email')
 	this.$('#froala-email').editable({
 	inlineMode: false,
-	buttons: ['clear', 'customerVariables', 'recipientVariables'],
+	buttons: ['bold', 'italic', 'underline', 'customerVariables', 'recipientVariables'],
 	height: '400',
 	customDropdowns: {
     customerVariables: {
       title: 'Customer Variables',
-      label: 'hello',
       icon: {
         type: 'font',
         value: 'fa fa-plus-square',
@@ -62,20 +61,20 @@ Template.froalaEmail.onRendered(function(t){
       }
     },
     recipientVariables: {
-      title: 'Custorg',
+      title: 'Recipient Variables',
       icon: {
         type: 'font',
         value: 'fa fa-plus-square',
       },
       options: {
         'Name': function () {
-          this.insertHTML('[r.name');
+          this.insertHTML('[r.name]');
         },
         'Address 1': function () {
-          this.insertHTML('[r.addr1');
+          this.insertHTML('[r.addr1]');
         },
         'Address 2': function () {
-          this.insertHTML('[r.addr2');
+          this.insertHTML('[r.addr2]');
         },
         'City': function () {
           this.insertHTML('[r.city]');
