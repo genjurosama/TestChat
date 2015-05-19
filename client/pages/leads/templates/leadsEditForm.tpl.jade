@@ -2,26 +2,29 @@
     .col-sm-3
         +afQuickField name='profile.firstname'
         +afQuickField name='profile.lastname'
-        +afQuickField name='profile.birthday' buttonClasses="glyphicon glyphicon-calendar"
+        +afQuickField name='emails.0.address'
         +afQuickField name='profile.phone'
-        +afQuickField name='profile.address'
+        +afQuickField name='profile.phone2'
 
     .col-sm-3
+        +afQuickField name='profile.address'
         +afQuickField name='profile.address2'
+        +afQuickField name='profile.zip'
+        +afQuickField name='profile.city'
+        +afQuickField name='profile.state'
+
+    .col-sm-3
+        +afQuickField name='profile.birthday' buttonClasses="glyphicon glyphicon-calendar"
+        +afQuickField name='profile.SSN'
+        +afQuickField name='profile.leadQuality'
+        +afQuickField name='profile.status'
+
+    .col-sm-3
+        +afQuickField name='profile.source'
         +afQuickField name='profile.salesRep'
         +afQuickField name='profile.affiliate'
         +afQuickField name='profile.parentAffiliate'
 
-    .col-sm-3
-        +afQuickField name='profile.SSN'
-        +afQuickField name='profile.status'
-        +afQuickField name='emails.0.address'
-        +afQuickField name='profile.source'
-    .col-sm-3
-        +afQuickField name='profile.phone'
-        +afQuickField name='profile.city'
-        +afQuickField name='profile.state'
-        +afQuickField name='profile.zip'
     .col-sm-12
         button.btn.btn-block.btn-primary(type="submit")
             | Save
