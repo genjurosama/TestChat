@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="81c5058b-689c-47d3-9ddf-bda0891e69cd" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/templates/navigation.tpl.jade" afterPath="$PROJECT_DIR$/client/templates/navigation.tpl.jade" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/pages/email/templatesmine.tpl.jade" afterPath="$PROJECT_DIR$/client/pages/email/templatesmine.tpl.jade" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/pages/email/templatesstock.tpl.jade" afterPath="$PROJECT_DIR$/client/pages/email/templatesstock.tpl.jade" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/pages/leads/templates/cellLeadsActions.coffee" afterPath="$PROJECT_DIR$/client/pages/leads/templates/cellLeadsActions.coffee" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="CRM.iws" />
@@ -26,10 +24,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="cellLeadsActions.coffee" pinned="false" current-in-tab="false">
+      <file leaf-file-name="cellLeadsActions.coffee" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/pages/leads/templates/cellLeadsActions.coffee">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
+            <state vertical-scroll-proportion="0.288">
               <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
               <folding />
             </state>
@@ -66,11 +64,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="templatesstock.tpl.jade" pinned="false" current-in-tab="true">
+      <file leaf-file-name="templatesstock.tpl.jade" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/pages/email/templatesstock.tpl.jade">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.024">
-              <caret line="1" column="12" selection-start-line="1" selection-start-column="12" selection-end-line="1" selection-end-column="12" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -156,10 +154,10 @@
         <option value="$PROJECT_DIR$/server/accounts/methods.coffee" />
         <option value="$PROJECT_DIR$/client/pages/leads/templates/leadsEditForm.coffee" />
         <option value="$PROJECT_DIR$/client/pages/leads/templates/cellLeadsActions.tpl.jade" />
-        <option value="$PROJECT_DIR$/client/pages/leads/templates/cellLeadsActions.coffee" />
         <option value="$PROJECT_DIR$/client/templates/navigation.tpl.jade" />
         <option value="$PROJECT_DIR$/client/pages/email/templatesmine.tpl.jade" />
         <option value="$PROJECT_DIR$/client/pages/email/templatesstock.tpl.jade" />
+        <option value="$PROJECT_DIR$/client/pages/leads/templates/cellLeadsActions.coffee" />
       </list>
     </option>
   </component>
@@ -456,7 +454,13 @@
       <option name="project" value="LOCAL" />
       <updated>1432064244925</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="changed email templates into letter templates bug">
+      <created>1432064872208</created>
+      <option name="number" value="00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1432064872208</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -498,7 +502,8 @@
     <MESSAGE value="implemented filtering by Lead Quality &amp; Status" />
     <MESSAGE value="implemented implemented editting &amp; deleting leads" />
     <MESSAGE value="implemented changing leads into clients" />
-    <option name="LAST_COMMIT_MESSAGE" value="implemented changing leads into clients" />
+    <MESSAGE value="changed email templates into letter templates bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed email templates into letter templates bug" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -873,14 +878,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/pages/leads/templates/cellLeadsActions.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/templates/navigation.tpl.jade">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -907,8 +904,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/pages/email/templatesstock.tpl.jade">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.024">
-          <caret line="1" column="12" selection-start-line="1" selection-start-column="12" selection-end-line="1" selection-end-column="12" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/pages/leads/templates/cellLeadsActions.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.288">
+          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
           <folding />
         </state>
       </provider>
