@@ -1,7 +1,7 @@
-Template.froalaEmail.onRendered(function(t){
+Template.afFroalaEmail.onRendered(function(){
 	
-	this.$('#froala-email')
-	this.$('#froala-email').editable({
+	this.$('textarea')
+	this.$('textarea').editable({
 	inlineMode: false,
 	buttons: ['bold', 'italic', 'underline', 'customerVariables', 'recipientVariables'],
 	height: '400',
@@ -44,7 +44,7 @@ Template.froalaEmail.onRendered(function(t){
           this.insertHTML('[c.zip]');
         },
         'Phone 1': function () {
-          this.insertHTML('[c.phone1]');
+          this.insertHTML('[c.phonvalue="{{this.value}}" {{this.atts}}e1]');
         },
         'Phone 2': function () {
           this.insertHTML('[c.phone2]');
@@ -101,3 +101,10 @@ Template.froalaEmail.onRendered(function(t){
 
 });
 
+AutoForm.addInputType('froalaEmail', {
+		template:"afFroalaEmail",
+		valueOut: function(){
+			console.log("valueOut");
+			return this.editable('getHTML', true, true);
+		}
+});
