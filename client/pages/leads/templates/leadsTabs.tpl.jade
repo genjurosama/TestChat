@@ -2,13 +2,25 @@
    .col-md-12
       .tab-wrapper.tab-primary
          ul.nav.nav-tabs.responsive
-            +topTab(path="admin.users")
+            +topTab(path="leads.browse")
                | All Leads
-            +topTab(path="admin.itemDD")
+            +topTab(path="leads.hot")
                | Hot  Leads
-            +topTab(path="admin.snipets")
+            +topTab(path="leads.warm")
                | Warm leads
-            +topTab(path="admin.snipets")
+            +topTab(path="leads.cold")
                | Cold leads
+            +topTab(path="leads.active")
+               | Active
+            +topTab(path="leads.inactive")
+               | Inactive
+            +topTab(path="leads.pending")
+               | Pending
+            +topTab(path="leads.overdue")
+               | Results Overdue
+            +topTab(path="leads.pastdue")
+               | Past Due
+            +topTab(path="leads.canceled")
+               | Canceled
          .tab-content.main-tab-content
             +UI.contentBlock

@@ -96,7 +96,6 @@ npm-bcrypt@0.7.8_2
 npm-container@1.0.0
 observe-sequence@1.0.6
 ordered-dict@1.0.3
-pagebakers:ionicons@2.0.0
 pfafman:filesaver@0.1.0
 raix:eventemitter@0.1.2
 raix:ui-dropped-event@0.0.7

@@ -108,6 +108,22 @@ if !@Schema
           {label: "Past Due", value: "Past Due"},
           {label: "Canceled", value: "Canceled"}
         ]
+  leadQuality:
+    type: String
+    optional: true
+    allowedValues: [
+      "Hot",
+      "Warm",
+      "Cold"
+    ]
+    autoform:
+      type: "select"
+      options: ()->
+        [
+          {label: "Hot", value: "Hot"},
+          {label: "Warm", value: "Warm"},
+          {label: "Cold", value: "Cold"}
+        ]
 
 
   jointCustomer:

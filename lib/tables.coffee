@@ -238,31 +238,48 @@ TabularTables.leads = new Tabular.Table
   order: [[3, 'desc']]
   columns: [
     {
+      className:      'details-control',
+      orderable:      false,
+      data:           null,
+      defaultContent: "<span class='label label-success cursor-pointer'><i class='fa fa-plus'></span>"
+    }
+    {
+      data: 'profile.leadQuality'
+      title: 'Lead'
+      width: '5%'
+    }
+    {
+      data: 'profile.status'
+      title: 'Status'
+      width: '15%'
+    }
+    {
       data: 'profile.firstname'
       title: 'First Name'
-      width: '25%'
+      width: '15%'
 
     }
     {
       data: 'profile.lastname'
       title: 'Last Name '
-      width: '10%'
+      width: '15%'
 
     }
     {
       data: 'profile.phone'
       title: 'Phone'
-      width: '15%'
+      width: '20%'
 
     }
     {
-      title: 'email'
-      width: '10%'
       data: 'emails.0.address'
+      title: 'email'
+      width: '20%'
     }
     {
-      title : "zip"
-      data:"profile.zip"
+      title: 'Actions'
+      width: '10%'
+      tmpl:_t 'cellLeadsActions'
     }
   ]
   extraFields: ['flag']
