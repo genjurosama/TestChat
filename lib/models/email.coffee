@@ -38,6 +38,12 @@
   "type":
     type:String
     optional:true
+  "content":
+    type: String
+    label: "Froala Email"
+    autoform:
+      afFieldInput:
+        type: "froalaEmail"
   "createdAt":
     type: Date
     autoValue: ()->
