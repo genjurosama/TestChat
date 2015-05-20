@@ -1,4 +1,4 @@
-Template.leadsBrowse.rendered = ()->
+Template.leadsOverdue.rendered = ()->
 
 # Add event listener for opening and closing details
   str = 'table[id^=DataTables_Table_]'
@@ -26,9 +26,11 @@ Template.leadsBrowse.rendered = ()->
     return
   return
 
+Template.leadsOverdue.helpers
+  selector: ()->
+    return "profile.status" : "Results Overdue"
 
-Template.leadsBrowse.events
+Template.leadsOverdue.events
   'click .create-lead': (e, tpl) ->
     $('#dialogContainer').html("")
     Blaze.renderWithData Template.leadsEditModal, {}, $('#dialogContainer')[0]
-

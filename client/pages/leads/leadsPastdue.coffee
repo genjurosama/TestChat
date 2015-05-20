@@ -1,4 +1,4 @@
-Template.leadsBrowse.rendered = ()->
+Template.leadsPastdue.rendered = ()->
 
 # Add event listener for opening and closing details
   str = 'table[id^=DataTables_Table_]'
@@ -26,9 +26,11 @@ Template.leadsBrowse.rendered = ()->
     return
   return
 
+Template.leadsPastdue.helpers
+  selector: ()->
+    return "profile.status" : "Past Due"
 
-Template.leadsBrowse.events
+Template.leadsPastdue.events
   'click .create-lead': (e, tpl) ->
     $('#dialogContainer').html("")
     Blaze.renderWithData Template.leadsEditModal, {}, $('#dialogContainer')[0]
-
