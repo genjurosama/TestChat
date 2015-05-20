@@ -18,7 +18,6 @@ Template.itemExtras.helpers
 
     retData = $.map table, (value, index) ->
       [ value ]
-    console.log retData
     return retData
 
 Template.clientItems.events

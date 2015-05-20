@@ -130,14 +130,18 @@
   "accountNumber": {
     "type": String
   },
-  "auditDescription": {
+  "balanceAmount": {
+    "type": String
+  },
+  "auditPath": {
     "type": String
     optional: true
     autoform:
       type: "auditTree"
   },
-  "balanceAmount": {
+  "auditDescription": {
     "type": String
+    optional: true
   },
   "status": {
     "type": String
@@ -226,11 +230,15 @@
         data.map (c)->
           return {label: c, value: c}
   },
-  "auditDescription": {
+  "auditPath": {
     "type": String
     optional: true
     autoform:
       type: "auditTree"
+  },
+  "auditDescription": {
+    "type": String
+    optional: true
   },
   "originalCreditor": {
     "type": String
@@ -281,12 +289,6 @@
         data.map (c)->
           return {label: c, value: c}
   },
-  "auditDescription": {
-    "type": String
-    optional: true
-    autoform:
-      type: "auditTree"
-  },
   "type": {
     "type": String
     autoform:
@@ -295,6 +297,16 @@
         data = colAdminSystem.findOne({name: "dropDowns"}).publicRecordTypes
         data.map (c)->
           return {label: c, value: c}
+  },
+  "auditPath": {
+    "type": String
+    optional: true
+    autoform:
+      type: "auditTree"
+  },
+  "auditDescription": {
+    "type": String
+    optional: true
   },
   "dateReported": {
     "type": Date

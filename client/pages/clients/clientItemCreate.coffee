@@ -3,9 +3,12 @@ AutoForm.addInputType 'auditTree',
   valueOut: ->
     @val()
 
-
+@auditRows = {}
 Template.afAuditTree.helpers
   getTree: ()->
+    rows = colAuditItems.find().fetch()
+    $.each rows, (k,v)->
+      auditRows[v.item_id]=v.title
     colAdminSystem.findOne({name: "auditTree"}).data
 
 
@@ -13,9 +16,10 @@ Template.auditTreeControl.helpers
   haveChildren: ()->
     return this.children && this.children.length>0
   getName: (id)->
-    row = colAuditItems.findOne({item_id: id})
-    if row
-      return row.title
+    #row = colAuditItems.findOne({item_id: id})
+    #if row
+      #return row.title
+    return auditRows[id]
   getID: (id)->
     row = colAuditItems.findOne({item_id: id})
     if row
@@ -70,6 +74,8 @@ Template.itemStep3.helpers
     if !Session.get("schema")
       Session.set("schema", "Collection")
     return "Schema.item"+Session.get("schema")
+  getOmitFields: ()->
+    return ['auditDescription']
   getDocName: ()->
     #console.log this.key,Template.parentData(1).doc.itemData[decapitalizeFirstLetter(Session.get("schema"))]
     if Session.get("schema") && Template.parentData(1).doc.itemData[decapitalizeFirstLetter(Session.get("schema"))] && [this.key]
@@ -107,13 +113,14 @@ Template.clientItemCreate.rendered = ()->
           error = "Please enter title of the item"
       if step==3
 
-        $("input[name=auditDescription]").focus(()->
+        $("input[name=auditPath]").focus(()->
           $(".treeContainer").show()
         )
-        $("input[name=auditDescription]").blur(()->
-          $(".treeContainer").hide()
+        $("input[name=auditPath]").blur(()->
+          setTimeout(()->
+            $(".treeContainer").hide()
+          , 100)
         )
-
         $('.item_selector').click ->
           parent_items = $(this).parents('li')
           audit_id = $(this).attr('data_id')
@@ -124,8 +131,9 @@ Template.clientItemCreate.rendered = ()->
             result += $(this).children('a').text()
             return
           if !$(this).attr("isNotLast")
-            $("input[name=auditDescription]").val(result)
-            $("#description_auditDescription").val(colAuditItems.findOne({item_id: audit_id}).description)
+            $(this).closest('div').parent().find("input[name=auditPath]").val(result)
+            $(this).closest('div').parent().find("textarea").show()
+            $(this).closest('div').parent().find("textarea").val(colAuditItems.findOne({item_id: audit_id}).description)
           false
 
         bureaus = $('input[name="bureaus[]"]:checked').map(->
@@ -135,6 +143,12 @@ Template.clientItemCreate.rendered = ()->
         ).get()
         if bureaus.length<1
           error = "Please select at least 1 bureau"
+        else
+          if theData.doc
+            $.each bureaus, (k,v)->
+              if theData.doc.itemData[theData.doc.itemType][v].auditPath
+                $("form[id="+v+"] textarea#description_auditPath").val(theData.doc.itemData[theData.doc.itemType][v].auditDescription)
+                $("form[id="+v+"] textarea#description_auditPath").show()
 
         if $("#quickMode").prop("checked")
           $.each creditBureaus, (k,v)->
@@ -165,16 +179,19 @@ proceedItem = (itemData)->
   if $("#furnisher").val()
     data.furnisher = $("#furnisher").val()
   data.itemData={}
+  bureaus = $('input[name="bureaus[]"]:checked').map(->
+    if $(this).val()
+      return $(this).val()
+    return
+  ).get()
   if $("#quickMode").prop("checked")
     itemData = {}
     dataEquifax = AutoForm.getFormValues("equifax").insertDoc
-    bureaus = $('input[name="bureaus[]"]:checked').map(->
-      if $(this).val()
-        return $(this).val()
-      return
-    ).get()
     $.each bureaus, (k,v)->
       itemData[v] = dataEquifax
+  $.each bureaus, (k,v)->
+    if itemData[v].auditPath
+      itemData[v].auditDescription = $("form[id="+v+"] textarea#description_auditPath").val()
   data.itemData[data.itemType]=itemData
   data.clientID = $("#clientID").val()
   data.authorID = Meteor.userId()

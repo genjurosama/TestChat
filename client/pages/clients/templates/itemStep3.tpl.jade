@@ -1,7 +1,7 @@
 each creditBureaus
    .container-fluid
       img(src='{{image}}' id=getImgID)
-      +quickForm(schema=getSchemaName id=key class="item-form" buttonContent=false doc=getDocName)
+      +quickForm(schema=getSchemaName id=key class="item-form" buttonContent=false doc=getDocName omitFields=getOmitFields)
       hr
 .col-sm-12
    button.btn.btn-block.btn-success.btn-save-item(type="submit")
