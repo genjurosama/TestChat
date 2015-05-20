@@ -1,8 +1,19 @@
 each creditBureaus
-   .container-fluid
-      img(src='{{image}}' id=getImgID)
-      +quickForm(schema=getSchemaName id=key class="item-form" buttonContent=false doc=getDocName omitFields=getOmitFields)
-      hr
+   .panel.panel-primary
+      .panel-body
+         img(src='{{image}}' id=getImgID)
+         +quickForm(schema=getSchemaName id=key class="item-form" buttonContent=false doc=getDocName omitFields=getOmitFields)
+      .panel-footer
+         .container-fluid
+            h6(style='float: right')
+               each creditBureaus
+                  if equals key ../key
+                     span
+                  else
+                     a.copyData(from="{{../key}}" to="{{key}}" style='margin-left:20px')
+                        | Copy to {{title}}
+               a.copyData(from="{{key}}" to="all" style='margin-left:20px')
+                  | Copy to All
 .col-sm-12
    button.btn.btn-block.btn-success.btn-save-item(type="submit")
       | Save

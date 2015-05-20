@@ -113,6 +113,28 @@ Template.clientItemCreate.rendered = ()->
           error = "Please enter title of the item"
       if step==3
 
+        bureaus = $('input[name="bureaus[]"]:checked').map(->
+          if $(this).val()
+            return $(this).val()
+          return
+        ).get()
+
+        $(".copyData").click ->
+          from = $(this).attr("from")
+          to = $(this).attr("to")
+          $("form[id="+from+"] .form-control").each(()->
+            name = $(this).attr("name")
+            el = $(this)
+            if to!="all"
+              $("form[id="+to+"] .form-control[name="+name+"]").val(el.val())
+            else
+              $.each bureaus, (k,v)->
+                if v != from
+                  $("form[id="+v+"] .form-control[name="+name+"]").val(el.val())
+
+          )
+
+
         $("input[name=auditPath]").focus(()->
           $(".treeContainer").show()
         )
@@ -136,11 +158,7 @@ Template.clientItemCreate.rendered = ()->
             $(this).closest('div').parent().find("textarea").val(colAuditItems.findOne({item_id: audit_id}).description)
           false
 
-        bureaus = $('input[name="bureaus[]"]:checked').map(->
-          if $(this).val()
-            return $(this).val()
-          return
-        ).get()
+
         if bureaus.length<1
           error = "Please select at least 1 bureau"
         else
