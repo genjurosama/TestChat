@@ -236,6 +236,16 @@ TabularTables.leads = new Tabular.Table
     roles: {"$in":['lead']}
   order: [[3, 'asc']]
   order: [[3, 'desc']]
+  createdRow: ( row, data) ->
+    if data.profile.leadQuality == 'Cold'
+      row.className = row.className + ' info'
+      return
+    else if data.profile.leadQuality == 'Warm'
+      row.className = row.className + ' warning'
+      return
+    else if data.profile.leadQuality == 'Hot'
+      row.className = row.className + ' danger'
+      return
   columns: [
     {
       className:      'details-control',
@@ -246,23 +256,18 @@ TabularTables.leads = new Tabular.Table
     {
       data: 'profile.leadQuality'
       title: 'Lead'
-      width: '5%'
-    }
-    {
-      data: 'profile.status'
-      title: 'Status'
-      width: '15%'
+      width: '10%'
     }
     {
       data: 'profile.firstname'
       title: 'First Name'
-      width: '15%'
+      width: '20%'
 
     }
     {
       data: 'profile.lastname'
       title: 'Last Name '
-      width: '15%'
+      width: '20%'
 
     }
     {
@@ -273,7 +278,7 @@ TabularTables.leads = new Tabular.Table
     }
     {
       data: 'emails.0.address'
-      title: 'email'
+      title: 'Email'
       width: '20%'
     }
     {

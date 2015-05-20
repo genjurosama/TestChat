@@ -28,9 +28,9 @@
                | {{profile.address}}
          .col-sm-4
             .col-sm-6.small
-               strong Status:
+               strong Source:
             .col-sm-6.small
-               | {{profile.status}}
+               | {{profile.source}}
          .col-sm-4
             .col-sm-6.small
                strong Birthday:
@@ -43,9 +43,9 @@
                | {{profile.address2}}
          .col-sm-4
             .col-sm-6.small
-               strong Source:
+               strong Sales Rep:
             .col-sm-6.small
-               | {{profile.source}}
+               | {{userName profile.salesRep}}
          .col-sm-4
             .col-sm-6.small
                strong Email:
@@ -58,9 +58,9 @@
                | {{profile.zip}}
          .col-sm-4
             .col-sm-6.small
-               strong Sales Rep:
+               strong Affiliate:
             .col-sm-6.small
-               | {{userName profile.salesRep}}
+               | {{userName profile.affiliate}}
          .col-sm-4
             .col-sm-6.small
                strong Phone:
@@ -73,9 +73,9 @@
                | {{profile.city}}
          .col-sm-4
             .col-sm-6.small
-               strong Affiliate:
+               strong Parent Affiliate:
             .col-sm-6.small
-               | {{userName profile.affiliate}}
+               | {{userName profile.parentAffiliate}}
          .col-sm-4
             .col-sm-6.small
                strong Phone2:
@@ -86,10 +86,6 @@
                strong State:
             .col-sm-6.small
                | {{profile.state}}
-         .col-sm-4
-            .col-sm-6.small
-               strong Parent Affiliate:
-            .col-sm-6.small
-               | {{userName profile.parentAffiliate}}
+
 
 
