@@ -104,7 +104,7 @@ Template.afFroalaEmail.onRendered(function(){
 AutoForm.addInputType('froalaEmail', {
 		template:"afFroalaEmail",
 		valueOut: function(){
-			console.log("valueOut");
-			return this.editable('getHTML', true, true);
+			console.log(this);
+			return $(this).editable('getHTML', true, true);
 		}
 });
