@@ -3,7 +3,7 @@ Template.afFroalaEmail.onRendered(function(){
 	this.$('textarea')
 	this.$('textarea').editable({
 	inlineMode: false,
-	buttons: ['bold', 'italic', 'underline', 'customerVariables', 'recipientVariables'],
+	buttons: ['bold', 'italic', 'underline', 'customerVariables', 'recipientVariables', 'miscVariables'],
 	height: '400',
 	customDropdowns: {
     customerVariables: {
@@ -14,43 +14,37 @@ Template.afFroalaEmail.onRendered(function(){
       },
       options: {
         'Signature': function () {
-          this.insertHTML('[c.signature]');
+          this.insertHTML('[Customer First Name] [Customer Last Name]<br/>[Customer SSN]<br/>[Customer DOB]<br/>[Customer Address Line 1]<br/>[Customer Address Line 2]<br/>[Customer City], [Customer State]  [Customer Zip]');
         },
         'First Name': function () {
-          this.insertHTML('[c.fname]');
+          this.insertHTML('[Customer First Name]');
         },
         'Last Name': function () {
-          this.insertHTML('[c.surname]');
+          this.insertHTML('[Customer Last Name]');
         },
         'SSN': function () {
-          this.insertHTML('[c.ssn]');
+          this.insertHTML('[Customer SSN]');
         },
         'DOB': function () {
-          this.insertHTML('[c.dob]');
+          this.insertHTML('[Customer DOB]');
         },
         'Address Line 1': function () {
-          this.insertHTML('[c.addr1]');
+          this.insertHTML('[Customer Address Line 1]');
         },
         'Address Line 2': function () {
-          this.insertHTML('[c.addr2]');
+          this.insertHTML('[Customer Address Line 2]');
         },
-        'City': function () {
-          this.insertHTML('[c.city]');
-        },
-        'State': function () {
-          this.insertHTML('[c.state]');
-        },
-        'Zip': function () {
-          this.insertHTML('[c.zip]');
+        'City, State, Zip': function () {
+          this.insertHTML('[Customer City], [Customer State] [Customer Zip]');
         },
         'Phone 1': function () {
-          this.insertHTML('[c.phonvalue="{{this.value}}" {{this.atts}}e1]');
+          this.insertHTML('[Customer Phone 1]');
         },
         'Phone 2': function () {
-          this.insertHTML('[c.phone2]');
+          this.insertHTML('[Customer Phone 2]');
         },
         'Fax': function () {
-          this.insertHTML('[c.fax]');
+          this.insertHTML('[Customer Fax]');
         }
       },
       refresh: function () {
@@ -68,31 +62,49 @@ Template.afFroalaEmail.onRendered(function(){
       },
       options: {
         'Name': function () {
-          this.insertHTML('[r.name]');
+          this.insertHTML('[Recipient Name]');
         },
         'Address 1': function () {
-          this.insertHTML('[r.addr1]');
+          this.insertHTML('[Recipient Address Line 1]');
         },
         'Address 2': function () {
-          this.insertHTML('[r.addr2]');
+          this.insertHTML('[Recipient Address Line 2]');
         },
-        'City': function () {
-          this.insertHTML('[r.city]');
+        'City, State, Zip': function () {
+          this.insertHTML('[Recipient City], [Recipient State] [Recipient Zip]');
         },
-        'State': function () {
-          this.insertHTML('[r.state]');
+        'Phone': function () {
+          this.insertHTML('[Recipient Phone]');
         },
-        'Zip': function () {
-          this.insertHTML('[r.zip]');
+        'Fax': function() {
+          this.insertHTML('[Recipient Fax]');
+        }
+      }
+    },
+    creditReportVariables: {
+      title: 'Credit Report Card Variables',
+      icon: {
+        type: 'font',
+        value: 'fa fa-plus-square',
+      },
+      options: {
+        'Item List': function () {
+          this.insertHTML('[Recipient Name]');
         },
-        'Phone 1': function () {
-          this.insertHTML('[r.phone1]');
-        },
-        'Phone 2': function () {
-          this.insertHTML('[r.phone2]');
-        },
-        'Fax': function () {
-          this.insertHTML('[r.fax]');
+        'Item List With Dispute Instructions': function () {
+          this.insertHTML('[Item List With Dispute Instructions]');
+        }
+      }
+    },
+    miscVariables: {
+      title: 'Misc Variables',
+      icon: {
+        type: 'font',
+        value: 'fa fa-plus-square',
+      },
+      options: {
+        'Current Date': function () {
+          this.insertHTML('[Current Date]');
         }
       }
     }
