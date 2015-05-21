@@ -10,7 +10,7 @@ Template.afFroalaEmail.onRendered(function(){
       title: 'Customer Variables',
       icon: {
         type: 'font',
-        value: 'fa fa-plus-square',
+        value: 'fa fa-cart-plus',
       },
       options: {
         'Signature': function () {
@@ -58,7 +58,7 @@ Template.afFroalaEmail.onRendered(function(){
       title: 'Recipient Variables',
       icon: {
         type: 'font',
-        value: 'fa fa-plus-square',
+        value: 'fa fa-inbox',
       },
       options: {
         'Name': function () {
@@ -85,7 +85,7 @@ Template.afFroalaEmail.onRendered(function(){
       title: 'Credit Report Card Variables',
       icon: {
         type: 'font',
-        value: 'fa fa-plus-square',
+        value: 'fa fa-plus-circle',
       },
       options: {
         'Item List': function () {
