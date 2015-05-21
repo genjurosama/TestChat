@@ -126,11 +126,17 @@ Template.clientItemCreate.rendered = ()->
             name = $(this).attr("name")
             el = $(this)
             if to!="all"
-              $("form[id="+to+"] .form-control[name="+name+"]").val(el.val())
+              if name=="birthday" || name.indexOf("date")>=0
+                $("form[id="+to+"] .form-control[name="+name+"]").datepicker("setDate",el.val())
+              else
+                $("form[id="+to+"] .form-control[name="+name+"]").val(el.val())
             else
               $.each bureaus, (k,v)->
                 if v != from
-                  $("form[id="+v+"] .form-control[name="+name+"]").val(el.val())
+                  if name=="birthday" || name.indexOf("date")>=0
+                    $("form[id="+v+"] .form-control[name="+name+"]").datepicker("setDate",el.val())
+                  else
+                    $("form[id="+v+"] .form-control[name="+name+"]").val(el.val())
 
           )
 
@@ -164,22 +170,19 @@ Template.clientItemCreate.rendered = ()->
         else
           if theData.doc
             $.each bureaus, (k,v)->
-              if theData.doc.itemData[theData.doc.itemType][v].auditPath
+              if theData.doc.itemData[theData.doc.itemType][v] && theData.doc.itemData[theData.doc.itemType][v].auditPath
                 $("form[id="+v+"] textarea#description_auditPath").val(theData.doc.itemData[theData.doc.itemType][v].auditDescription)
                 $("form[id="+v+"] textarea#description_auditPath").show()
 
         if $("#quickMode").prop("checked")
           $.each creditBureaus, (k,v)->
-            $("#"+k).hide()
-            $("#img-"+k).hide()
+            $("#form-cont-"+k).hide()
           $("#equifax").show()
         else
           $.each creditBureaus, (k,v)->
-            $("#"+k).hide()
-            $("#img-"+k).hide()
+            $("#form-cont-"+k).hide()
           $.each bureaus, (k,v)->
-            $("#"+v).show()
-            $("#img-"+v).show()
+            $("#form-cont-"+v).show()
 
 
       if error

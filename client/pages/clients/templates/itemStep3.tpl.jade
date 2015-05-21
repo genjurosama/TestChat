@@ -1,5 +1,5 @@
 each creditBureaus
-   .panel.panel-primary
+   .panel.panel-primary(id="form-cont-{{key}}")
       .panel-body
          img(src='{{image}}' id=getImgID)
          +quickForm(schema=getSchemaName id=key class="item-form" buttonContent=false doc=getDocName omitFields=getOmitFields)

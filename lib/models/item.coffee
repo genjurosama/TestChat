@@ -298,15 +298,11 @@
         data.map (c)->
           return {label: c, value: c}
   },
-  "auditPath": {
+  "auditDescription": {
     "type": String
     optional: true
     autoform:
       type: "auditTree"
-  },
-  "auditDescription": {
-    "type": String
-    optional: true
   },
   "dateReported": {
     "type": Date
