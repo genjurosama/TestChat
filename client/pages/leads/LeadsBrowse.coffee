@@ -30,5 +30,5 @@ Template.leadsBrowse.rendered = ()->
 Template.leadsBrowse.events
   'click .create-lead': (e, tpl) ->
     $('#dialogContainer').html("")
-    Blaze.renderWithData Template.leadsEditModal, {}, $('#dialogContainer')[0]
-
+    Blaze.renderWithData Template.leadsEditModal, null, $('#dialogContainer')[0]
+    AutoForm.resetForm("leadsEdit")
