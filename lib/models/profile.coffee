@@ -5,6 +5,10 @@ if !@Schema
     type: String
     label: 'Name'
     optional: true
+  prefix:
+    type: String
+    label: 'Prefix'
+    optional: true
   firstname:
     type: String
     regEx: /^[a-zA-Z-]{2,25}$/
@@ -22,6 +26,10 @@ if !@Schema
     regEx: /^[a-zA-Z0-9 \-\(\)]{3,25}$/
     optional: true
   phone2:
+    type: String
+    regEx: /^[a-zA-Z0-9 \-\(\)]{3,25}$/
+    optional: true
+  fax:
     type: String
     regEx: /^[a-zA-Z0-9 \-\(\)]{3,25}$/
     optional: true
@@ -186,11 +194,15 @@ if !@Schema
           {label: "Warm", value: "Warm"},
           {label: "Cold", value: "Cold"}
         ]
-
-
   jointCustomer:
     type: String
     optional: true
+    autoform:
+      type: "select"
+      options: ()->
+        data = Meteor.users.find({roles: {$in:['lead', 'client']}})
+        data.map (c)->
+          return {label: c.profile.firstname+" "+c.profile.lastname, value: c._id}
   assignedTo:
     type: String
     optional: true
@@ -232,11 +244,54 @@ if !@Schema
     optional: true
   emailOptOut:
     type: Boolean
+    label: 'Emails opt out'
+    optional: true
+  phoneOptOut:
+    type: Boolean
+    label: 'Phone Calls opt out'
+    optional: true
+  textOptOut:
+    type: Boolean
+    label: 'Text Messages opt out'
+    optional: true
+  portalAccess:
+    type: Boolean
+    label: 'Portal Access'
+    optional: true
+  interviewer:
+    type: Boolean
+    optional: true
+  language:
+    type: String
+    optional: true
+    allowedValues: ['US English', 'Spanish']
+    autoform:
+      options: ()->
+        [
+          {label: "US English", value: "US English"},
+          {label: "Spanish", value: "Spanish"}
+        ]
+  customerPrivacy:
+    type: String
+    optional: true
+    allowedValues: ['Affiliate Access', 'Private']
+    autoform:
+      options: ()->
+        [
+          {label: "Affiliate Access", value: "Affiliate Access"},
+          {label: "Private", value: "Private"}
+        ]
+  profilesToDisplay:
+    type: [String]
+    allowedValues: ['Credit Coordinator', 'Sales Representative', 'Referral Partner']
     optional: true
     autoform:
-      type: "boolean-select"
-      trueLabel: "Yes"
-      falseLabel: "No"
+      options: ()->
+        [
+          {label: "Credit Coordinator", value: "Credit Coordinator"},
+          {label: "Sales Representative", value: "Sales Representative"},
+          {label: "Referral Partner", value: "Referral Partner"}
+        ]
   enrollDate:
     type: Date
     optional: true
