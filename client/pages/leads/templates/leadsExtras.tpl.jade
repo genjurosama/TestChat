@@ -3,6 +3,11 @@
       span.leadInfo
          .col-sm-4
             .col-sm-6.small
+               strong Prefix:
+            .col-sm-6.small
+               | {{profile.prefix}}
+         .col-sm-4
+            .col-sm-6.small
                strong First name:
             .col-sm-6.small
                | {{profile.firstname}}
@@ -53,6 +58,11 @@
                | {{emails.[0].address}}
          .col-sm-4
             .col-sm-6.small
+               strong Email Opt Out:
+            .col-sm-6.small
+               | {{profile.emailOptOut}}
+         .col-sm-4
+            .col-sm-6.small
                strong ZIP:
             .col-sm-6.small
                | {{profile.zip}}
@@ -68,9 +78,24 @@
                | {{profile.phone}}
          .col-sm-4
             .col-sm-6.small
+               strong Phone opt out:
+            .col-sm-6.small
+               | {{profile.phoneOptOut}}
+         .col-sm-4
+            .col-sm-6.small
+               strong Text opt out:
+            .col-sm-6.small
+               | {{profile.textOptOut}}
+         .col-sm-4
+            .col-sm-6.small
                strong City:
             .col-sm-6.small
                | {{profile.city}}
+         .col-sm-4
+            .col-sm-6.small
+               strong Fax:
+            .col-sm-6.small
+               | {{profile.fax}}
          .col-sm-4
             .col-sm-6.small
                strong Parent Affiliate:
@@ -86,6 +111,40 @@
                strong State:
             .col-sm-6.small
                | {{profile.state}}
-
+         .col-sm-4
+            .col-sm-6.small
+               strong Portal Access:
+            .col-sm-6.small
+               | {{profile.portalAccess}}
+         .col-sm-4
+            .col-sm-6.small
+               strong Interviewer:
+            .col-sm-6.small
+               | {{profile.interviewer}}
+         .col-sm-4
+            .col-sm-6.small
+               strong Language:
+            .col-sm-6.small
+               | {{profile.language}}
+         .col-sm-4
+            .col-sm-6.small
+               strong Customer Privacy:
+            .col-sm-6.small
+               | {{profile.customerPrivacy}}
+         .col-sm-4
+            .col-sm-6.small
+               strong Profiles to display:
+            .col-sm-6.small
+               | {{profile.profilesToDisplay}}
+         .col-sm-4
+            .col-sm-6.small
+               strong Assigned to:
+            .col-sm-6.small
+               | {{userName profile.assignedTo}}
+         .col-sm-4
+            .col-sm-6.small
+               strong Join customer:
+            .col-sm-6.small
+               | {{userName profile.jointCustomer}}
 
 
