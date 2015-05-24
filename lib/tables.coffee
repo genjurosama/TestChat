@@ -308,13 +308,6 @@ TabularTables.leadNotes = new Tabular.Table
         usr = Meteor.users.findOne _id:val
         return usr.profile.firstname+" "+usr.profile.lastname
     }
-#    {
-#      data: 'clientView'
-#      title: 'Viewable by Lead'
-#      width: '10%'
-#      render: (val, type, doc) ->
-#        return if val then 'Yes' else 'No'
-#    }
     {
       data: 'note'
       title: 'Note Description'

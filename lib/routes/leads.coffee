@@ -18,5 +18,8 @@ Router.route "lead/dashboard/:_id",
   name: 'leadDashboard'
   data: ()->
     return {_id: this.params._id}
-  waitOn: ()->
-    return [subs.subscribe "colClientFiles", subs.subscribe "Files"]
+
+Router.route "lead/notes/:_id",
+  name: 'leadNotes'
+  data: ()->
+    return {_id: this.params._id}

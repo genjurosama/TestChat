@@ -9,7 +9,7 @@
 
             .panel-body
                +autoForm(collection="colClientNotes" id="leadNoteCreate" doc=this type=insert validation="none")
-                  +afQuickField name='note'
+                  +afQuickField name='note' rows=15
                   +afQuickField name='flag'
 
                   button.btn.btn-block.btn-primary(type="submit")
