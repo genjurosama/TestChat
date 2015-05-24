@@ -1,16 +1,7 @@
-#Template.leadsEditModal.helpers
-#  getType: ()->
-#    type = "insert"
-#    if this && this._id
-#      type = "update"
-#    console.log type
-#    return type
-
-
 leadsHook =
   onError: (formType, error)->
     Bert.alert("error"+formType+" "+error, 'danger');
-  onSubmit: (insertDoc, updateDoc, currentDoc) ->
+  onSubmit: (insertDoc, updateDoc, currentDoc = {}) ->
     if currentDoc._id
       Meteor.call 'userUpdate', updateDoc,currentDoc._id, (err, resp)->
         if err
