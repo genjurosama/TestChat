@@ -287,7 +287,44 @@ TabularTables.leads = new Tabular.Table
       tmpl:_t 'cellLeadsActions'
     }
   ]
-  extraFields: ['flag']
+
+TabularTables.leadNotes = new Tabular.Table
+  name: 'leadNotes'
+  collection: colClientNotes
+  order: [[0, 'desc']]
+  columns: [
+    {
+      data: 'createdAt'
+      title: 'Date/Time Added'
+      width: '15%'
+      render: (val, type, doc) ->
+        return moment(val).format("LLLL")
+    }
+    {
+      data: 'authorID'
+      title: 'Author'
+      width: '15%'
+      render: (val, type, doc) ->
+        usr = Meteor.users.findOne _id:val
+        return usr.profile.firstname+" "+usr.profile.lastname
+    }
+#    {
+#      data: 'clientView'
+#      title: 'Viewable by Lead'
+#      width: '10%'
+#      render: (val, type, doc) ->
+#        return if val then 'Yes' else 'No'
+#    }
+    {
+      data: 'note'
+      title: 'Note Description'
+      width: '60%'
+      render: (val, type, doc) ->
+        console.log doc
+        return if doc.flag then "<b class='text-danger'>"+val+"</b>" else val
+    }
+  ]
+  extraFields: ['flag', 'clientView']
 
 TabularTables.clientItems = new Tabular.Table
   name: 'clientItems'

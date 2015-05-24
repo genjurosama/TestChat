@@ -37,6 +37,7 @@ if !@Schema
   "clientView":
     type: Boolean
     label: "Viewable by Client"
+    optional: true
   "createdAt":
     type: Date
     autoValue: ()->

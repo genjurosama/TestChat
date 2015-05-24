@@ -13,3 +13,10 @@ Router.route '/leads/warm',
 
 Router.route '/leads/cold',
   name: 'leads.cold'
+
+Router.route "lead/dashboard/:_id",
+  name: 'leadDashboard'
+  data: ()->
+    return {_id: this.params._id}
+  waitOn: ()->
+    return [subs.subscribe "colClientFiles", subs.subscribe "Files"]
