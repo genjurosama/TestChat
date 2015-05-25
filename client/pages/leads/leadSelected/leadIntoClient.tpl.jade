@@ -1,0 +1,38 @@
++contentFor "title"
+    with leadData
+        h1 {{profile.firstname}} {{profile.lastname}} - Make Client
++contentFor "breadcrubms"
+    li
+        a(href="{{pathFor 'leads'}}") Leads
+    li.active
+        a(href="{{pathFor 'leadIntoClient'}}") Make Client
++leadTabs
+with leadData
+    .panel.panel-primary
+        .panel-heading
+            h3.panel-title Confirm Info
+        .panel-body(style="padding:0;padding-top:15px;padding-bottom:15px")
+            +leadInfo
+            button.btn.btn-primary.btn-edit-lead(data-toggle='modal', data-target='#myModal') Edit Info
+                i.fa.fa-edit
+    .panel.panel-primary
+        .panel-heading
+            h3.panel-title Add Client Info
+        .panel-body(style="padding:0;padding-top:15px;padding-bottom:15px")
+            +autoForm(collection="Meteor.users" id="leadIntoClient" doc=leadData)
+                .col-sm-6.col-sm-offset-3
+                    +afQuickField name='profile.monitoringUsername'
+                    +afQuickField name='profile.monitoringPassword'
+                    +afQuickField name='profile.securityWord'
+                    +afQuickField name='profile.paymentArrangement'
+                    +afQuickField name='profile.billingStatus'
+                    +afQuickField name='profile.status'
+                    div#enroll(style='position: relative')
+                        +afQuickField name='profile.enrollDate' buttonClasses="glyphicon glyphicon-calendar"
+                    div#cancel(style='position: relative')
+                        +afQuickField name='profile.cancelDate' buttonClasses="glyphicon glyphicon-calendar"
+                    //problem submitting without this input
+                    +afQuickField name='emails.0.address'
+                .col-sm-12
+                    button.btn.btn-block.btn-primary(type="submit")
+                        | Save & Make Client

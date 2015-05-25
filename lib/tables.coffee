@@ -313,7 +313,6 @@ TabularTables.leadNotes = new Tabular.Table
       title: 'Note Description'
       width: '60%'
       render: (val, type, doc) ->
-        console.log doc
         return if doc.flag then "<b class='text-danger'>"+val+"</b>" else val
     }
   ]

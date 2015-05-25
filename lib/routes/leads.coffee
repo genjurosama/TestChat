@@ -23,3 +23,8 @@ Router.route "lead/notes/:_id",
   name: 'leadNotes'
   data: ()->
     return {_id: this.params._id}
+
+Router.route "lead/client/:_id",
+  name: 'leadIntoClient'
+  data: ()->
+    return {_id: this.params._id}
