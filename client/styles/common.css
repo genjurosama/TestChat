@@ -4,8 +4,8 @@
 }
 
 tr.shown td{
-    background-color: #424F63;
-    color: white;
+    background-color: #424F63 !important;
+    color: white
 }
 
 .user-extras div {

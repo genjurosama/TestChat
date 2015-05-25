@@ -9,4 +9,46 @@
                   i.fa.fa-times(data-dismiss='modal')
 
             .panel-body
-                  +leadsEditForm
+               +autoForm(collection="Meteor.users" id="leadsEdit" doc=this)
+                  .col-sm-3
+                     +afQuickField name='profile.prefix'
+                     +afQuickField name='profile.firstname'
+                     +afQuickField name='profile.lastname'
+                     +afQuickField name='emails.0.address'
+                     +afQuickField name='profile.emailOptOut' noselect=true
+                     +afQuickField name='profile.phone'
+                     +afQuickField name='profile.phone2'
+                     +afQuickField name='profile.fax'
+                     +afQuickField name='profile.phoneOptOut' noselect=true
+                     +afQuickField name='profile.textOptOut' noselect=true
+
+
+                  .col-sm-3
+                     +afQuickField name='profile.address'
+                     +afQuickField name='profile.address2'
+                     +afQuickField name='profile.zip'
+                     +afQuickField name='profile.city'
+                     +afQuickField name='profile.state'
+                     +afQuickField name='profile.birthday' buttonClasses="glyphicon glyphicon-calendar"
+                     +afQuickField name='profile.SSN'
+                     +afQuickField name='profile.language'
+
+                  .col-sm-3
+                     +afQuickField name='profile.portalAccess' noselect=true
+                     +afQuickField name='profile.interviewer' noselect=true
+                     +afQuickField name='profile.customerPrivacy'
+                     +afQuickField name='profile.profilesToDisplay' noselect=true
+
+
+                  .col-sm-3
+                     +afQuickField name='profile.leadQuality'
+                     +afQuickField name='profile.assignedTo'
+                     +afQuickField name='profile.jointCustomer'
+                     +afQuickField name='profile.source'
+                     +afQuickField name='profile.salesRep'
+                     +afQuickField name='profile.affiliate'
+                     +afQuickField name='profile.parentAffiliate'
+
+                  .col-sm-12
+                     button.btn.btn-block.btn-primary(type="submit")
+                        | Save

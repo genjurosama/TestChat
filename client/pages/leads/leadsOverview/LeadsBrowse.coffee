@@ -1,5 +1,4 @@
-Template.leadsPending.rendered = ()->
-
+Template.leadsBrowse.rendered = ()->
 # Add event listener for opening and closing details
   str = 'table[id^=DataTables_Table_]'
   if !$(str)[0]
@@ -16,7 +15,6 @@ Template.leadsPending.rendered = ()->
       $(this).find("i").addClass 'fa-plus'
     else
 # Open this row
-#row.child(Blaze.toHTMLWithData(Template.clientsExtras, row.data().profile)).show()
       row.child("").show()
       el = tr.next()
       Blaze.renderWithData Template.leadsExtras, row.data(), el.find("td")[0]
@@ -26,11 +24,9 @@ Template.leadsPending.rendered = ()->
     return
   return
 
-Template.leadsPending.helpers
-  selector: ()->
-    return "profile.status" : "Pending"
 
-Template.leadsPending.events
+Template.leadsBrowse.events
   'click .create-lead': (e, tpl) ->
     $('#dialogContainer').html("")
-    Blaze.renderWithData Template.leadsEditModal, {}, $('#dialogContainer')[0]
+    Blaze.renderWithData Template.leadsEditModal, null, $('#dialogContainer')[0]
+    AutoForm.resetForm("leadsEdit")

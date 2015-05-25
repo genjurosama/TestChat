@@ -240,36 +240,88 @@ TabularTables.leads = new Tabular.Table
     roles: {"$in":['lead']}
   order: [[3, 'asc']]
   order: [[3, 'desc']]
+  createdRow: ( row, data) ->
+    if data.profile.leadQuality == 'Cold'
+      row.className = row.className + ' info'
+      return
+    else if data.profile.leadQuality == 'Warm'
+      row.className = row.className + ' warning'
+      return
+    else if data.profile.leadQuality == 'Hot'
+      row.className = row.className + ' danger'
+      return
   columns: [
+    {
+      className:      'details-control',
+      orderable:      false,
+      data:           null,
+      defaultContent: "<span class='label label-success cursor-pointer'><i class='fa fa-plus'></span>"
+    }
+    {
+      data: 'profile.leadQuality'
+      title: 'Lead'
+      width: '10%'
+    }
     {
       data: 'profile.firstname'
       title: 'First Name'
-      width: '25%'
+      width: '20%'
 
     }
     {
       data: 'profile.lastname'
       title: 'Last Name '
-      width: '10%'
+      width: '20%'
 
     }
     {
       data: 'profile.phone'
       title: 'Phone'
-      width: '15%'
+      width: '20%'
 
     }
     {
-      title: 'email'
-      width: '10%'
       data: 'emails.0.address'
+      title: 'Email'
+      width: '20%'
     }
     {
-      title : "zip"
-      data:"profile.zip"
+      title: 'Actions'
+      width: '10%'
+      tmpl:_t 'cellLeadsActions'
     }
   ]
-  extraFields: ['flag']
+
+
+TabularTables.leadNotes = new Tabular.Table
+  name: 'leadNotes'
+  collection: colClientNotes
+  order: [[0, 'desc']]
+  columns: [
+    {
+      data: 'createdAt'
+      title: 'Date/Time Added'
+      width: '15%'
+      render: (val, type, doc) ->
+        return moment(val).format("LLLL")
+    }
+    {
+      data: 'authorID'
+      title: 'Author'
+      width: '15%'
+      render: (val, type, doc) ->
+        usr = Meteor.users.findOne _id:val
+        return usr.profile.firstname+" "+usr.profile.lastname
+    }
+    {
+      data: 'note'
+      title: 'Note Description'
+      width: '60%'
+      render: (val, type, doc) ->
+        return if doc.flag then "<b class='text-danger'>"+val+"</b>" else val
+    }
+  ]
+  extraFields: ['flag', 'clientView']
 
 TabularTables.clientItems = new Tabular.Table
   name: 'clientItems'

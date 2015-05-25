@@ -1,0 +1,11 @@
+.row
+  .col-md-12
+    .tab-wrapper.tab-primary
+      ul.nav.nav-tabs.responsive
+        with ..
+          +topTab(path="leadDashboard" _id=_id)
+            | Dashboard
+          +topTab(path="leadNotes" _id=_id)
+             | Notes
+          +topTab(path="leadIntoClient" _id=_id)
+            | Make Client
