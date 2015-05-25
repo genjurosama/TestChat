@@ -10,7 +10,7 @@
     autoform: {
       options: [
         {label: "Bureau", value: "Bureau"},
-        {label: "Collection Agency", value: "Collection Agency"},
+        {label: "Collection Agenvar atts = _.clone(this.atts);cy", value: "Collection Agency"},
         {label: "Original Creditor", value: "Original Creditor"},
         {label: "Government Office", value: "Government Office"}
       ]
@@ -41,9 +41,12 @@
   "content":
     type: String
     label: "Froala Email"
-    autoform:
-      afFieldInput:
-        type: "froalaEmail"
+    autoform: {
+      type: "froalaEmail"
+      afFieldInput: {
+        froalaOptions: froalaOptions
+      }
+    }
   "createdAt":
     type: Date
     autoValue: ()->
