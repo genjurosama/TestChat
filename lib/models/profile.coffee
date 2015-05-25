@@ -308,6 +308,15 @@ if !@Schema
         type: "bootstrap-datepicker"
         datePickerOptions:
           autoclose: true
+  emailSettings:
+    type: Object
+  'emailSettings.sendGrid':
+    type: Object
+  'emailSettings.sendGrid.username':
+    type: String
+  'emailSettings.sendGrid.password':
+    type: String
+
 )
 @Schema.User = new SimpleSchema(
   emails:

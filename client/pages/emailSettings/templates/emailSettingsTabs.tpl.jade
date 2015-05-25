@@ -1,0 +1,14 @@
+//
+   Created by haunguyen on 5/25/15.
+.row
+  .col-md-12
+    .tab-wrapper.tab-primary
+      ul.nav.nav-tabs.responsive
+        +topTab(path="emailSettings.mandril")
+          | Mandril
+        +topTab(path="emailSettings.sendGrid")
+          | Send Grid
+        +topTab(path="emailSettings.amazonSES")
+          | Amazon SES
+      .tab-content.main-tab-content
+        +UI.contentBlock

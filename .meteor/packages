@@ -51,5 +51,6 @@ meteorhacks:npm
 npm-container
 froala:editor
 meteorhacks:ssr
+email
 mquandalle:jade
 cmather:handlebars-server
