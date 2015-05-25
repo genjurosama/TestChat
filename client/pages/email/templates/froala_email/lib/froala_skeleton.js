@@ -1,4 +1,4 @@
-froalaOptions = {
+froalaSkeleton = {
   inlineMode: false,
   buttons: ['bold', 'italic', 'underline', 'customerVariables', 'recipientVariables', 'miscVariables'],
   height: '400',

@@ -1,7 +1,25 @@
 Template.afFroalaEmail.onRendered(function(){
-  console.log(this);
   var id = this.data.atts.id;
-  $('#'+id).editable(this.data.atts.froalaOptions);
+  
+  var afOptions = this.data.atts.froalaOptions;
+  var froalaSkel = froalaSkeleton;
+
+
+  froalaSkel.customDropdowns = afOptions.customDropdowns;
+
+  _.each(froalaSkel.customDropdowns, function(a){
+    console.log("Dropdown");
+    _.each(a.options, function(opt){
+      opt = "meh";
+    });
+  });
+
+  // Old render
+  //$('#'+id).editable(this.data.atts.froalaOptions);
+  // New render
+
+  console.log(froalaSkel);
+  $('#'+id).editable(froalaSkel);
 });
 
 Template.afFroalaEmail.helpers({
