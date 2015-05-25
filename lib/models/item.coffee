@@ -32,6 +32,16 @@
         return moment().toDate()
   "itemName":
 	  type: String
+  "auditPath": {
+    "type": String
+    optional: true
+    autoform:
+      type: "auditTree"
+  },
+  "auditDescription": {
+    "type": String
+    optional: true
+  },
   "itemData":
     optional: true
     type: Object

@@ -1,0 +1,10 @@
+.form-group.audit-test(style="display:none" id="div_{{key}}")
+   label.col-sm-4.control-label {{subLabel}}
+   .col-sm-6
+      each creditBureaus
+         .col-sm-4
+            img(src="{{image}}")
+         .col-sm-5
+            select.form-control(id="{{../key}}_{{key}}")
+               option(value="accurate") Accurate
+               option(value="inaccurate") Inaccurate

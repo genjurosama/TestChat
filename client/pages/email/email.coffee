@@ -52,11 +52,6 @@ Template.emailEditForm.helpers
 
     return recipientVariables
 
-Template.emailEditModal.events
-  'click a' : (e,tpl) ->
-    $(".note-editable").html($(".note-editable").html()+"["+$(e.target).text()+"]")
-    console.log($(e.target).text())
-
 Template.emailEditModal.helpers
   getType: ()->
     type = "insert"

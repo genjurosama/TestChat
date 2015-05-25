@@ -178,6 +178,10 @@ TabularTables.clientNotes = new Tabular.Table
       width: '15%'
       render: (val, type, doc) ->
         usr = Meteor.users.findOne _id:val
+        if !usr 
+        	return ""
+        if !usr.profile.lastname
+          usr.profile.lastname=""
         return usr.profile.lastname+" "+usr.profile.firstname
     }
     {
@@ -288,6 +292,7 @@ TabularTables.leads = new Tabular.Table
     }
   ]
 
+
 TabularTables.leadNotes = new Tabular.Table
   name: 'leadNotes'
   collection: colClientNotes
@@ -366,14 +371,18 @@ TabularTables.clientAudit = new Tabular.Table
       width: '35%'
       render: (val, type, doc) ->
         usr = Meteor.users.findOne _id:val
+        if !usr 
+        	return ""
+        if !usr.profile.lastname
+          usr.profile.lastname=""
         return usr.profile.lastname+" "+usr.profile.firstname
     }
     {
       data: 'itemName'
       title: 'Actions'
       width: '10%'
-      tmpl:_t 'itemActions'
+      tmpl:_t 'auditActions'
     }
   ]
-  extraFields: ['_id', 'clientID', 'itemName','itemType','authorID','furnisher', 'itemData']
+  extraFields: ['_id', 'clientID', 'personalInformation']
 

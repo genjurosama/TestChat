@@ -1,0 +1,6 @@
+input.form-control(type='text' data-schema-key="{{this.atts.name}}" value='{{this.value}}' id="{{this.atts.id}}" name="{{this.atts.name}}")
+.treeContainer(style='display:none')
+   ul.sf-menu
+      each getTree
+         +auditTreeControl
+textarea.form-control(style='display:none' type='text' value='{{this.value}}' id="description_{{this.atts.name}}" name="description_{{this.atts.name}}")

@@ -1,0 +1,15 @@
+form.form-horizontal.auditTestForm
+   each auditTest
+      .form-group.audit-test
+         label.col-sm-4.control-label {{testLabel label}}
+         .col-sm-3
+            .radio.col-sm-6
+               input(type="radio" answ="y" subtype="{{type}}" name="{{key}}")
+               label YES
+            .radio.col-sm-6
+               input(type="radio" answ="n" subtype="{{type}}" name="{{key}}")
+               label NO
+      if equals type 'accuracy'
+         +auditAccuracy
+      if equals type 'quantity'
+         +auditQuantity

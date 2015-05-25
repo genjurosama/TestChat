@@ -14,6 +14,10 @@ Template.registerHelper "userName", (id)->
       usr.profile.lastname=''
     return usr.profile.lastname+" "+usr.profile.firstname
 
+Template.registerHelper "equals", (a, b)->
+  return a == b
+
+
 Template.registerHelper "creditBureaus", ()->
   return $.map creditBureaus, (value, index) ->
     value.key =  index

@@ -1,21 +1,4 @@
-###
-@pdf = Npm.require('html-pdf');
 
-@pdfBuffer = (html, cb) ->
-  pdf.create(html).toBuffer(Meteor.bindEnvironment((err, buffer) ->
-    cb && cb(null, buffer);
-    return buffer
-  ))
-  return
-
-Meteor.methods
-  getPdf: (html)->
-    check(html, String)
-    buffer = Meteor.wrapAsync(pdfBuffer);
-    result=buffer(html)
-    resultId = PdfCollection.insert({pdf:result});
-    return resultId;
-    #return buffer(html)###
 
 ###
 i=0

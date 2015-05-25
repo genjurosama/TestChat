@@ -1,0 +1,26 @@
+form.form-horizontal
+   +autoForm(schema="Schema.clientAudit" id="auditStep1" doc=doc)
+      .form-group
+         label.col-sm-2.control-label Report Date
+         .col-sm-4
+            +afFieldInput id="reportDate" name="reportDate"
+      .form-group
+         label.col-sm-2.control-label Report Source
+         .col-sm-4
+            +afFieldInput id="reportSource" name="reportSource"
+      .form-group
+         label.col-sm-2.control-label Credit Scores
+         .col-sm-10
+            each creditBureaus
+               .col-sm-2
+                  img(src="{{image}}")
+               .col-sm-2
+                  input.form-control(type="text" id="score_{{key}}")
+      .form-group
+         label.col-sm-2.control-label # of Inquiries
+         .col-sm-10
+            each creditBureaus
+               .col-sm-2
+                  img(src="{{image}}")
+               .col-sm-2
+                  input.form-control(type="text" id="inquiries_{{key}}")

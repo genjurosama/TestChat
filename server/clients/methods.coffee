@@ -10,6 +10,9 @@ Meteor.methods
     check(itemData, Object)
     doc.itemData=itemData
     colClientItems.insert(doc)
+  addClientAudit: (doc)->
+    check(doc, Object)
+    colClientAudit.insert(doc)
   updateClientItem: (doc, itemData, id)->
     check(doc, Object)
     check(itemData, Object)

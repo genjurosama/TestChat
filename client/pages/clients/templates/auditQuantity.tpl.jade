@@ -1,0 +1,8 @@
+.form-group.audit-test(style="display:none" id="div_{{key}}")
+   label.col-sm-4.control-label {{subLabel}}
+   .col-sm-8
+      each creditBureaus
+         .col-sm-2
+            img(src="{{image}}")
+         .col-sm-2
+            input.form-control(type="text" id="{{../key}}_{{key}}")

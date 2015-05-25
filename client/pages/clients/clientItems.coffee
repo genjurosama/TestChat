@@ -18,7 +18,6 @@ Template.itemExtras.helpers
 
     retData = $.map table, (value, index) ->
       [ value ]
-    console.log retData
     return retData
 
 Template.clientItems.events
@@ -45,6 +44,10 @@ Template.itemStatus.helpers
     else
       return {notReported: true}
 
+Template.clientItems.helpers
+  getItemsSelector: ()->
+    return {clientID: this._id}
+
 Template.clientItems.rendered = ()->
   tplData=this
   # Add event listener for opening and closing details
@@ -65,15 +68,6 @@ Template.clientItems.rendered = ()->
       # Open this row
       row.child("").show()
       el = tr.next()
-      html = Blaze.toHTMLWithData(Template.itemExtras, row.data())
-
-      Meteor.call "getPdf", html, (err,result)->
-        #console.log(result)
-        #item = PdfCollection.findOne({_id : result});
-        #blob = new Blob([item.pdf], {type: 'application/pdf'});
-        #saveAs(blob, 'test.pdf');
-        #PdfCollection.remove({_id : result});
-
       Blaze.renderWithData Template.itemExtras, row.data(), el.find("td")[0]
       #tr.addClass 'shown'
       $(this).find("i").removeClass 'fa-plus'

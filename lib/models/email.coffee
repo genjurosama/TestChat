@@ -39,12 +39,11 @@
     type:String
     optional:true
   "content":
-    type:String
-    label:"Email Content"
+    type: String
+    label: "Froala Email"
     autoform:
       afFieldInput:
-        type: "summernote"
-        class: 'editor'
+        type: "froalaEmail"
   "createdAt":
     type: Date
     autoValue: ()->

@@ -1,3 +1,30 @@
+AutoForm.addInputType 'auditTree',
+  template: 'afAuditTree'
+  valueOut: ->
+    @val()
+
+@auditRows = {}
+Template.afAuditTree.helpers
+  getTree: ()->
+    rows = colAuditItems.find().fetch()
+    $.each rows, (k,v)->
+      auditRows[v.item_id]=v.title
+    colAdminSystem.findOne({name: "auditTree"}).data
+
+
+Template.auditTreeControl.helpers
+  haveChildren: ()->
+    return this.children && this.children.length>0
+  getName: (id)->
+    #row = colAuditItems.findOne({item_id: id})
+    #if row
+      #return row.title
+    return auditRows[id]
+  getID: (id)->
+    row = colAuditItems.findOne({item_id: id})
+    if row
+      return row._id
+
 Template.itemStep3.events
   'click .btn-save-item': ()->
     if $("#quickMode").prop("checked")
@@ -38,8 +65,9 @@ Template.itemStep2.helpers
       [ value ]
 
 Template.itemStep2.rendered = ()->
-  $.each this.data.doc.itemData[this.data.doc.itemType], (k,v)->
-    $("#chk-"+k).iCheck('check');
+  if this.data.doc
+    $.each this.data.doc.itemData[this.data.doc.itemType], (k,v)->
+      $("#chk-"+k).iCheck('check');
 Template.itemStep3.helpers
   getImgID: ()->
     return "img-"+this.key;
@@ -47,15 +75,20 @@ Template.itemStep3.helpers
     if !Session.get("schema")
       Session.set("schema", "Collection")
     return "Schema.item"+Session.get("schema")
+  getOmitFields: ()->
+    return ['auditDescription']
   getDocName: ()->
     #console.log this.key,Template.parentData(1).doc.itemData[decapitalizeFirstLetter(Session.get("schema"))]
-    if Session.get("schema") && Template.parentData(1).doc.itemData[decapitalizeFirstLetter(Session.get("schema"))] && [this.key]
+    if Session.get("schema") && Template.parentData(1).doc && Template.parentData(1).doc.itemData[decapitalizeFirstLetter(Session.get("schema"))] && this.key
       return Template.parentData(1).doc.itemData[decapitalizeFirstLetter(Session.get("schema"))][this.key]
 
 Template.clientItemCreate.rendered = ()->
   theData = this.data
   if theData.doc
     Session.set("schema", capitalizeFirstLetter(theData.doc.itemType))
+    if theData.doc.auditPath
+      $("form[id=itemStep1] textarea#description_auditPath").val(theData.doc.auditDescription)
+      $("form[id=itemStep1] textarea#description_auditPath").show()
   $(()->
 
     $("#itemType").change(()->
@@ -63,6 +96,31 @@ Template.clientItemCreate.rendered = ()->
         Session.set("schema", capitalizeFirstLetter($("#itemType").val()))
     )
     $('#MyWizard').wizard();
+    $('ul.sf-menu').superfish();
+
+    $("input[name=auditPath]").focus(()->
+      $(".treeContainer").show()
+    )
+    $("input[name=auditPath]").blur(()->
+      setTimeout(()->
+        $(".treeContainer").hide()
+      , 100)
+    )
+    $('.item_selector').click ->
+      parent_items = $(this).parents('li')
+      audit_id = $(this).attr('data_id')
+      result = ''
+      $(parent_items.get().reverse()).each ->
+        if result
+          result += ' >  '
+        result += $(this).children('a').text()
+        return
+      if !$(this).attr("isNotLast")
+        $(this).closest('div').parent().find("input[name=auditPath]").val(result)
+        $(this).closest('div').parent().find("textarea").show()
+        $(this).closest('div').parent().find("textarea").val(colAuditItems.findOne({item_id: audit_id}).description)
+      false
+
     $('.btn-next2').click(()->
       $('#MyWizard').wizard("next");
     )
@@ -82,26 +140,50 @@ Template.clientItemCreate.rendered = ()->
         if !$("#itemName").val()
           error = "Please enter title of the item"
       if step==3
+
         bureaus = $('input[name="bureaus[]"]:checked').map(->
           if $(this).val()
             return $(this).val()
           return
         ).get()
+
+        $(".copyData").click ->
+          from = $(this).attr("from")
+          to = $(this).attr("to")
+          $("form[id="+from+"] .form-control").each(()->
+            name = $(this).attr("name")
+            el = $(this)
+            if to!="all"
+              if name=="birthday" || name.indexOf("date")>=0
+                $("form[id="+to+"] .form-control[name="+name+"]").datepicker("setDate",el.val())
+              else
+                $("form[id="+to+"] .form-control[name="+name+"]").val(el.val())
+            else
+              $.each bureaus, (k,v)->
+                if v != from
+                  if name=="birthday" || name.indexOf("date")>=0
+                    $("form[id="+v+"] .form-control[name="+name+"]").datepicker("setDate",el.val())
+                  else
+                    $("form[id="+v+"] .form-control[name="+name+"]").val(el.val())
+
+          )
+
+
+
+
+
         if bureaus.length<1
           error = "Please select at least 1 bureau"
 
         if $("#quickMode").prop("checked")
           $.each creditBureaus, (k,v)->
-            $("#"+k).hide()
-            $("#img-"+k).hide()
-          $("#equifax").show()
+            $("#form-cont-"+k).hide()
+          $("#form-cont-equifax").show()
         else
           $.each creditBureaus, (k,v)->
-            $("#"+k).hide()
-            $("#img-"+k).hide()
+            $("#form-cont-"+k).hide()
           $.each bureaus, (k,v)->
-            $("#"+v).show()
-            $("#img-"+v).show()
+            $("#form-cont-"+v).show()
 
 
       if error
@@ -119,18 +201,27 @@ proceedItem = (itemData)->
   if $("#furnisher").val()
     data.furnisher = $("#furnisher").val()
   data.itemData={}
+  bureaus = $('input[name="bureaus[]"]:checked').map(->
+    if $(this).val()
+      return $(this).val()
+    return
+  ).get()
+  $.each bureaus, (k,v)->
+    if Template.parentData(6).doc
+      itemData[v].itemStatus = Template.parentData(6).doc.itemData[Template.parentData(6).doc.itemType][v].itemStatus
+    else
+      itemData[v].itemStatus='negative'
   if $("#quickMode").prop("checked")
     itemData = {}
     dataEquifax = AutoForm.getFormValues("equifax").insertDoc
-    bureaus = $('input[name="bureaus[]"]:checked').map(->
-      if $(this).val()
-        return $(this).val()
-      return
-    ).get()
     $.each bureaus, (k,v)->
       itemData[v] = dataEquifax
+  if $("input[name=auditPath]").val()
+    data.auditPath = $("input[name=auditPath]").val()
+    data.auditDescription = $("form[id=itemStep1] textarea#description_auditPath").val()
   data.itemData[data.itemType]=itemData
   data.clientID = $("#clientID").val()
+  data.instructions = $("input[name=instructions]").val()
   data.authorID = Meteor.userId()
   if Template.parentData(6).doc
     Meteor.call 'updateClientItem', data, data.itemData, Template.parentData(6).doc._id, (err, resp)->
