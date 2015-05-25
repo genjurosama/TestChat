@@ -32,6 +32,16 @@
         return moment().toDate()
   "itemName":
 	  type: String
+  "auditPath": {
+    "type": String
+    optional: true
+    autoform:
+      type: "auditTree"
+  },
+  "auditDescription": {
+    "type": String
+    optional: true
+  },
   "itemData":
     optional: true
     type: Object
@@ -133,16 +143,6 @@
   "balanceAmount": {
     "type": String
   },
-  "auditPath": {
-    "type": String
-    optional: true
-    autoform:
-      type: "auditTree"
-  },
-  "auditDescription": {
-    "type": String
-    optional: true
-  },
   "status": {
     "type": String
     autoform:
@@ -230,16 +230,6 @@
         data.map (c)->
           return {label: c, value: c}
   },
-  "auditPath": {
-    "type": String
-    optional: true
-    autoform:
-      type: "auditTree"
-  },
-  "auditDescription": {
-    "type": String
-    optional: true
-  },
   "originalCreditor": {
     "type": String
   },
@@ -297,12 +287,6 @@
         data = colAdminSystem.findOne({name: "dropDowns"}).publicRecordTypes
         data.map (c)->
           return {label: c, value: c}
-  },
-  "auditDescription": {
-    "type": String
-    optional: true
-    autoform:
-      type: "auditTree"
   },
   "dateReported": {
     "type": Date

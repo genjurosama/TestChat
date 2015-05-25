@@ -6,7 +6,6 @@
 
 meteor-platform
 insecure
-mquandalle:jade
 iron:router
 coffeescript
 accounts-password
@@ -51,3 +50,6 @@ meteorhacks:npm
 
 npm-container
 froala:editor
+meteorhacks:ssr
+mquandalle:jade
+cmather:handlebars-server

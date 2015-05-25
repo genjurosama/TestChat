@@ -178,6 +178,10 @@ TabularTables.clientNotes = new Tabular.Table
       width: '15%'
       render: (val, type, doc) ->
         usr = Meteor.users.findOne _id:val
+        if !usr 
+        	return ""
+        if !usr.profile.lastname
+          usr.profile.lastname=""
         return usr.profile.lastname+" "+usr.profile.firstname
     }
     {
@@ -238,48 +242,31 @@ TabularTables.leads = new Tabular.Table
   order: [[3, 'desc']]
   columns: [
     {
-      className:      'details-control',
-      orderable:      false,
-      data:           null,
-      defaultContent: "<span class='label label-success cursor-pointer'><i class='fa fa-plus'></span>"
-    }
-    {
-      data: 'profile.leadQuality'
-      title: 'Lead'
-      width: '5%'
-    }
-    {
-      data: 'profile.status'
-      title: 'Status'
-      width: '15%'
-    }
-    {
       data: 'profile.firstname'
       title: 'First Name'
-      width: '15%'
+      width: '25%'
 
     }
     {
       data: 'profile.lastname'
       title: 'Last Name '
-      width: '15%'
+      width: '10%'
 
     }
     {
       data: 'profile.phone'
       title: 'Phone'
-      width: '20%'
+      width: '15%'
 
     }
     {
-      data: 'emails.0.address'
       title: 'email'
-      width: '20%'
+      width: '10%'
+      data: 'emails.0.address'
     }
     {
-      title: 'Actions'
-      width: '10%'
-      tmpl:_t 'cellLeadsActions'
+      title : "zip"
+      data:"profile.zip"
     }
   ]
   extraFields: ['flag']
@@ -332,14 +319,18 @@ TabularTables.clientAudit = new Tabular.Table
       width: '35%'
       render: (val, type, doc) ->
         usr = Meteor.users.findOne _id:val
+        if !usr 
+        	return ""
+        if !usr.profile.lastname
+          usr.profile.lastname=""
         return usr.profile.lastname+" "+usr.profile.firstname
     }
     {
       data: 'itemName'
       title: 'Actions'
       width: '10%'
-      tmpl:_t 'itemActions'
+      tmpl:_t 'auditActions'
     }
   ]
-  extraFields: ['_id', 'clientID', 'itemName','itemType','authorID','furnisher', 'itemData']
+  extraFields: ['_id', 'clientID', 'personalInformation']
 

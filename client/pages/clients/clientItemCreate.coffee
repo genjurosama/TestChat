@@ -65,8 +65,9 @@ Template.itemStep2.helpers
       [ value ]
 
 Template.itemStep2.rendered = ()->
-  $.each this.data.doc.itemData[this.data.doc.itemType], (k,v)->
-    $("#chk-"+k).iCheck('check');
+  if this.data.doc
+    $.each this.data.doc.itemData[this.data.doc.itemType], (k,v)->
+      $("#chk-"+k).iCheck('check');
 Template.itemStep3.helpers
   getImgID: ()->
     return "img-"+this.key;
@@ -78,13 +79,16 @@ Template.itemStep3.helpers
     return ['auditDescription']
   getDocName: ()->
     #console.log this.key,Template.parentData(1).doc.itemData[decapitalizeFirstLetter(Session.get("schema"))]
-    if Session.get("schema") && Template.parentData(1).doc.itemData[decapitalizeFirstLetter(Session.get("schema"))] && [this.key]
+    if Session.get("schema") && Template.parentData(1).doc && Template.parentData(1).doc.itemData[decapitalizeFirstLetter(Session.get("schema"))] && this.key
       return Template.parentData(1).doc.itemData[decapitalizeFirstLetter(Session.get("schema"))][this.key]
 
 Template.clientItemCreate.rendered = ()->
   theData = this.data
   if theData.doc
     Session.set("schema", capitalizeFirstLetter(theData.doc.itemType))
+    if theData.doc.auditPath
+      $("form[id=itemStep1] textarea#description_auditPath").val(theData.doc.auditDescription)
+      $("form[id=itemStep1] textarea#description_auditPath").show()
   $(()->
 
     $("#itemType").change(()->
@@ -93,6 +97,30 @@ Template.clientItemCreate.rendered = ()->
     )
     $('#MyWizard').wizard();
     $('ul.sf-menu').superfish();
+
+    $("input[name=auditPath]").focus(()->
+      $(".treeContainer").show()
+    )
+    $("input[name=auditPath]").blur(()->
+      setTimeout(()->
+        $(".treeContainer").hide()
+      , 100)
+    )
+    $('.item_selector').click ->
+      parent_items = $(this).parents('li')
+      audit_id = $(this).attr('data_id')
+      result = ''
+      $(parent_items.get().reverse()).each ->
+        if result
+          result += ' >  '
+        result += $(this).children('a').text()
+        return
+      if !$(this).attr("isNotLast")
+        $(this).closest('div').parent().find("input[name=auditPath]").val(result)
+        $(this).closest('div').parent().find("textarea").show()
+        $(this).closest('div').parent().find("textarea").val(colAuditItems.findOne({item_id: audit_id}).description)
+      false
+
     $('.btn-next2').click(()->
       $('#MyWizard').wizard("next");
     )
@@ -141,43 +169,16 @@ Template.clientItemCreate.rendered = ()->
           )
 
 
-        $("input[name=auditPath]").focus(()->
-          $(".treeContainer").show()
-        )
-        $("input[name=auditPath]").blur(()->
-          setTimeout(()->
-            $(".treeContainer").hide()
-          , 100)
-        )
-        $('.item_selector').click ->
-          parent_items = $(this).parents('li')
-          audit_id = $(this).attr('data_id')
-          result = ''
-          $(parent_items.get().reverse()).each ->
-            if result
-              result += ' >  '
-            result += $(this).children('a').text()
-            return
-          if !$(this).attr("isNotLast")
-            $(this).closest('div').parent().find("input[name=auditPath]").val(result)
-            $(this).closest('div').parent().find("textarea").show()
-            $(this).closest('div').parent().find("textarea").val(colAuditItems.findOne({item_id: audit_id}).description)
-          false
+
 
 
         if bureaus.length<1
           error = "Please select at least 1 bureau"
-        else
-          if theData.doc
-            $.each bureaus, (k,v)->
-              if theData.doc.itemData[theData.doc.itemType][v] && theData.doc.itemData[theData.doc.itemType][v].auditPath
-                $("form[id="+v+"] textarea#description_auditPath").val(theData.doc.itemData[theData.doc.itemType][v].auditDescription)
-                $("form[id="+v+"] textarea#description_auditPath").show()
 
         if $("#quickMode").prop("checked")
           $.each creditBureaus, (k,v)->
             $("#form-cont-"+k).hide()
-          $("#equifax").show()
+          $("#form-cont-equifax").show()
         else
           $.each creditBureaus, (k,v)->
             $("#form-cont-"+k).hide()
@@ -205,16 +206,22 @@ proceedItem = (itemData)->
       return $(this).val()
     return
   ).get()
+  $.each bureaus, (k,v)->
+    if Template.parentData(6).doc
+      itemData[v].itemStatus = Template.parentData(6).doc.itemData[Template.parentData(6).doc.itemType][v].itemStatus
+    else
+      itemData[v].itemStatus='negative'
   if $("#quickMode").prop("checked")
     itemData = {}
     dataEquifax = AutoForm.getFormValues("equifax").insertDoc
     $.each bureaus, (k,v)->
       itemData[v] = dataEquifax
-  $.each bureaus, (k,v)->
-    if itemData[v].auditPath
-      itemData[v].auditDescription = $("form[id="+v+"] textarea#description_auditPath").val()
+  if $("input[name=auditPath]").val()
+    data.auditPath = $("input[name=auditPath]").val()
+    data.auditDescription = $("form[id=itemStep1] textarea#description_auditPath").val()
   data.itemData[data.itemType]=itemData
   data.clientID = $("#clientID").val()
+  data.instructions = $("input[name=instructions]").val()
   data.authorID = Meteor.userId()
   if Template.parentData(6).doc
     Meteor.call 'updateClientItem', data, data.itemData, Template.parentData(6).doc._id, (err, resp)->

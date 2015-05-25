@@ -50,4 +50,11 @@ if !@Schema
     optional: true
     type: Object
     blackbox: true
+  "conclusion":
+    optional: true
+    type: String
+  "description":
+    optional: true
+    type: String
+
 )
