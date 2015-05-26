@@ -128,5 +128,6 @@ underscore@1.0.3
 url@1.0.4
 webapp@1.2.0
 webapp-hashing@1.0.3
+wylio:mandrill@0.2.1
 yogiben:autoform-file@0.2.5
 zimme:select2-bootstrap3-css@1.4.6

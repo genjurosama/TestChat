@@ -316,6 +316,12 @@ if !@Schema
     type: String
   'emailSettings.sendGrid.password':
     type: String
+  'emailSettings.mandrill':
+    type: Object
+  'emailSettings.mandrill.username':
+    type: String
+  'emailSettings.mandrill.apikey':
+    type: String
 
 )
 @Schema.User = new SimpleSchema(
