@@ -8,10 +8,8 @@ Template.afFroalaEmail.onRendered(function(){
     console.log(convertOptions(dropdown.options));
   });
 
-  froalaSkel.customDropdowns = afOptions.customDropdowns;
-
   // Enable editor
-  $('#'+id).editable(froalaSkel);
+  $('#'+id).editable(afOptions);
 });
 
 Template.afFroalaEmail.helpers({
