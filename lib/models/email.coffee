@@ -53,9 +53,9 @@
                 value: 'fa fa-cart-plus',
               },
               options: {
-                'Signature': ()-> this.insertHTML('[Customer First Name] [Customer Last Name]<br/>[Customer SSN]<br/>[Customer DOB]<br/>[Customer Address Line 1]<br/>[Customer Address Line 2]<br/>[Customer City], [Customer State]  [Customer Zip]');
-                'First Name': ()-> this.insertHTML('[Customer First Name]');
-                'Last Name': ()-> this.insertHTML('[Customer Last Name]');
+                'Signature': '[Customer First Name] [Customer Last Name]<br/>[Customer SSN]<br/>[Customer DOB]<br/>[Customer Address Line 1]<br/>[Customer Address Line 2]<br/>[Customer City], [Customer State]  [Customer Zip]',
+                'First Name': '[Customer First Name]',
+                'Last Name': '[Customer Last Name]',
               }
             }
           }

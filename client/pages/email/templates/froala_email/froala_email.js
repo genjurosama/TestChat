@@ -4,21 +4,13 @@ Template.afFroalaEmail.onRendered(function(){
   var afOptions = this.data.atts.froalaOptions;
   var froalaSkel = froalaSkeleton;
 
+  _.each(afOptions.customDropdowns, function(dropdown){
+    console.log(convertOptions(dropdown.options));
+  });
 
   froalaSkel.customDropdowns = afOptions.customDropdowns;
 
-  _.each(froalaSkel.customDropdowns, function(a){
-    console.log("Dropdown");
-    _.each(a.options, function(opt){
-      opt = "meh";
-    });
-  });
-
-  // Old render
-  //$('#'+id).editable(this.data.atts.froalaOptions);
-  // New render
-
-  console.log(froalaSkel);
+  // Enable editor
   $('#'+id).editable(froalaSkel);
 });
 
@@ -39,3 +31,15 @@ AutoForm.addInputType('froalaEmail', {
 		}
     //TODO: Implement valueIn
 });
+
+function convertOptions(options){
+  var newOptions = Object.keys(options).reduce(function ( obj, option ) {
+    obj[ option ] = function () {
+      this.insertHTML(options[ option ]);
+    };
+    
+    return obj;
+  }, {});
+
+  return newOptions;
+}
