@@ -44,22 +44,7 @@
     autoform: {
       type: "froalaEmail"
       afFieldInput: {
-        froalaOptions: {
-          customDropdowns: {
-            customerVariables: {
-              title: 'Customer Variables',
-              icon: {
-                type: 'font',
-                value: 'fa fa-cart-plus',
-              },
-              options: {
-                'Signature': '[Customer First Name] [Customer Last Name]<br/>[Customer SSN]<br/>[Customer DOB]<br/>[Customer Address Line 1]<br/>[Customer Address Line 2]<br/>[Customer City], [Customer State]  [Customer Zip]',
-                'First Name': '[Customer First Name]',
-                'Last Name': '[Customer Last Name]',
-              }
-            }
-          }
-        } 
+        froalaOptions: froalaOptions 
       }
     }
   "createdAt":

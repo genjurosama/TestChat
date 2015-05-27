@@ -2,11 +2,6 @@ Template.afFroalaEmail.onRendered(function(){
   var id = this.data.atts.id;
   
   var afOptions = this.data.atts.froalaOptions;
-  var froalaSkel = froalaSkeleton;
-
-  _.each(afOptions.customDropdowns, function(dropdown){
-    console.log(convertOptions(dropdown.options));
-  });
 
   // Enable editor
   $('#'+id).editable(afOptions);
@@ -30,6 +25,9 @@ AutoForm.addInputType('froalaEmail', {
     //TODO: Implement valueIn
 });
 
+
+// Converts options params from strings
+// to functions
 function convertOptions(options){
   var newOptions = Object.keys(options).reduce(function ( obj, option ) {
     obj[ option ] = function () {
