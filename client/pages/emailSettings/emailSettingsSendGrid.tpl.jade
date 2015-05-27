@@ -1,0 +1,24 @@
+//
+   Created by haunguyen on 5/25/15.
++contentFor "title"
+  h1 Send Grid Email Settings
++contentFor "breadcrubms"
+  li
+    a(href="{{pathFor 'emailSettings'}}") Email Settings
+  li.active
+    a(href="{{pathFor 'emailSettings.sendGrid'}}") Send Grid
++emailSettingsTabs
+  .container-fluid
+    .row
+      +autoForm(collection="Meteor.users" id="updateSendGrid" doc=this type="update")
+        .col-sm-3
+          +afQuickField name='profile.emailSettings.sendGrid.username'
+          +afQuickField name='profile.emailSettings.sendGrid.password'
+
+          div.form-group
+            input.form-control.select-default-email-service(
+              type='checkbox' checked=isChecked id='sendGridSelected' data-type='sendGrid')
+            label.control-label(for="sendGridSelected") Set as default
+        .col-sm-12
+          button.btn.btn-block.btn-primary(type="submit")
+            | Save

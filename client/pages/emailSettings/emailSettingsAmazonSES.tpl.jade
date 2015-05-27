@@ -1,0 +1,25 @@
+//
+   Created by haunguyen on 5/25/15.
++contentFor "title"
+  h1 Amazon SES Email Settings
++contentFor "breadcrubms"
+  li
+    a(href="{{pathFor 'emailSettings'}}") Email Settings
+  li.active
+    a(href="{{pathFor 'emailSettings.amazonSES'}}") Amazon SES
++emailSettingsTabs
+  .container-fluid
+    .row
+      +autoForm(collection="Meteor.users" id="updateAmazonSES" doc=this type="update")
+        .col-sm-3
+          +afQuickField name='profile.emailSettings.amazonSES.username'
+          +afQuickField name='profile.emailSettings.amazonSES.password'
+          +afQuickField name='profile.emailSettings.amazonSES.host'
+          div.form-group
+            input.form-control.select-default-email-service(
+              type='checkbox' checked=isChecked id='amazonSESSelected'
+              data-type='amazonSES')
+            label.control-label(for="amazonSESSelected") Set as default
+
+          button.btn.btn-block.btn-primary(type="submit")
+            | Save

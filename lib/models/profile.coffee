@@ -308,6 +308,32 @@ if !@Schema
         type: "bootstrap-datepicker"
         datePickerOptions:
           autoclose: true
+  emailSettings:
+    type: Object
+  'emailSettings.sendGrid':
+    type: Object
+  'emailSettings.default':
+    type: String
+    label: "Set as default"
+  'emailSettings.sendGrid.username':
+    type: String
+  'emailSettings.sendGrid.password':
+    type: String
+  'emailSettings.mandril':
+    type: Object
+  'emailSettings.mandril.username':
+    type: String
+  'emailSettings.mandril.apikey':
+    type: String
+  'emailSettings.amazonSES':
+    type: Object
+  'emailSettings.amazonSES.username':
+    type: String
+  'emailSettings.amazonSES.password':
+    type: String
+  'emailSettings.amazonSES.host':
+    type: String
+
 )
 @Schema.User = new SimpleSchema(
   emails:

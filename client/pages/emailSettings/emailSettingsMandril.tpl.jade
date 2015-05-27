@@ -1,0 +1,24 @@
+//
+   Created by haunguyen on 5/25/15.
++contentFor "title"
+  h1 Mandril Email Settings
++contentFor "breadcrubms"
+  li
+    a(href="{{pathFor 'emailSettings'}}") Email Settings
+  li.active
+    a(href="{{pathFor 'emailSettings.mandril'}}") Mandril
++emailSettingsTabs
+  .container-fluid
+    .row
+      +autoForm(collection="Meteor.users" id="updateMandrill" doc=this type="update")
+        .col-sm-3
+          +afQuickField name='profile.emailSettings.mandril.username'
+          +afQuickField name='profile.emailSettings.mandril.apikey'
+          div.form-group
+            input.form-control.select-default-email-service(
+              type='checkbox' checked=isChecked id='mandrillSelected' data-type='mandril')
+            label.control-label(for="mandrillSelected") Set as default
+
+          button.btn.btn-block.btn-primary(type="submit")
+            | Save
+
