@@ -4,14 +4,15 @@ Template.clientAudit.events
 
 Template.auditActions.events
   'click .btn-view-audit': (e, tpl) ->
-    Meteor.call "getPdf", "", (err,result)->
+    html = this.description
+    Meteor.call "getPdf", html, (err,result)->
       item = PdfCollection.findOne({_id : result});
       blob = new Blob([item.pdf], {type: 'application/pdf'});
       saveAs(blob, 'test.pdf');
       PdfCollection.remove({_id : result});
   'click .btn-delete-audit': (e, tpl) ->
     if confirm "Are you sure?"
-      Meteor.call 'auditDelete', this._id
+      Meteor.call 'clientAuditDelete', this._id
 
 
 

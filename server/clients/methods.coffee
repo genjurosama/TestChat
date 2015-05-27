@@ -30,3 +30,6 @@ Meteor.methods
   itemDelete: (id)->
     check(id, String)
     colClientItems.remove({_id: id})
+  clientAuditDelete: (id)->
+    check(id, String)
+    colClientAudit.remove({_id: id})

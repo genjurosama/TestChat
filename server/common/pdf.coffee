@@ -14,7 +14,7 @@
 Meteor.methods
   getPdf: (html)->
     check(html, String)
-    html = Assets.getText("auditLorem.html")
+    html = Assets.getText("auditLorem.html")+html
     buffer = Meteor.wrapAsync(pdfBuffer);
     result=buffer(html)
     resultId = PdfCollection.insert({pdf:result});

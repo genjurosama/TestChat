@@ -311,7 +311,11 @@ TabularTables.leadNotes = new Tabular.Table
       width: '15%'
       render: (val, type, doc) ->
         usr = Meteor.users.findOne _id:val
-        return usr.profile.firstname+" "+usr.profile.lastname
+        if !usr
+          return ""
+        if !usr.profile.lastname
+          usr.profile.lastname=""
+        return usr.profile.lastname+" "+usr.profile.firstname
     }
     {
       data: 'note'
@@ -359,11 +363,11 @@ TabularTables.clientAudit = new Tabular.Table
   collection: colClientAudit
   columns: [
     {
-      data: 'createdAt'
+      data: 'reportDate'
       title: 'Audit Date'
       width: '35%'
       render: (val, type, doc) ->
-        return moment(val).format("LLLL")
+        return moment(val).format("MM/DD/YYYY")
     }
     {
       data: 'authorID'
@@ -384,5 +388,5 @@ TabularTables.clientAudit = new Tabular.Table
       tmpl:_t 'auditActions'
     }
   ]
-  extraFields: ['_id', 'clientID', 'personalInformation']
+  extraFields: ['_id', 'clientID', 'personalInformation','description']
 

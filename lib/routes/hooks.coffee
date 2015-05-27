@@ -24,10 +24,28 @@ userAuthenticated = ->
     @next()
   return
 
+checkUserRights = ->
+  rn = this.route.getName()
+  #console.log rn, rn.split(".")[0], rn.replace(/[A-Z]/, ".").split(".")[0]
+  rolesArr = false
+  if rolesPermissions[rn]
+    rolesArr = rolesPermissions[rn]
+  if rolesPermissions[rn.split(".")[0]+"."]
+    rolesArr = rolesPermissions[rn.split(".")[0]+"."]
+  if rolesPermissions[rn.replace(/[A-Z]/, ".").split(".")[0]+"."]
+    rolesArr = rolesPermissions[rn.replace(/[A-Z]/, ".").split(".")[0]+"."]
+  if rolesArr && !Roles.userIsInRole(Meteor.userId(), rolesArr)
+    Bert.alert "You have no permission to access this page", 'danger'
+    Router.go 'index'
+
+  @next()
+
 
 ###
 * Run Hooks
 ###
+
+
 
 Router.onBeforeAction checkUserLoggedIn, except: [
   'signup'
@@ -36,6 +54,7 @@ Router.onBeforeAction checkUserLoggedIn, except: [
   'reset-password'
   'ref'
 ]
+
 Router.onBeforeAction userAuthenticated, only: [
   'signup'
   'login'
@@ -43,3 +62,23 @@ Router.onBeforeAction userAuthenticated, only: [
   'reset-password'
   'ref'
 ]
+
+Router.onBeforeAction checkUserRights, except: [
+  'signup'
+  'login'
+  'recover-password'
+  'reset-password'
+  'ref'
+]
+
+
+@rolesPermissions = {
+  "client.":
+    ['admin','processor','salesRep']
+  "clients.":
+    ['admin','processor','salesRep']
+  "admin.":
+    ['admin']
+  "leads.":
+    ['admin','processor','salesRep']
+}

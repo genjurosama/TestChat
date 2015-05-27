@@ -13,7 +13,6 @@ Router.route "templatesmine",
 Router.route '/templates/:_type',
   path:"/templates/:_type"
   action: ->
-    console.log "templates route"
     @render 'templates'+@params._type, data: @params._type
     return
 
