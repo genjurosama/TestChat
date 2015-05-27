@@ -312,15 +312,26 @@ if !@Schema
     type: Object
   'emailSettings.sendGrid':
     type: Object
+  'emailSettings.default':
+    type: String
+    label: "Set as default"
   'emailSettings.sendGrid.username':
     type: String
   'emailSettings.sendGrid.password':
     type: String
-  'emailSettings.mandrill':
+  'emailSettings.mandril':
     type: Object
-  'emailSettings.mandrill.username':
+  'emailSettings.mandril.username':
     type: String
-  'emailSettings.mandrill.apikey':
+  'emailSettings.mandril.apikey':
+    type: String
+  'emailSettings.amazonSES':
+    type: Object
+  'emailSettings.amazonSES.username':
+    type: String
+  'emailSettings.amazonSES.password':
+    type: String
+  'emailSettings.amazonSES.host':
     type: String
 
 )

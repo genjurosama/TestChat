@@ -10,4 +10,16 @@
 +emailSettingsTabs
   .container-fluid
     .row
-      | Amazon SES
+      +autoForm(collection="Meteor.users" id="updateAmazonSES" doc=this type="update")
+        .col-sm-3
+          +afQuickField name='profile.emailSettings.amazonSES.username'
+          +afQuickField name='profile.emailSettings.amazonSES.password'
+          +afQuickField name='profile.emailSettings.amazonSES.host'
+          div.form-group
+            input.form-control.select-default-email-service(
+              type='checkbox' checked=isChecked id='amazonSESSelected'
+              data-type='amazonSES')
+            label.control-label(for="amazonSESSelected") Set as default
+
+          button.btn.btn-block.btn-primary(type="submit")
+            | Save

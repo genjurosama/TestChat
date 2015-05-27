@@ -1,7 +1,7 @@
-Template.emailSettingsSendGrid.helpers
+Template.emailSettingsAmazonSES.helpers
   isChecked: () ->
     defaultSettings = @profile?.emailSettings.default
-    if defaultSettings is 'sendGrid'
+    if defaultSettings is 'amazonSES'
       true
     else
       false

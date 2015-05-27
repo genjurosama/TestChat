@@ -9,4 +9,6 @@ Router.route 'emailSettings.mandril',
 Router.route 'emailSettings.sendGrid',
   data: ()->
     return Meteor.user()
-Router.route 'emailSettings.amazonSES'
+Router.route 'emailSettings.amazonSES',
+  data: ()->
+    return Meteor.user()
