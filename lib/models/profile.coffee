@@ -309,6 +309,7 @@ if !@Schema
         datePickerOptions:
           autoclose: true
   emailSettings:
+    optional: true
     type: Object
   'emailSettings.sendGrid':
     type: Object
