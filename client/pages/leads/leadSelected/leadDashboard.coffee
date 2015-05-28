@@ -9,4 +9,7 @@ Template.leadDashboard.events
   'click .add-note': (e)->
     $('#dialogContainer').html("")
     Blaze.renderWithData Template.leadNoteModal, this, $('#dialogContainer')[0]
+  'click .btn-edit-lead': (e, tpl) ->
+    $('#dialogContainer').html("")
+    Blaze.renderWithData Template.leadsEditModal, this, $('#dialogContainer')[0]
 

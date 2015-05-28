@@ -8,31 +8,81 @@
         a(href="{{pathFor 'leadIntoClient'}}") Make Client
 +leadTabs
 with leadData
-    .panel.panel-primary
-        .panel-heading
-            h3.panel-title Confirm Info
-        .panel-body(style="padding:0;padding-top:15px;padding-bottom:15px")
-            +leadInfo
-            button.btn.btn-primary.btn-edit-lead(data-toggle='modal', data-target='#myModal') Edit Info
-                i.fa.fa-edit
-    .panel.panel-primary
-        .panel-heading
-            h3.panel-title Add Client Info
-        .panel-body(style="padding:0;padding-top:15px;padding-bottom:15px")
-            +autoForm(collection="Meteor.users" id="leadIntoClient" doc=leadData)
-                .col-sm-6.col-sm-offset-3
-                    +afQuickField name='profile.monitoringUsername'
-                    +afQuickField name='profile.monitoringPassword'
-                    +afQuickField name='profile.securityWord'
-                    +afQuickField name='profile.paymentArrangement'
-                    +afQuickField name='profile.billingStatus'
-                    +afQuickField name='profile.status'
-                    div#enroll(style='position: relative')
-                        +afQuickField name='profile.enrollDate' buttonClasses="glyphicon glyphicon-calendar"
-                    div#cancel(style='position: relative')
-                        +afQuickField name='profile.cancelDate' buttonClasses="glyphicon glyphicon-calendar"
-                    //problem submitting without this input
+    +autoForm(collection="Meteor.users" id="leadIntoClient" doc=leadData)
+        .panel.panel-primary
+            .panel-heading
+                h3.panel-title Details
+            .panel-body(style="padding:0;padding-top:15px;padding-bottom:15px")
+                .col-sm-4
+                    +afQuickField name='profile.prefix'
+                    +afQuickField name='profile.firstname'
+                    +afQuickField name='profile.lastname'
+                    +afQuickField name='profile.language'
+                    +afQuickField name='profile.SSN'
+                    +afQuickField name='profile.birthday' buttonClasses="glyphicon glyphicon-calendar"
+
+                .col-sm-4
                     +afQuickField name='emails.0.address'
-                .col-sm-12
-                    button.btn.btn-block.btn-primary(type="submit")
-                        | Save & Make Client
+                    +afQuickField name='profile.emailOptOut' noselect=true
+                    +afQuickField name='profile.phone'
+                    +afQuickField name='profile.phone2'
+                    +afQuickField name='profile.fax'
+                    +afQuickField name='profile.phoneOptOut' noselect=true
+                    +afQuickField name='profile.textOptOut' noselect=true
+
+                .col-sm-4
+                    +afQuickField name='profile.address'
+                    +afQuickField name='profile.address2'
+                    +afQuickField name='profile.zip'
+                    +afQuickField name='profile.city'
+                    +afQuickField name='profile.state'
+
+        .panel.panel-primary
+            .panel-heading
+                h3.panel-title Setup
+            .panel-body(style="padding:0;padding-top:15px;padding-bottom:15px")
+                .col-sm-4
+                    +afQuickField name='profile.assignedTo'
+                    +afQuickField name='profile.salesRep'
+                .col-sm-4
+                    +afQuickField name='profile.affiliate'
+                    +afQuickField name='profile.parentAffiliate'
+                .col-sm-4
+                    +afQuickField name='profile.jointCustomer'
+                    +afQuickField name='profile.source'
+
+        .panel.panel-primary
+            .panel-heading
+                h3.panel-title Portal Setup
+            .panel-body(style="padding:0;padding-top:15px;padding-bottom:15px")
+                .col-sm-4
+                    +afQuickField name='profile.portalAccess' noselect=true
+                    +afQuickField name='profile.interviewer' noselect=true
+                .col-sm-4
+                    +afQuickField name='profile.customerPrivacy'
+                .col-sm-4
+                    +afQuickField name='profile.profilesToDisplay' noselect=true
+
+        .panel.panel-primary
+            .panel-heading
+                h3.panel-title Payment Setup
+            .panel-body(style="padding:0;padding-top:15px;padding-bottom:15px")
+                .col-sm-4
+                    +afQuickField name='profile.creditCardNumber'
+                    +afQuickField name='profile.creditCardNumberExpMonth'
+                    +afQuickField name='profile.creditCardNumberExpYear'
+                .col-sm-4
+                    +afQuickField name='profile.creditCardFirstName'
+                    +afQuickField name='profile.creditCardLastName'
+                .col-sm-4
+                    +afQuickField name='profile.creditCardAddress1'
+                    +afQuickField name='profile.creditCardAddress2'
+                    +afQuickField name='profile.creditCardPostalCode'
+                    +afQuickField name='profile.creditCardCity'
+                    +afQuickField name='profile.creditCardState'
+                    +afQuickField name='profile.creditCardCountry'
+
+        .col-sm-12
+            button.btn.btn-block.btn-primary(type="submit")
+                | Save & Make Client
+

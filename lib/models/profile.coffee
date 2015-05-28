@@ -308,6 +308,49 @@ if !@Schema
         type: "bootstrap-datepicker"
         datePickerOptions:
           autoclose: true
+  creditCardNumber:
+    type: String
+    optional: true
+  creditCardNumberExpMonth:
+    type: String
+    label: 'Expiration Month'
+    optional: true
+  creditCardNumberExpYear:
+    type: String
+    label: 'Expiration Year'
+    optional: true
+  creditCardFirstName:
+    type: String
+    label: 'First Name'
+    optional: true
+  creditCardLastName:
+    type: String
+    label: 'Last Name'
+    optional: true
+  creditCardAddress1:
+    type: String
+    label: 'Address Line 1'
+    optional: true
+  creditCardAddress2:
+    type: String
+    label: 'Address Line 2'
+    optional: true
+  creditCardCity:
+    type: String
+    label: 'City'
+    optional: true
+  creditCardState:
+    type: String
+    label: 'State'
+    optional: true
+  creditCardCountry:
+    type: String
+    label: 'Country'
+    optional: true
+  creditCardPostalCode:
+    type: String
+    label: 'Postal Code'
+    optional: true
   emailSettings:
     optional: true
     type: Object

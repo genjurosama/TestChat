@@ -2,11 +2,6 @@ Template.leadIntoClient.helpers
   leadData: ()->
     Meteor.users.findOne this._id
 
-Template.leadIntoClient.events
-  'click .btn-edit-lead': (e, tpl) ->
-    $('#dialogContainer').html("")
-    Blaze.renderWithData Template.leadsEditModal, this, $('#dialogContainer')[0]
-
 leadIntoClientHook =
   onError: (a, b)->
     Bert.alert(b.message, 'danger');
