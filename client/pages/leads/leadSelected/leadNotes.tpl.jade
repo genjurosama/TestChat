@@ -15,4 +15,4 @@ with leadData
             .row
                 button.add-note.btn.btn-success.pull-left(data-toggle='modal', data-target='#myModal') Add Note
             .row
-                +tabular table=TabularTables.leadNotes class="table table-striped table-bordered table-condensed table-responsive"
+                +tabular table=TabularTables.leadNotes selector=leadData class="table table-striped table-bordered table-condensed table-responsive"

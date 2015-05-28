@@ -236,7 +236,7 @@ TabularTables.leads = new Tabular.Table
   name: 'leads'
   collection: Meteor.users
   pub: "users"
-  selector: (uid) ->
+  selector: () ->
     roles: {"$in":['lead']}
   order: [[3, 'asc']]
   order: [[3, 'desc']]
@@ -326,6 +326,8 @@ TabularTables.leadNotes = new Tabular.Table
     }
   ]
   extraFields: ['flag', 'clientView']
+  changeSelector: (selector, userId) ->
+    return {clientID: selector._id}
 
 TabularTables.clientItems = new Tabular.Table
   name: 'clientItems'

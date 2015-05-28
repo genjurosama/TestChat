@@ -1,120 +1,151 @@
 span.leadInfo
    .col-sm-4
-      .col-sm-6.small
-         strong Prefix:
-      .col-sm-6.small
-         | {{profile.prefix}}
-      .col-sm-6.small
-         strong First name:
-      .col-sm-6.small
-         | {{profile.firstname}}
-      .col-sm-6.small
-         strong Last name:
-      .col-sm-6.small
-         | {{profile.lastname}}
-      .col-sm-6.small
-         strong Email:
-      .col-sm-6.small
-         | {{emails.[0].address}}
-      .col-sm-6.small
-         strong Emails Opt Out:
-      .col-sm-6.small
-         | {{profile.emailOptOut}}
-      .col-sm-6.small
-         strong Phone:
-      .col-sm-6.small
-         | {{profile.phone}}
-      .col-sm-6.small
-         strong Phone2:
-      .col-sm-6.small
-         | {{profile.phone2}}
-      .col-sm-6.small
-         strong Fax:
-      .col-sm-6.small
-         | {{profile.fax}}
-      .col-sm-6.small
-         strong Phone opt out:
-      .col-sm-6.small
-         | {{profile.phoneOptOut}}
-      .col-sm-6.small
-         strong Text opt out:
-      .col-sm-6.small
-         | {{profile.textOptOut}}
+      .col-sm-12
+         .col-sm-6.small
+            strong Prefix:
+         .col-sm-6.small
+            | {{profile.prefix}}
+      .col-sm-12
+         .col-sm-6.small
+            strong First name:
+         .col-sm-6.small
+            | {{profile.firstname}}
+      .col-sm-12
+         .col-sm-6.small
+            strong Last name:
+         .col-sm-6.small
+            | {{profile.lastname}}
+      .col-sm-12
+         .col-sm-6.small
+            strong Email:
+         .col-sm-6.small
+            | {{emails.[0].address}}
+      .col-sm-12
+         .col-sm-6.small
+            strong Emails Opt Out:
+         .col-sm-6.small
+            | {{profile.emailOptOut}}
+      .col-sm-12
+         .col-sm-6.small
+            strong Phone:
+         .col-sm-6.small
+            | {{profile.phone}}
+      .col-sm-12
+         .col-sm-6.small
+            strong Phone2:
+         .col-sm-6.small
+            | {{profile.phone2}}
+      .col-sm-12
+         .col-sm-6.small
+            strong Fax:
+         .col-sm-6.small
+            | {{profile.fax}}
+      .col-sm-12
+         .col-sm-6.small
+            strong Phone opt out:
+         .col-sm-6.small
+            | {{profile.phoneOptOut}}
+      .col-sm-12
+         .col-sm-6.small
+            strong Text opt out:
+         .col-sm-6.small
+            | {{profile.textOptOut}}
+
    .col-sm-4
-      .col-sm-6.small
-         strong Address:
-      .col-sm-6.small
-         | {{profile.address}}
-      .col-sm-6.small
-         strong Address2:
-      .col-sm-6.small
-         | {{profile.address2}}
-      .col-sm-6.small
-         strong ZIP:
-      .col-sm-6.small
-         | {{profile.zip}}
-      .col-sm-6.small
-         strong City:
-      .col-sm-6.small
-         | {{profile.city}}
-      .col-sm-6.small
-         strong State:
-      .col-sm-6.small
-         | {{profile.state}}
-      .col-sm-6.small
-         strong Birthday:
-      .col-sm-6.small
-         | {{formatDateTime profile.birthday "MM/DD/YYYY"}}
-      .col-sm-6.small
-         strong Language:
-      .col-sm-6.small
-         | {{profile.language}}
-      .col-sm-6.small
-         strong SSN:
-      .col-sm-6.small
-         | {{profile.SSN}}
+      .col-sm-12
+         .col-sm-6.small
+            strong Address:
+         .col-sm-6.small
+            | {{profile.address}}
+      .col-sm-12
+         .col-sm-6.small
+            strong Address2:
+         .col-sm-6.small
+            | {{profile.address2}}
+      .col-sm-12
+         .col-sm-6.small
+            strong ZIP:
+         .col-sm-6.small
+            | {{profile.zip}}
+      .col-sm-12
+         .col-sm-6.small
+            strong City:
+         .col-sm-6.small
+            | {{profile.city}}
+      .col-sm-12
+         .col-sm-6.small
+            strong State:
+         .col-sm-6.small
+            | {{profile.state}}
+      .col-sm-12
+         .col-sm-6.small
+            strong Birthday:
+         .col-sm-6.small
+            | {{formatDateTime profile.birthday "MM/DD/YYYY"}}
+      .col-sm-12
+         .col-sm-6.small
+            strong Language:
+         .col-sm-6.small
+            | {{profile.language}}
+      .col-sm-12
+         .col-sm-6.small
+            strong SSN:
+         .col-sm-6.small
+            | {{profile.SSN}}
+
    .col-sm-4
-      .col-sm-6.small
-         strong Lead Quality:
-      .col-sm-6.small
-         | {{profile.leadQuality}}
-      .col-sm-6.small
-         strong Assigned to:
-      .col-sm-6.small
-         | {{userName profile.assignedTo}}
-      .col-sm-6.small
-         strong Join customer:
-      .col-sm-6.small
-         | {{userName profile.jointCustomer}}
-      .col-sm-6.small
-         strong Source:
-      .col-sm-6.small
-         | {{profile.source}}
-      .col-sm-6.small
-         strong Sales Rep:
-      .col-sm-6.small
-         | {{userName profile.salesRep}}
-      .col-sm-6.small
-         strong Affiliate:
-      .col-sm-6.small
-         | {{userName profile.affiliate}}
-      .col-sm-6.small
-         strong Parent Affiliate:
-      .col-sm-6.small
-         | {{userName profile.parentAffiliate}}
-      .col-sm-6.small
-         strong Portal Access:
-      .col-sm-6.small
-         | {{profile.portalAccess}}
-      .col-sm-6.small
-         strong Interviewer:
-      .col-sm-6.small
-         | {{profile.interviewer}}
-      .col-sm-6.small
-         strong Customer Privacy:
-      .col-sm-6.small
-         | {{profile.customerPrivacy}}
-      .col-sm-6.small
-         strong Profiles to display:
-      .col-sm-6.small
-         | {{profile.profilesToDisplay}}
+      .col-sm-12
+         .col-sm-6.small
+            strong Lead Quality:
+         .col-sm-6.small
+            | {{profile.leadQuality}}
+      .col-sm-12
+         .col-sm-6.small
+            strong Assigned to:
+         .col-sm-6.small
+            | {{userName profile.assignedTo}}
+      .col-sm-12
+         .col-sm-6.small
+            strong Join customer:
+         .col-sm-6.small
+            | {{userName profile.jointCustomer}}
+      .col-sm-12
+         .col-sm-6.small
+            strong Source:
+         .col-sm-6.small
+            | {{profile.source}}
+      .col-sm-12
+         .col-sm-6.small
+            strong Sales Rep:
+         .col-sm-6.small
+            | {{userName profile.salesRep}}
+      .col-sm-12
+         .col-sm-6.small
+            strong Affiliate:
+         .col-sm-6.small
+            | {{userName profile.affiliate}}
+      .col-sm-12
+         .col-sm-6.small
+            strong Parent Affiliate:
+         .col-sm-6.small
+            | {{userName profile.parentAffiliate}}
+      .col-sm-12
+         .col-sm-6.small
+            strong Portal Access:
+         .col-sm-6.small
+            | {{profile.portalAccess}}
+      .col-sm-12
+         .col-sm-6.small
+            strong Interviewer:
+         .col-sm-6.small
+            | {{profile.interviewer}}
+      .col-sm-12
+         .col-sm-6.small
+            strong Customer Privacy:
+         .col-sm-6.small
+            | {{profile.customerPrivacy}}
+      .col-sm-12
+         .col-sm-6.small
+            strong Profiles to display:
+         .col-sm-6.small
+            | {{profile.profilesToDisplay}}
