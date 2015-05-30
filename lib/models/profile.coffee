@@ -202,7 +202,7 @@ if !@Schema
       options: ()->
         data = Meteor.users.find({roles: {$in:['lead', 'client']}})
         data.map (c)->
-          return {label: c.profile.firstname+" "+c.profile.lastname, value: c._id}
+          return {label: profile2Username(c), value: c._id}
   assignedTo:
     type: String
     optional: true
@@ -211,7 +211,7 @@ if !@Schema
       options: ()->
         data = Meteor.users.find({roles: {$nin:['lead', 'client']}})
         data.map (c)->
-          return {label: c.profile.firstname+" "+c.profile.lastname, value: c._id}
+          return {label: profile2Username(c), value: c._id}
   salesRep:
     type: String
     optional: true
@@ -220,7 +220,7 @@ if !@Schema
       options: ()->
         data = Meteor.users.find({roles: {$in:['salesRep']}})
         data.map (c)->
-          return {label: c.profile.firstname+" "+c.profile.lastname, value: c._id}
+          return {label: profile2Username(c), value: c._id}
   affiliate:
     type: String
     optional: true
@@ -229,7 +229,7 @@ if !@Schema
       options: ()->
         data = Meteor.users.find({roles: {$in:['user']}})
         data.map (c)->
-          return {label: c.profile.firstname+" "+c.profile.lastname, value: c._id}
+          return {label: profile2Username(c), value: c._id}
   parentAffiliate:
     type: String
     optional: true
@@ -238,7 +238,7 @@ if !@Schema
       options: ()->
         data = Meteor.users.find({roles: {$in:['user']}})
         data.map (c)->
-          return {label: c.profile.firstname+" "+c.profile.lastname, value: c._id}
+          return {label: profile2Username(c), value: c._id}
   source:
     type: String
     optional: true

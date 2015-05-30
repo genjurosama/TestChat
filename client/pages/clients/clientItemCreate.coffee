@@ -207,10 +207,11 @@ proceedItem = (itemData)->
     return
   ).get()
   $.each bureaus, (k,v)->
-    if Template.parentData(6).doc
-      itemData[v].itemStatus = Template.parentData(6).doc.itemData[Template.parentData(6).doc.itemType][v].itemStatus
-    else
-      itemData[v].itemStatus='negative'
+    if itemData[v]
+      if Template.parentData(6).doc
+        itemData[v].itemStatus = Template.parentData(6).doc.itemData[Template.parentData(6).doc.itemType][v].itemStatus
+      else
+        itemData[v].itemStatus='negative'
   if $("#quickMode").prop("checked")
     itemData = {}
     dataEquifax = AutoForm.getFormValues("equifax").insertDoc

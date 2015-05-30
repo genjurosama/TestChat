@@ -177,12 +177,7 @@ TabularTables.clientNotes = new Tabular.Table
       title: 'Author'
       width: '15%'
       render: (val, type, doc) ->
-        usr = Meteor.users.findOne _id:val
-        if !usr 
-        	return ""
-        if !usr.profile.lastname
-          usr.profile.lastname=""
-        return usr.profile.lastname+" "+usr.profile.firstname
+        return getUsername(val)
     }
     {
       data: 'createdAt'
@@ -193,6 +188,8 @@ TabularTables.clientNotes = new Tabular.Table
     }
   ]
   extraFields: ['flag']
+  changeSelector: (selector, userId) ->
+    return {clientID: selector._id}
 
 
 TabularTables.emailTemplates = new Tabular.Table
@@ -310,12 +307,7 @@ TabularTables.leadNotes = new Tabular.Table
       title: 'Author'
       width: '15%'
       render: (val, type, doc) ->
-        usr = Meteor.users.findOne _id:val
-        if !usr
-          return ""
-        if !usr.profile.lastname
-          usr.profile.lastname=""
-        return usr.profile.lastname+" "+usr.profile.firstname
+        return getUsername(val)
     }
     {
       data: 'note'
@@ -376,12 +368,7 @@ TabularTables.clientAudit = new Tabular.Table
       title: 'Auditor'
       width: '35%'
       render: (val, type, doc) ->
-        usr = Meteor.users.findOne _id:val
-        if !usr 
-        	return ""
-        if !usr.profile.lastname
-          usr.profile.lastname=""
-        return usr.profile.lastname+" "+usr.profile.firstname
+        return getUsername(val)
     }
     {
       data: 'itemName'

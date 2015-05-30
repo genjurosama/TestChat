@@ -10,11 +10,7 @@ Template.registerHelper "activeRoute", ->
 Template.registerHelper "userName", (id)->
   if !id
     id = Meteor.userId()
-  usr = Meteor.users.findOne _id: id
-  if usr
-    if !usr.profile.lastname
-      usr.profile.lastname=''
-    return usr.profile.lastname+" "+usr.profile.firstname
+  return getUsername(id)
 
 Template.registerHelper "equals", (a, b)->
   return a == b
@@ -116,3 +112,14 @@ isUserInRole = (uid, role)->
     roles.push(rows[i].name);
     i++
   return Roles.userIsInRole(uid, roles)
+
+@getUsername = (id)->
+  usr = Meteor.users.findOne _id:id
+  return profile2Username(usr)
+
+@profile2Username = (usr)->
+  if !usr
+    return ""
+  if !usr.profile.lastname
+    usr.profile.lastname=''
+  return usr.profile.lastname+" "+usr.profile.firstname

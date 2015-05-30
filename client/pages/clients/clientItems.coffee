@@ -74,3 +74,4 @@ Template.clientItems.rendered = ()->
       $(this).find("i").addClass 'fa-minus'
     return
   return
+
