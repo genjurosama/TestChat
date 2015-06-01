@@ -44,7 +44,7 @@
     autoform: {
       type: "froalaEmail"
       afFieldInput: {
-        froalaOptions: froalaOptions 
+        froalaOptions: froalaDropdownsDefault;
       }
     }
   "createdAt":
