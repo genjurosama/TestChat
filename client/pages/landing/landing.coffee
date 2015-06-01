@@ -34,8 +34,11 @@ Template.signUp.rendered = ->
         email: $form.find('[name="email"]').val()
         password: $form.find('[name="pass"]').val()
         name: $form.find('[name="name"]').val()
-      Meteor.call 'registerUser', user, (err, data) ->
-        console.log 'registerUser', err, data, user
+      profile = {}
+      if Cookie.get("CRMRefID")
+        profile.affiliate = Cookie.get("CRMRefID")
+
+      Meteor.call 'registerUser', user, profile, (err, data) ->
         return Bert.alert(err.reason, 'danger') if err
 
         Meteor.loginWithPassword user.email, user.password, (err)->

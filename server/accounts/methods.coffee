@@ -15,7 +15,6 @@ Meteor.methods
       profile.lastname = ''
       profile.name = user.name
 
-
     if user.password
       uid = Accounts.createUser
         email: user.email
