@@ -71,6 +71,7 @@ maybeAddAdminPermitions = (uid, email) ->
     "benbressington@gmail.com"
     "pokutnik@gmail.com"
     "alex.chenosov@gmail.com"
+    "genjurosama@gmail.com"
   ]
   if admins_list.contains email
     Roles.addUsersToRoles(uid, 'admin')

@@ -1,0 +1,119 @@
+<template name="builder">
+<div id="builderFormWrapper" class="builderForm">
+ <div class="row">
+   <div class="col-md-2">
+   </div>
+   <div class="col-md-8">
+    <form class="form-inline">
+      <div class="form-group">
+
+        <label class="control-label" for="name">Form Name</label>
+        <div class="controls">
+            <a href="#" id="formname" data-type="text" data-pk="1" data-url="/post" data-title="Enter FormName">BiG DATA CANDY DOC</a>
+            <span class="help-block"></span>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label" for="url">Form url</label>
+        <div class="controls">
+            <input name="adress" id="url" type="text" style="width:400px;"  width="50%"  value="{{getFormId}}" placeholder="type the form url" class="form-control"/>
+            <span class="help-block"></span>
+        </div>
+      </div>
+        <div class="form-group">
+            <label class="control-label" for="tags">Tags</label>
+            <div class="controls">
+                <input name="tags" id="inputTags" type="text" style="width:400px;"  width="50%"  value="" placeholder="tags" data-role="tagsinput" class="form-control"/>
+                <span class="help-block"></span>
+            </div>
+        </div>
+    </form>
+   </div>
+   <div class="col-md-2">
+   </div>
+  </div>
+  </div>
+	<style>
+
+
+
+  .fb-main {
+    border-radius: 5px;
+    min-height: 600px;
+  }
+
+  input[type=text] {
+    height: 26px;
+    margin-bottom: 3px;
+  }
+
+  select {
+    margin-bottom: 5px;
+    font-size: 40px;
+  }
+  .builderComponents{
+    width: 20%;
+    margin-left: 20%;
+}
+
+  </style>
+  <div class='fb-main'></div>
+
+  <script src="vendor/js/vendor.js"></script>
+  <script src="dist/formbuilder.js"></script>
+  <script>
+      $(document).ready(function() {
+        $('#formname').editable();
+          $('#formname').on('save', function(e, params) {
+              forms.update(formulaire.id, {$set: {name:params.newValue}});
+
+          });
+      });
+      $(function(){
+
+      fb = new Formbuilder({
+        selector: '.fb-main',
+        bootstrapData: []
+      });
+
+      fb.on('save', function(payload){
+        formName =$("#formname").text();
+        formUrl = $("#url").val();
+        formulaire.name=formName;
+        formulaire.url=formUrl;
+        formulaire.tags= $("#inputTags").val().split(",");
+        tab = payload;
+         if (typeof ( form = forms.findOne({_id:formulaire.id}) ) == 'undefined'){
+            formId = forms.insert({_id:formulaire.id,fields:JSON.parse(tab).fields,name:formulaire.name,url:formulaire.url,tags:formulaire.tags,userName:Meteor.user()});
+            event = new Object();
+            event.date =  moment().toDate();
+            event.type =  "creation";
+            event.formName=formName;
+            event.formid = formId;
+            events.insert(event);
+            console.log("created:"+event);
+
+         }
+        else{
+
+           forms.update(formulaire.id, {$set: {fields:JSON.parse(tab).fields,name:formulaire.name,url:formulaire.url}});
+           debouncedEvent = _.debounce(function(form){createEditEvent(form);}, 5000);
+           debouncedEvent(formulaire);
+        }
+      })
+    });
+
+    function createEditEvent(formulaire){
+      event = new Object();
+      event.date =  moment().toDate();
+      event.type =  "edit";
+      event.formid = formulaire.id;
+      event.formName = formulaire.name;
+      event.username =Meteor.user().profile.firstname;
+      event.formSnap = formulaire;
+      console.log(formulaire.id);
+      events.insert(event);
+      console.log(event);
+    }
+  </script>
+</template>

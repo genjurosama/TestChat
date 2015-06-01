@@ -1,0 +1,13 @@
++contentFor "title"
+    h1 Manage Items
++contentFor "breadcrubms"
+    li
+        a(href="{{pathFor 'clients'}}") Clients
+    li.active
+        a(href="{{pathFor 'clientItems'}}") Manage Items
+.col-sm-12
+    .panel.panel-default
+        .panel-heading
+
+        .panel-body(style="padding:0;padding-top:15px;padding-bottom:15px")
+            +builder

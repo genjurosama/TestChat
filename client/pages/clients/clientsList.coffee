@@ -7,6 +7,8 @@ Template.clientButtons.events
     Router.go("clientAudit",{_id:this._id})
    'click .btn-letters-creator' : (e,tpl)->
      Router.go("clientLettersCreator",{_id:this._id})
+    'click .btn-forms-creator' : (e,tpl)->
+      Router.go("clientFormsCreator",{_id:this._id})
 
 Template.clientsList.rendered = ()->
 
