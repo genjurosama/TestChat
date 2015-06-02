@@ -1,0 +1,48 @@
+
++digitalSignTopTabs
+
+  .row
+    .col-md-8
+      .panel.panel-default
+        .panel-heading
+        .panel-title
+          {{name}}
+        .panel-body.bg
+        .div#formContent
+            form.form-horizontal.form-border
+                  each fields
+                    if equals field_type "address"
+                      +adresse
+                    if equals field_type "customer"
+                      +customer
+                    if equals field_type "date"
+                      +date
+                    if equals field_type "paragraph"
+                      +paragraph
+                    if equals field_type "signature"
+                      +signature
+                    if equals field_type "text"
+                      +textField
+                    if equals field_type "email"
+                      +email
+                    if equals field_type "time"
+                      +time
+                    if equals field_type "dropdown"
+                      +dropdown
+                    if equals field_type "website"
+                      +website
+                    if equals field_type "section_break"
+                      +sectionBreak
+                    if equals field_type "radio"
+                      +radio
+                    if equals field_type "checkboxes"
+                      checkboxes
+                    if equals field_type "photo"
+                      +photo
+                    if equals field_type "number"
+                      +number
+
+              .buttonHolder
+                button(type="submit").btn.btn-success Send
+
+

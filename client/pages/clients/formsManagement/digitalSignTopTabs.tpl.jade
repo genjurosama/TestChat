@@ -1,0 +1,28 @@
+.row
+  .col-md-12
+    .tab-wrapper.tab-primary
+      ul.nav.nav-tabs
+        +topTab(path="digitalSignMain")
+         i.ion-ios-copy.digitalSIgnIcons
+         | Digital SIgn
+        if currentUser
+          +topTab(path="templatesList")
+            i.ion-clipboard.digitalSIgnIcons
+            | Templates
+          +topTab(path="formsList")
+            i.ion-ios-paper.digitalSIgnIcons
+            | Forms list
+          +topTab(path="signedformsList")
+            i.ion-android-done-all.digitalSIgnIcons
+            | Signed forms
+          +topTab(path="builder")
+           i.ion-ios-cog-outline.digitalSIgnIcons
+           | Form Builder
+          +topTab(path="upload")
+           i.ion-ios-cloud-upload-outline.digitalSIgnIcons
+           | Upload
+          +topTab(path="uploads")
+           i.ion-ios-list-outline.digitalSIgnIcons
+           | Files
+      .tab-content.main-tab-content
+        +UI.contentBlock

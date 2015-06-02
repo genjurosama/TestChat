@@ -379,3 +379,27 @@ TabularTables.clientAudit = new Tabular.Table
   ]
   extraFields: ['_id', 'clientID', 'personalInformation','description']
 
+TabularTables.forms = new Tabular.Table
+  name: 'forms'
+  collection: colForms
+  columns: [
+
+    {
+      data: 'tags'
+      title: 'Tags'
+      width: '35%'
+      tmpl:_t 'tagsDisplay'
+    }
+    {
+      data: 'name'
+      title: 'Title'
+      width: '35%'
+    }
+    {
+      data: 'name'
+      title: 'Actions'
+      width: '10%'
+      tmpl:_t 'formActions'
+    }
+
+  ]

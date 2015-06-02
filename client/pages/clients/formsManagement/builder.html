@@ -1,4 +1,5 @@
 <template name="builder">
+{{#digitalSignTopTabs }}
 <div id="builderFormWrapper" class="builderForm">
  <div class="row">
    <div class="col-md-2">
@@ -65,7 +66,7 @@
       $(document).ready(function() {
         $('#formname').editable();
           $('#formname').on('save', function(e, params) {
-              forms.update(formulaire.id, {$set: {name:params.newValue}});
+              colForms.update(formulaire.id, {$set: {name:params.newValue}});
 
           });
       });
@@ -77,43 +78,27 @@
       });
 
       fb.on('save', function(payload){
+        console.log(payload);
         formName =$("#formname").text();
         formUrl = $("#url").val();
         formulaire.name=formName;
         formulaire.url=formUrl;
         formulaire.tags= $("#inputTags").val().split(",");
         tab = payload;
-         if (typeof ( form = forms.findOne({_id:formulaire.id}) ) == 'undefined'){
-            formId = forms.insert({_id:formulaire.id,fields:JSON.parse(tab).fields,name:formulaire.name,url:formulaire.url,tags:formulaire.tags,userName:Meteor.user()});
-            event = new Object();
-            event.date =  moment().toDate();
-            event.type =  "creation";
-            event.formName=formName;
-            event.formid = formId;
-            events.insert(event);
-            console.log("created:"+event);
+         if (typeof ( form = colForms.findOne({_id:formulaire.id}) ) == 'undefined'){
+            formId = colForms.insert({_id:formulaire.id,fields:JSON.parse(tab).fields,name:formulaire.name,url:formulaire.url,tags:formulaire.tags,userName:Meteor.user()});
+
 
          }
         else{
 
-           forms.update(formulaire.id, {$set: {fields:JSON.parse(tab).fields,name:formulaire.name,url:formulaire.url}});
-           debouncedEvent = _.debounce(function(form){createEditEvent(form);}, 5000);
-           debouncedEvent(formulaire);
+           colForms.update(formulaire.id, {$set: {fields:JSON.parse(tab).fields,name:formulaire.name,url:formulaire.url}});
+
         }
       })
     });
 
-    function createEditEvent(formulaire){
-      event = new Object();
-      event.date =  moment().toDate();
-      event.type =  "edit";
-      event.formid = formulaire.id;
-      event.formName = formulaire.name;
-      event.username =Meteor.user().profile.firstname;
-      event.formSnap = formulaire;
-      console.log(formulaire.id);
-      events.insert(event);
-      console.log(event);
-    }
+
   </script>
+ {{/digitalSignTopTabs}}
 </template>

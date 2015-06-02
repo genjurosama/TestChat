@@ -1,0 +1,78 @@
+<template name="editbuilder">
+ {{#digitalSignTopTabs}}
+  <div id="builderFormWrapper" class="builderForm">
+  <form class="form builderComponents">
+    <div class="form-group">
+      <label class="control-label" for="name">Form Name</label>
+      <div class="controls">
+          <a href="#" id="formname" data-type="text" data-pk="1" data-url="/post" data-title="Enter FormName">BiG DATA CANDY DOC</a>
+          <span class="help-block"></span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label" for="url">Form url</label>
+      <div class="controls">
+          <input name="adress" id="url" style="width:400px;" type="text" value="{{getFormId}}" placeholder="type the form url" class="form-control"/>
+          <span class="help-block"></span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label" for="tags">Tags</label>
+      <div class="controls">
+          <input name="tags" id="inputTags" type="text" style="width:400px;"  width="50%"  value="" placeholder="tags" data-role="tagsinput" class="form-control"/>
+          <span class="help-block"></span>
+      </div>
+  </div>
+  </form>
+  </div>
+	<style>
+  * {
+    box-sizing: border-box;
+  }
+
+
+  .fb-main {
+    border-radius: 5px;
+    min-height: 600px;
+  }
+
+  input[type=text] {
+    height: 26px;
+    margin-bottom: 3px;
+  }
+
+  select {
+    margin-bottom: 5px;
+    font-size: 40px;
+  }
+  .builderComponents{
+    width: 20%;
+    margin-left: 20%;
+}
+
+  </style>
+  <div class='fb-main'></div>
+
+  <script src="vendor/js/vendor.js"></script>
+  <script src="dist/formbuilder.js"></script>
+  <script>
+    $(function(){
+      fb = new Formbuilder({
+        selector: '.fb-main',
+        bootstrapData: []
+      });
+
+
+      fb.on('save', function(payload){
+        formName =$("#name").val();
+        formUrl = $("#url").val();
+        formulaire.name=formName;
+        formulaire.url=formUrl;
+        console.log(payload);
+        tab = payload;
+        Meteor.call("formsUpsert",formulaire.id,{id:formulaire.id,fields:JSON.parse(tab).fields,name:formulaire.name,url:formulaire.url});
+      })
+    });
+  </script>
+  {{/digitalSignTopTabs}}
+</template>
