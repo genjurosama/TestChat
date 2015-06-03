@@ -47,6 +47,7 @@ aldeed:template-extension
 jgdovin:html-pdf
 meteorhacks:npm
 
+
 npm-container
 froala:editor
 meteorhacks:ssr
@@ -54,6 +55,7 @@ email
 mquandalle:jade
 wylio:mandrill
 cmather:handlebars-server
+chuangbo:cookie
 ajduke:bootstrap-tagsinput
 mrt:jquery-ui
 pagebakers:ionicons

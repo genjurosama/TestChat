@@ -1,122 +1,73 @@
 Template.afFroalaEmail.onRendered(function(){
-	
-	this.$('textarea')
-	this.$('textarea').editable({
-	inlineMode: false,
-	buttons: ['bold', 'italic', 'underline', 'customerVariables', 'recipientVariables', 'miscVariables'],
-	height: '400',
-	customDropdowns: {
-    customerVariables: {
-      title: 'Customer Variables',
-      icon: {
-        type: 'font',
-        value: 'fa fa-cart-plus',
-      },
-      options: {
-        'Signature': function () {
-          this.insertHTML('[Customer First Name] [Customer Last Name]<br/>[Customer SSN]<br/>[Customer DOB]<br/>[Customer Address Line 1]<br/>[Customer Address Line 2]<br/>[Customer City], [Customer State]  [Customer Zip]');
-        },
-        'First Name': function () {
-          this.insertHTML('[Customer First Name]');
-        },
-        'Last Name': function () {
-          this.insertHTML('[Customer Last Name]');
-        },
-        'SSN': function () {
-          this.insertHTML('[Customer SSN]');
-        },
-        'DOB': function () {
-          this.insertHTML('[Customer DOB]');
-        },
-        'Address Line 1': function () {
-          this.insertHTML('[Customer Address Line 1]');
-        },
-        'Address Line 2': function () {
-          this.insertHTML('[Customer Address Line 2]');
-        },
-        'City, State, Zip': function () {
-          this.insertHTML('[Customer City], [Customer State] [Customer Zip]');
-        },
-        'Phone 1': function () {
-          this.insertHTML('[Customer Phone 1]');
-        },
-        'Phone 2': function () {
-          this.insertHTML('[Customer Phone 2]');
-        },
-        'Fax': function () {
-          this.insertHTML('[Customer Fax]');
-        }
-      },
-      refresh: function () {
-        // This method is called when the state of the button might have been changed.
-      },
-      refreshOnShow: function () {
-        // This method is called when the dropdown context menu is shown.
-      }
-    },
-    recipientVariables: {
-      title: 'Recipient Variables',
-      icon: {
-        type: 'font',
-        value: 'fa fa-inbox',
-      },
-      options: {
-        'Name': function () {
-          this.insertHTML('[Recipient Name]');
-        },
-        'Address 1': function () {
-          this.insertHTML('[Recipient Address Line 1]');
-        },
-        'Address 2': function () {
-          this.insertHTML('[Recipient Address Line 2]');
-        },
-        'City, State, Zip': function () {
-          this.insertHTML('[Recipient City], [Recipient State] [Recipient Zip]');
-        },
-        'Phone': function () {
-          this.insertHTML('[Recipient Phone]');
-        },
-        'Fax': function() {
-          this.insertHTML('[Recipient Fax]');
-        }
-      }
-    },
-    creditReportVariables: {
-      title: 'Credit Report Card Variables',
-      icon: {
-        type: 'font',
-        value: 'fa fa-plus-circle',
-      },
-      options: {
-        'Item List': function () {
-          this.insertHTML('[Recipient Name]');
-        },
-        'Item List With Dispute Instructions': function () {
-          this.insertHTML('[Item List With Dispute Instructions]');
-        }
-      }
-    },
-    miscVariables: {
-      title: 'Misc Variables',
-      icon: {
-        type: 'font',
-        value: 'fa fa-plus-square',
-      },
-      options: {
-        'Current Date': function () {
-          this.insertHTML('[Current Date]');
-        }
-      }
-    }
-  }
+  var id = this.data.atts.id;
+  var afDropdownOptions = this.data.atts.froalaOptions;
+  var froala_skel = froalaSkeleton;
+
+  // Assign basic editor variables
+  froala_skel.height = afDropdownOptions.height;
+  froala_skel.inlineMode = afDropdownOptions.inlineMode;
+  froala_skel.buttons = afDropdownOptions.buttons;
+
+  // Delete basic editor variables
+  delete afDropdownOptions.inlineMode;
+  delete afDropdownOptions.height;
+
+  // Make sure all dropdowns are added to buttons
+  Object.keys(afDropdownOptions).forEach(function(key){
+      froala_skel.buttons.push(key);
+  });
+
+  // Make sure to remove anything else before dropdown generation begins
+  delete afDropdownOptions.buttons;
+
+  // Assign dropdowns
+  froala_skel.customDropdowns = afDropdownOptions;
+
+  // Convert each of the dropdowns options from string to function format
+  froala_skel.customDropdowns = convertDropdowns(froala_skel.customDropdowns);
+
+  // Enable editor using converted skeleton data
+  $('#'+id).editable(froala_skel);
 });
 
+
+Template.afFroalaEmail.helpers({
+  atts: function(){
+    var atts = _.clone(this.atts);
+
+    // Remove froalaOptions so doesn't get rendered as html attrib
+    delete atts.froalaOptions;
+    return atts;afDropdownOptions;
+  }
 });
 
 AutoForm.addInputType('froalaEmail', {
 		template:"afFroalaEmail",
 		valueOut: function(){
-			console.log(this);
 			return $(this).editable('getHTML', true, true);
 		}
+    //TODO: Implement valueInfroala_skel.customDropdowns.customerVariables.options
 });
+
+
+// Converts options params from strings
+// to functions
+function convertDropdowns(dropdowns){
+  Object.keys(dropdowns).forEach(function(val){
+    dropdowns[val].options = convertOptions(dropdowns[val].options);
+  });
+
+  return dropdowns;
+}
+
+function convertOptions(options){
+  var newOptions = Object.keys(options).reduce(function ( obj, option ) {
+    obj[ option ] = function () {
+      this.insertHTML(options[ option ]);
+    };
+
+    return obj;
+  }, {});
+
+  return newOptions;
+}

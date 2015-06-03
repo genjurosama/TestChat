@@ -1,11 +1,36 @@
 +contentFor "title"
   h1 Dashboard
-  | Welcome {{userName}}
+  | Welcome {{myUserName}}
 +contentFor "breadcrubms"
   li.active
     a(href="{{pathFor 'index'}}") Dashboard
 
 .row
+    .col-md-12.col-lg-12
+        .panel.panel-default
+            .panel-heading
+                h3.panel-title SHARE
+            .panel-body.server-chart
+                .row
+                    .col-md-12.col-lg-12
+                        p Use your unique link to share CRM with your friends, the more you share the more chances you have at winning great prizes.
+                        p Here is your Unique Link:
+                            b {{share_url}}
+                        if share_url
+                            .social
+                                ul
+                                    li
+                                        a(href="https://www.facebook.com/sharer/sharer.php?u={{share_urlencoded}}&t=Get%20your%20contact%20list%20in%20a%20minute" target="_blank" title="Share on Facebook")
+                                            i.fa.fa-facebook.fa-2x
+                                    li
+                                        a(href="https://twitter.com/intent/tweet?source={{share_urlencoded}}&text=Get%20your%20contact%20list%20in%20a%20minute:%20{{share_url}}" target="_blank" title="Tweet")
+                                            i.fa.fa-twitter.fa-2x
+                                    li
+                                        a(href="https://plus.google.com/share?url={{share_urlencoded}}" target="_blank" title="Share on Google+")
+                                            i.fa.fa-google-plus.fa-2x
+                                    li
+                                        a(href="http://www.linkedin.com/shareArticle?mini=true&url={{share_urlencoded}}&title=Get%20your%20contact%20list%20in%20a%20minute&summary=&source={{share_urlencoded}}" target="_blank" title="Share on LinkedIn")
+                                            i.fa.fa-linkedin.fa-2x
     .col-md-12.col-lg-6
         section.panel.timeline-post
             #timeline.panel-body
@@ -30,30 +55,6 @@
                                 | Performed by
                                 i.fa.fa-user
                                 i
-                                    |  {{userName}}
+                                    |  {{myUserName}}
                                 |   @ {{formatDateTime date 'LT'}}
-
-
-    .col-md-12.col-lg-6
-        .panel.panel-default
-            .panel-heading
-                h3.panel-title SERVER STATS
-                .reportdate.actions
-                    i.fa.fa-calendar-o
-                    span Jan 1 - June 30
-                    b.caret
-            .panel-body.server-chart
-                .row
-                    .col-md-12.col-lg-12
-                        ul
-                            li
-                                span.text-left Network Usage
-                                .progress.progress-xs
-                                    .progress-bar.progress-bar-success(role='progressbar', aria-valuenow='65', aria-valuemin='0', aria-valuemax='100', style='width: 65%')
-                            li
-                                span.text-left CPU Load
-                                .progress.progress-xs
-                                    .progress-bar.progress-bar-info(role='progressbar', aria-valuenow='40', aria-valuemin='0', aria-valuemax='100', style='width: 40%')
-                        p
-                            | Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
 

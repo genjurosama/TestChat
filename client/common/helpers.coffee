@@ -8,9 +8,13 @@ Template.registerHelper "activeRoute", ->
   return "active" if isRoute or isPrefix
 
 Template.registerHelper "userName", (id)->
+  return getUsername(id)
+
+Template.registerHelper "myUserName", (id)->
   if !id
     id = Meteor.userId()
   return getUsername(id)
+
 
 Template.registerHelper "equals", (a, b)->
   return a == b
@@ -50,7 +54,12 @@ Template.registerHelper "activeRoute", ->
   isPrefix = @.prefix and (currentRoute.startsWith @.prefix)
   return "active" if isRoute or isPrefix
 
+Template.registerHelper "share_url", ->
+  genShareUrl()
 
+Template.registerHelper "share_urlencoded", ->
+  url = genShareUrl()
+  encodeURIComponent url if url
 
 Template.registerHelper 'linebreaksbr', (input) ->
   nl2br = (input + '').replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, '$1' + '<br>' + '$2');
@@ -91,6 +100,10 @@ Template.registerHelper 'conditionHelper', (bVar, ifTrue, ifFalse) ->
     return
   return
 
+
+genShareUrl = ->
+  referralPath = "ref/"+Meteor.userId()
+  return Meteor.absoluteUrl referralPath
 
 @field2label = (fieldName)->
   label = fieldName
