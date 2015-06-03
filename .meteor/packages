@@ -46,8 +46,6 @@ aldeed:autoform@5.1.2
 aldeed:template-extension
 jgdovin:html-pdf
 meteorhacks:npm
-
-
 npm-container
 froala:editor
 meteorhacks:ssr
@@ -56,6 +54,6 @@ mquandalle:jade
 wylio:mandrill
 cmather:handlebars-server
 chuangbo:cookie
-ajduke:bootstrap-tagsinput
 mrt:jquery-ui
 pagebakers:ionicons
+

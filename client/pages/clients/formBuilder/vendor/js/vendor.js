@@ -4452,7 +4452,7 @@ $.scrollWindowTo = function(pos, duration, cb) {
         factory(_, Backbone);
     }
 }(function(_, Backbone) {
-    
+
     /**
      * Takes a nested object and returns a shallow object keyed with the path names
      * e.g. { "level1.level2": "value" }
@@ -4504,7 +4504,7 @@ $.scrollWindowTo = function(pos, duration, cb) {
             if (result == null && i < n - 1) {
                 result = {};
             }
-            
+
             if (typeof result === 'undefined') {
                 if (return_exists)
                 {
@@ -4594,7 +4594,7 @@ $.scrollWindowTo = function(pos, duration, cb) {
         set: function(key, val, options) {
             var attr, attrs, unset, changes, silent, changing, prev, current;
             if (key == null) return this;
-            
+
             // Handle both `"key", value` and `{key: value}` -style arguments.
             if (typeof key === 'object') {
               attrs = key;
@@ -4604,7 +4604,7 @@ $.scrollWindowTo = function(pos, duration, cb) {
             }
 
             options || (options = {});
-            
+
             // Run validation.
             if (!this._validate(attrs, options)) return false;
 
@@ -4708,7 +4708,7 @@ $.scrollWindowTo = function(pos, duration, cb) {
           //</custom code>
 
           var old = this._changing ? this._previousAttributes : this.attributes;
-          
+
           //<custom code>
           diff = objToPaths(diff);
           old = objToPaths(old);
@@ -4751,7 +4751,7 @@ $.scrollWindowTo = function(pos, duration, cb) {
 
     //For use in NodeJS
     if (typeof module != 'undefined') module.exports = DeepModel;
-    
+
     return Backbone;
 
 }));
